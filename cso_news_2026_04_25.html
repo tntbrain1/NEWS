@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSO 제약뉴스 브리핑 | 2026.04.25</title>
+  <style>
+    :root {
+      --primary: #1a4e8a;
+      --accent: #2e86de;
+      --highlight: #e8f4fd;
+      --tag-cso: #1a4e8a;
+      --tag-policy: #16a085;
+      --tag-company: #8e44ad;
+      --tag-market: #c0392b;
+      --bg: #f4f6f9;
+      --card: #ffffff;
+      --text: #1c1c2e;
+      --muted: #6b7280;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, #0d2e5e 0%, #1a4e8a 60%, #2e86de 100%);
+      color: #fff;
+      padding: 36px 24px 28px;
+      text-align: center;
+    }
+    .header-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      padding: 4px 14px;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+    header h1 { font-size: 26px; font-weight: 800; margin-bottom: 6px; }
+    header p  { font-size: 14px; opacity: .82; }
+    .proemr-banner {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 12px 20px;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .proemr-banner strong { color: #ffe082; }
+    .proemr-btn {
+      background: #ffe082;
+      color: #0d2e5e;
+      font-weight: 800;
+      border-radius: 20px;
+      padding: 5px 16px;
+      font-size: 12px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 900px; margin: 0 auto; padding: 28px 16px 60px; }
+
+    /* ── SUMMARY BOX ── */
+    .summary-box {
+      background: linear-gradient(135deg, #e8f4fd, #f0f7ff);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-bottom: 28px;
+      font-size: 14px;
+    }
+    .summary-box h2 { font-size: 15px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+    .summary-box ul { padding-left: 18px; }
+    .summary-box li { margin-bottom: 5px; }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+      margin: 32px 0 16px;
+    }
+
+    /* ── NEWS CARD ── */
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 20px 22px;
+      margin-bottom: 16px;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .card:hover { box-shadow: 0 6px 24px rgba(30,60,120,0.1); transform: translateY(-2px); }
+
+    .card-top { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+    .card-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .icon-blue  { background: #dbeafe; }
+    .icon-green { background: #d1fae5; }
+    .icon-purple{ background: #ede9fe; }
+    .icon-red   { background: #fee2e2; }
+    .icon-orange{ background: #fff3cd; }
+
+    .card-meta { flex: 1; }
+    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+    .tag {
+      font-size: 10px; font-weight: 700; letter-spacing: .6px;
+      padding: 2px 9px; border-radius: 20px; color: #fff;
+      text-transform: uppercase;
+    }
+    .tag-cso     { background: var(--tag-cso); }
+    .tag-policy  { background: var(--tag-policy); }
+    .tag-company { background: var(--tag-company); }
+    .tag-market  { background: var(--tag-market); }
+    .tag-proemr  { background: #e67e22; }
+
+    .card h3 { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 8px; line-height: 1.4; }
+    .card p  { font-size: 14px; color: #374151; }
+    .card-detail {
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: #4b5563;
+    }
+    .card-detail strong { color: var(--primary); }
+
+    /* ── HIGHLIGHT CARD ── */
+    .card-highlight {
+      background: linear-gradient(135deg, #fff9e6, #fffde7);
+      border: 2px solid #ffe082;
+    }
+    .card-highlight h3 { color: #b45309; }
+
+    /* ── PROEMR CTA ── */
+    .proemr-cta {
+      background: linear-gradient(135deg, #0d2e5e, #1a4e8a);
+      border-radius: 16px;
+      padding: 30px 28px;
+      color: #fff;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .proemr-cta h2 { font-size: 20px; font-weight: 800; margin-bottom: 10px; }
+    .proemr-cta p  { font-size: 14px; opacity: .88; margin-bottom: 20px; line-height: 1.6; }
+    .cta-features {
+      display: flex; gap: 12px; flex-wrap: wrap;
+      justify-content: center; margin-bottom: 22px;
+    }
+    .cta-feat {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 10px;
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .cta-feat span { font-size: 18px; display: block; margin-bottom: 4px; }
+    .cta-btn {
+      display: inline-block;
+      background: #ffe082;
+      color: #0d2e5e;
+      font-weight: 800;
+      font-size: 15px;
+      border-radius: 30px;
+      padding: 12px 36px;
+      text-decoration: none;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 24px 16px;
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 20px; }
+      .card h3 { font-size: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <div class="header-badge">📰 Daily CSO Pharma Brief</div>
+  <h1>CSO 제약뉴스 브리핑</h1>
+  <p>2026년 4월 25일(토) · 법인 &amp; 개인 CSO를 위한 맞춤 뉴스레터</p>
+  <div class="proemr-banner">
+    <span>💡 <strong>프로엠알(ProMR)</strong> — CSO 영업관리의 새로운 기준</span>
+    <a class="proemr-btn" href="#">무료 체험 시작 →</a>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- ── TODAY'S SUMMARY ── -->
+  <div class="summary-box">
+    <h2>📌 오늘의 핵심 요약</h2>
+    <ul>
+      <li>2026 <strong>공정경쟁규약 5차 개정</strong> — 7월 시행, CSO 책임 범위 대폭 확대</li>
+      <li>대웅바이오 CSO 수수료 지급 <strong>1,984억 원</strong> 돌파, 업계 최대 규모</li>
+      <li>셀트리온제약, <strong>2030년 5대 제약사</strong> 비전 선포 · ADC 항암제 개발 착수</li>
+      <li>유유제약 <strong>AI 스마트팩토리</strong> 전사 확대 · 반려동물 신약 라인업 구축</li>
+      <li>국내 CSO 시장 규모 <strong>1조 원</strong> 육박 — 신고제 정착 이후 투명화 가속</li>
+    </ul>
+  </div>
+
+  <!-- ── SECTION 1: POLICY ── -->
+  <div class="section-title">🏛️ 정책 &amp; 규제</div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="card-icon icon-green">📋</div>
+      <div class="card-meta">
+        <div class="card-tags">
+          <span class="tag tag-policy">정책</span>
+          <span class="tag tag-cso">CSO</span>
+        </div>
+        <h3>2026 공정경쟁규약 5차 개정 — 7월부터 CSO도 직접 규제 대상</h3>
+      </div>
+    </div>
+    <p>한국제약바이오협회가 의약품 거래에 관한 공정경쟁규약을 5차 개정했다. 이번 개정의 핵심은 제약사·도매상으로부터 영업 대행을 위탁받은 <strong>CSO(판매촉진 업무 수탁자) 및 재위탁자</strong>를 규약의 직접 적용 대상으로 명시한 것이다.</p>
+    <div class="card-detail">
+      <strong>주요 변경 포인트</strong><br>
+      ① 판촉 활동이 외주화된 경우에도 <strong>궁극적 책임은 제약사에 귀속</strong><br>
+      ② 공인 학술대회만 후원 허용, 우회·중복 지원 전면 금지 (7월 1일 시행)<br>
+      ③ 보건의료전문가 대상 경제적 이익 지출보고서 작성·공개 의무화<br>
+      ④ CSO가 규약 위반 시 위탁 제약사도 연대 책임 적용
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="card-icon icon-blue">🔔</div>
+      <div class="card-meta">
+        <div class="card-tags">
+          <span class="tag tag-policy">정책</span>
+          <span class="tag tag-cso">CSO 신고제</span>
+        </div>
+        <h3>CSO 신고제 시행 후 1년 — 등록 업체 급증, 투명화 가속</h3>
+      </div>
+    </div>
+    <p>약사법 개정으로 도입된 CSO 신고제가 안착 단계에 접어들었다. 미등록 CSO에 위탁 시 <strong>최대 징역 3년 또는 벌금 3,000만 원</strong>의 제재가 가해지면서 법인·개인 사업자 모두 신고 등록이 급증하고 있다.</p>
+    <div class="card-detail">
+      <strong>CSO 사업자라면 반드시 확인</strong> — 신고 미이행 시 수탁 제약사도 제재 대상. 위탁계약서·수수료 대장·방문 기록 등 <strong>서류 완비</strong>가 리스크 방어의 핵심이다.
+    </div>
+  </div>
+
+  <!-- ── SECTION 2: COMPANIES ── -->
+  <div class="section-title">🏢 주요 파트너사 동향</div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="card-icon icon-blue">💊</div>
+      <div class="card-meta">
+        <div class="card-tags">
+          <span class="tag tag-company">셀트리온제약</span>
+        </div>
+        <h3>셀트리온제약, "2030년 국내 5대 제약사" 비전 선포 · ADC 항암제 개발 착수</h3>
+      </div>
+    </div>
+    <p>셀트리온과의 합병이 무산된 셀트리온제약이 독자 노선을 선언했다. 바이오시밀러 중심에서 탈피해 ADC(항체약물접합체) 항암제와 신약 플랫폼 기술을 내재화하고, 2030년 국내 매출 상위 5위권 진입을 목표로 제시했다.</p>
+    <div class="card-detail">
+      <strong>CSO 영업 시사점</strong> — 기존 전문의약품 라인업 유지와 함께 신규 항암 품목이 추가될 가능성. 온콜로지 전문 CSO 역량 강화 선제 준비가 필요하다.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="card-icon icon-orange">🤖</div>
+      <div class="card-meta">
+        <div class="card-tags">
+          <span class="tag tag-company">유유제약</span>
+        </div>
+        <h3>유유제약, AI 스마트팩토리 전사 확대 · 반려동물 신약으로 제2 성장 추진</h3>
+      </div>
+    </div>
+    <p>유유제약이 공장 생산 공정에서 시작한 AI 기반 업무 혁신을 영업·마케팅·R&amp;D 전 부문으로 확장하고 있다. 동시에 반려동물(펫) 전문 신약 라인업 구축으로 신규 수익원을 개척 중이다.</p>
+    <div class="card-detail">
+      <strong>CSO 영업 시사점</strong> — 펫 의약품 시장 성장에 따라 동물병원 채널을 커버하는 CSO 수요 증가 예상. 기존 인체 의약품 영업망과 연계한 펫 의약품 병행 판매 기회 확대.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="card-icon icon-red">📈</div>
+      <div class="card-meta">
+        <div class="card-tags">
+          <span class="tag tag-company">대웅바이오</span>
+          <span class="tag tag-cso">CSO</span>
+        </div>
+        <h3>대웅바이오 CSO 수수료 1,984억 원 돌파 — 업계 최대 규모, 매년 10% 이상 성장</h3>
+      </div>
+    </div>
+    <p>대웅바이오가 1,000개 이상의 CSO 업체에 지급한 판매 수수료가 2024년 기준 <strong>1,984억 원</strong>을 기록했다. 2022년 1,431억 원 → 2023년 1,759억 원에 이어 매년 두 자릿수 성장세다.</p>
+    <div class="card-detail">
+      <strong>카나덴(Kanaden) 수수료율 현황</strong> — 업계 평균 대비 2~3%p 낮은 수준이지만, 물량 보장과 브랜드 파워로 CSO 파트너 유치에 성공. 개인 CSO 사업자에게도 안정적 수익 구조 제공.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="card-icon icon-purple">🌏</div>
+      <div class="card-meta">
+        <div class="card-tags">
+          <span class="tag tag-company">대화제약</span>
+        </div>
+        <h3>대화제약, 중국 NMPA 시판허가 획득 · 유방암 적응증 확장 추진</h3>
+      </div>
+    </div>
+    <p>대화제약의 리포락셀액이 중국 국가약품감독관리국(NMPA) 시판허가를 받으며 해외 시장 진출에 성공했다. 아울러 유방암 추가 적응증 품목허가 신청도 진행 중이다.</p>
+    <div class="card-detail">
+      <strong>CSO 영업 시사점</strong> — 항암 분야 포트폴리오 확대로 국내 종양내과 채널에서의 영업 강도 상승 예상. 해당 병원 접점을 가진 CSO 사업자 선점 기회.
+    </div>
+  </div>
+
+  <!-- ── SECTION 3: MARKET ── -->
+  <div class="section-title">📊 시장 방향 &amp; 판도</div>
+
+  <div class="card card-highlight">
+    <div class="card-top">
+      <div class="card-icon icon-orange">🔥</div>
+      <div class="card-meta">
+        <div class="card-tags">
+          <span class="tag tag-market">시장</span>
+        </div>
+        <h3>국내 CSO 시장 1조 원 육박 — 외주화 트렌드 2026년에도 지속</h3>
+      </div>
+    </div>
+    <p>업계 추산 국내 CSO 시장 규모가 9,000억~1조 원에 이른다. 한국콜마·대웅제약 계열 CSO 법인 설립에 이어, 2023년 경동제약이 자사 영업 품목을 CSO 전환하는 등 <strong>영업 외주화는 대세</strong>로 자리 잡았다.</p>
+    <div class="card-detail">
+      <strong>2026년 주목할 흐름</strong><br>
+      ① 중견 제약사의 영업 CSO 전환 확대<br>
+      ② 바이오시밀러·항암제 품목 CSO 의뢰 증가<br>
+      ③ 신고제·공정경쟁규약 강화로 <strong>컴플라이언스 역량</strong>이 CSO 선별 핵심 기준으로 부상<br>
+      ④ 디지털 영업관리(CRM·방문기록) 도입 여부가 계약 성패 좌우
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="card-icon icon-blue">🧬</div>
+      <div class="card-meta">
+        <div class="card-tags">
+          <span class="tag tag-market">시장</span>
+        </div>
+        <h3>K-바이오 파이프라인 세계 3위 — 바이오의약품 중심 재편, CSO도 전문화 필수</h3>
+      </div>
+    </div>
+    <p>국내 의약품 R&amp;D 파이프라인이 3,259개로 글로벌 점유율 14%를 기록하며 미·중에 이어 세계 3위에 올랐다. 산업의 무게중심이 화학합성에서 <strong>바이오의약품·ADC·세포유전자치료제</strong>로 이동 중이다.</p>
+    <div class="card-detail">
+      <strong>CSO 관점 시사점</strong> — 전통 합성의약품 품목 의존도 높은 CSO는 바이오·항암 전문 영업 역량을 갖추지 않으면 신규 위탁 계약 수주가 어려워지는 구조로 전환되고 있다.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-top">
+      <div class="card-icon icon-green">💰</div>
+      <div class="card-meta">
+        <div class="card-tags">
+          <span class="tag tag-market">시장</span>
+          <span class="tag tag-policy">컴플라이언스</span>
+        </div>
+        <h3>혁신형 제약기업 인증 개편 — 리베이트 제재 기간 5년으로 확대</h3>
+      </div>
+    </div>
+    <p>보건복지부가 혁신형 제약기업 인증 체계를 대수술했다. 리베이트 이력 기업의 인증 제외 기간이 <strong>기존 3년 → 5년</strong>으로 연장되었다. CSO를 통한 우회 리베이트도 제약사 본사 제재로 직결되는 구조다.</p>
+    <div class="card-detail">
+      <strong>핵심 대응 전략</strong> — 제약사들이 CSO 선정 시 컴플라이언스 이력·교육 수료 여부·방문 기록 투명성을 최우선 심사 기준으로 삼기 시작. 인증 관리 시스템 미비 CSO는 계약 탈락 위험이 커지고 있다.
+    </div>
+  </div>
+
+  <!-- ── PROEMR CTA ── -->
+  <div class="proemr-cta">
+    <h2>🚀 프로엠알(ProMR)로 CSO 경쟁력을 높이세요</h2>
+    <p>
+      공정경쟁규약 강화·CSO 신고제 시행으로 <strong>컴플라이언스 역량</strong>이 곧 영업 경쟁력입니다.<br>
+      프로엠알은 법인·개인 CSO가 제약사 파트너에게 신뢰받을 수 있도록<br>
+      방문 기록, 수수료 정산, 보고서 자동화를 한 곳에서 관리해 드립니다.
+    </p>
+    <div class="cta-features">
+      <div class="cta-feat"><span>📍</span>GPS 방문 기록</div>
+      <div class="cta-feat"><span>📊</span>실적 대시보드</div>
+      <div class="cta-feat"><span>💳</span>수수료 자동 정산</div>
+      <div class="cta-feat"><span>📁</span>컴플라이언스 서류 관리</div>
+      <div class="cta-feat"><span>🤝</span>제약사 연결 네트워크</div>
+    </div>
+    <a class="cta-btn" href="#">프로엠알 무료로 시작하기 →</a>
+    <p style="margin-top:14px;font-size:12px;opacity:.65;">* 법인 CSO &amp; 개인 사업자 모두 가입 가능 · 14일 무료 체험</p>
+  </div>
+
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>본 브리핑은 공개된 뉴스 및 업계 자료를 기반으로 프로엠알(ProMR)이 제공합니다.</p>
+  <p style="margin-top:4px;">© 2026 ProMR · CSO 제약영업 관리 플랫폼</p>
+</footer>
+
+</body>
+</html>
