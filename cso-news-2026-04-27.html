@@ -9,7 +9,6 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Noto Sans KR',sans-serif;background:#f0f4fb;color:#1a1d2e;}
 
-/* ── HEADER ── */
 .mag-header{background:linear-gradient(160deg,#060f2d 0%,#0d2260 60%,#1a3a8f 100%);color:#fff;}
 .mag-header-inner{max-width:900px;margin:0 auto;padding:36px 24px 28px;}
 .mag-meta{display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap;}
@@ -20,14 +19,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0f4fb;color:#1a1d2e;}
 .mag-subtitle{font-size:13px;opacity:.55;line-height:1.6;}
 .mag-divider{height:2px;background:linear-gradient(90deg,#e8294a,transparent);margin-top:28px;}
 
-/* ── BANNER ── */
 .promo-banner{background:linear-gradient(90deg,#e8294a,#ff6b35);color:#fff;padding:11px 20px;text-align:center;font-size:13px;font-weight:600;}
 .promo-banner a{background:#fff;color:#e8294a;font-weight:800;font-size:11.5px;padding:5px 14px;border-radius:18px;text-decoration:none;margin-left:10px;}
 
 .wrap{max-width:900px;margin:0 auto;padding:36px 18px 80px;}
 
-/* ── HERO ── */
-.hero{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:20px;overflow:hidden;margin-bottom:32px;box-shadow:0 4px 24px rgba(0,0,0,.1);text-decoration:none;color:inherit;cursor:pointer;}
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:20px;overflow:hidden;margin-bottom:32px;box-shadow:0 4px 24px rgba(0,0,0,.1);color:inherit;cursor:pointer;}
 .hero-img{position:relative;min-height:270px;overflow:hidden;}
 .hero-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
 .hero:hover .hero-img img{transform:scale(1.04);}
@@ -39,14 +37,13 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0f4fb;color:#1a1d2e;}
 .hero-btn{display:inline-block;background:#1a1d2e;color:#fff;font-size:12px;font-weight:700;padding:9px 20px;border-radius:22px;align-self:flex-start;transition:background .2s;}
 .hero:hover .hero-btn{background:#e8294a;}
 
-/* ── SECTION ── */
 .sec-head{display:flex;align-items:center;gap:12px;margin:36px 0 18px;}
 .sec-bar{width:4px;height:22px;background:#e8294a;border-radius:2px;}
 .sec-head h2{font-size:16px;font-weight:800;}
 
-/* ── CARD GRID ── */
+/* CARD GRID */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(256px,1fr));gap:16px;}
-.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;border-top:4px solid #e4eaf5;cursor:pointer;}
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);color:inherit;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;border-top:4px solid #e4eaf5;cursor:pointer;}
 .card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.13);}
 .card.blue{border-top-color:#1a6ef5;} .card.red{border-top-color:#e8294a;}
 .card.green{border-top-color:#059669;} .card.orange{border-top-color:#f59e0b;}
@@ -59,9 +56,9 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0f4fb;color:#1a1d2e;}
 .card-tag{font-size:10px;background:#f0f4fb;color:#1a6ef5;padding:2px 8px;border-radius:8px;font-weight:600;}
 .card-arr{font-size:17px;color:#d1d5db;}
 
-/* ── WIDE CARD ── */
+/* WIDE CARD */
 .wlist{display:flex;flex-direction:column;gap:14px;}
-.wcard{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06);text-decoration:none;color:inherit;display:flex;align-items:stretch;transition:transform .2s,box-shadow .2s;cursor:pointer;}
+.wcard{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06);color:inherit;display:flex;align-items:stretch;transition:transform .2s,box-shadow .2s;cursor:pointer;}
 .wcard:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,0,0,.11);}
 .wcard-accent{width:6px;flex-shrink:0;}
 .wcard-icon-box{width:72px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:30px;background:#f8fafc;}
@@ -71,7 +68,46 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0f4fb;color:#1a1d2e;}
 .wcard-desc{font-size:12px;color:#6b7280;line-height:1.65;}
 .wcard-tag{font-size:10px;background:#fef3f2;color:#e8294a;padding:2px 8px;border-radius:8px;font-weight:600;margin-top:8px;display:inline-block;}
 
-/* ── STAT BOX ── */
+/* ── 2026 특허만료 테이블 카드 ── */
+.patent-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:20px;}
+.pat-card{background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;}
+.pat-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.13);}
+.pat-header{padding:16px 18px 12px;display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}
+.pat-brand{font-size:16px;font-weight:900;color:#111827;line-height:1.2;}
+.pat-badge{font-size:10px;font-weight:800;padding:3px 9px;border-radius:10px;white-space:nowrap;flex-shrink:0;margin-top:2px;}
+.pat-badge.red{background:#fef2f2;color:#e8294a;}
+.pat-badge.orange{background:#fff7ed;color:#ea580c;}
+.pat-badge.amber{background:#fffbeb;color:#d97706;}
+.pat-badge.blue{background:#eff6ff;color:#1d4ed8;}
+.pat-divider{height:1px;background:#f0f4fb;margin:0 18px;}
+.pat-body{padding:12px 18px 16px;flex:1;}
+.pat-ingredient{font-size:11px;color:#6b7280;margin-bottom:8px;}
+.pat-ingredient strong{color:#374151;font-weight:700;}
+.pat-exp{display:flex;align-items:center;gap:6px;margin-bottom:8px;}
+.pat-exp-icon{font-size:13px;}
+.pat-exp-date{font-size:12px;font-weight:700;color:#111827;}
+.pat-market{font-size:11.5px;color:#6b7280;margin-bottom:8px;}
+.pat-market strong{color:#059669;font-weight:800;}
+.pat-category{font-size:10px;background:#f0f4fb;color:#4b5563;padding:2px 8px;border-radius:8px;font-weight:600;display:inline-block;}
+.pat-footer{padding:10px 18px 14px;border-top:1px solid #f0f4fb;}
+.pat-count{font-size:10.5px;color:#9ca3af;}
+.pat-count strong{color:#1a6ef5;font-weight:700;}
+
+/* 요약 타임라인 */
+.timeline{background:#fff;border-radius:16px;padding:22px 24px;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-top:16px;}
+.timeline h4{font-size:13px;font-weight:800;color:#1a1d2e;margin-bottom:16px;}
+.tl-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f0f4fb;}
+.tl-row:last-child{border-bottom:none;}
+.tl-month{font-size:12px;font-weight:800;color:#fff;background:#1a6ef5;padding:3px 10px;border-radius:10px;min-width:42px;text-align:center;flex-shrink:0;}
+.tl-month.red{background:#e8294a;}
+.tl-month.orange{background:#f59e0b;}
+.tl-month.green{background:#059669;}
+.tl-month.purple{background:#7c3aed;}
+.tl-drug{font-size:13px;font-weight:700;color:#111827;}
+.tl-ing{font-size:11px;color:#9ca3af;margin-left:6px;}
+.tl-mkt{font-size:11.5px;font-weight:700;color:#059669;margin-left:auto;flex-shrink:0;}
+
+/* STAT BOX */
 .stat-box{background:linear-gradient(135deg,#060f2d,#1a3a8f);border-radius:20px;padding:28px 30px;color:#fff;margin:36px 0;}
 .stat-box h3{font-size:17px;font-weight:800;margin-bottom:20px;}
 .stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;}
@@ -80,7 +116,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0f4fb;color:#1a1d2e;}
 .st-label{font-size:11px;opacity:.6;margin:6px 0 3px;}
 .st-val{font-size:12.5px;font-weight:700;}
 
-/* ── PROMR ── */
+/* PROMR */
 .promr{background:linear-gradient(135deg,#060f2d,#1a3a8f);border-radius:20px;padding:32px;color:#fff;margin-top:40px;text-align:center;}
 .promr h3{font-size:20px;font-weight:900;margin-bottom:10px;}
 .promr p{font-size:13px;opacity:.7;margin-bottom:22px;line-height:1.8;}
@@ -91,136 +127,42 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0f4fb;color:#1a1d2e;}
 footer{background:#060f2d;color:rgba(255,255,255,.35);text-align:center;padding:22px;font-size:11.5px;line-height:1.9;}
 footer a{color:rgba(255,255,255,.5);text-decoration:none;}
 
-/* ══════════════════════════════════════
-   MODAL POPUP
-══════════════════════════════════════ */
-.modal-overlay{
-  display:none;
-  position:fixed;inset:0;
-  background:rgba(6,15,45,.75);
-  backdrop-filter:blur(4px);
-  z-index:9000;
-  align-items:center;
-  justify-content:center;
-  padding:16px;
-  animation:fadeIn .2s ease;
-}
+/* ══ MODAL ══ */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(6,15,45,.75);backdrop-filter:blur(4px);z-index:9000;align-items:center;justify-content:center;padding:16px;}
 .modal-overlay.open{display:flex;}
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-
-.modal-box{
-  background:#fff;
-  border-radius:20px;
-  width:100%;
-  max-width:860px;
-  height:88vh;
-  max-height:860px;
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-  box-shadow:0 24px 80px rgba(0,0,0,.35);
-  animation:slideUp .25s ease;
-}
+.modal-box{background:#fff;border-radius:20px;width:100%;max-width:860px;height:88vh;max-height:860px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.35);animation:slideUp .25s ease;}
 @keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
-
-.modal-head{
-  display:flex;align-items:center;gap:12px;
-  padding:14px 20px;
-  background:#060f2d;
-  color:#fff;
-  flex-shrink:0;
-}
-.modal-head-title{
-  flex:1;
-  font-size:13px;font-weight:700;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-  opacity:.85;
-}
-.modal-btn-new{
-  background:rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.25);
-  color:#fff;
-  font-size:11.5px;font-weight:700;
-  padding:6px 14px;border-radius:16px;
-  cursor:pointer;
-  text-decoration:none;
-  flex-shrink:0;
-  transition:background .2s;
-}
+.modal-head{display:flex;align-items:center;gap:12px;padding:14px 20px;background:#060f2d;color:#fff;flex-shrink:0;}
+.modal-head-title{flex:1;font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.85;}
+.modal-btn-new{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:11.5px;font-weight:700;padding:6px 14px;border-radius:16px;cursor:pointer;text-decoration:none;flex-shrink:0;transition:background .2s;}
 .modal-btn-new:hover{background:rgba(255,255,255,.28);}
-.modal-btn-close{
-  background:#e8294a;
-  border:none;
-  color:#fff;
-  font-size:18px;font-weight:900;
-  width:34px;height:34px;
-  border-radius:50%;
-  cursor:pointer;
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-  transition:background .2s;
-}
+.modal-btn-close{background:#e8294a;border:none;color:#fff;font-size:18px;font-weight:900;width:34px;height:34px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .modal-btn-close:hover{background:#c0182e;}
-
 .modal-iframe-wrap{flex:1;position:relative;background:#f0f4fb;}
-.modal-iframe-wrap iframe{
-  width:100%;height:100%;
-  border:none;
-  display:block;
-}
-
-/* iframe 차단 시 fallback 화면 */
-.modal-fallback{
-  display:none;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  height:100%;
-  gap:16px;
-  padding:32px;
-  text-align:center;
-}
+.modal-iframe-wrap iframe{width:100%;height:100%;border:none;display:block;}
+.modal-fallback{display:none;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:16px;padding:32px;text-align:center;}
 .modal-fallback .fb-icon{font-size:48px;}
 .modal-fallback h3{font-size:17px;font-weight:800;color:#1a1d2e;margin-bottom:4px;}
 .modal-fallback p{font-size:13px;color:#6b7280;line-height:1.7;max-width:380px;}
-.modal-fallback a{
-  background:#1a1d2e;color:#fff;
-  font-weight:800;font-size:13px;
-  padding:12px 28px;border-radius:24px;
-  text-decoration:none;margin-top:8px;
-  transition:background .2s;
-}
+.modal-fallback a{background:#1a1d2e;color:#fff;font-weight:800;font-size:13px;padding:12px 28px;border-radius:24px;text-decoration:none;margin-top:8px;}
 .modal-fallback a:hover{background:#e8294a;}
-
-/* 로딩 스피너 */
-.modal-loading{
-  position:absolute;inset:0;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:16px;background:#f0f4fb;pointer-events:none;
-  transition:opacity .3s;
-}
-.spinner{
-  width:40px;height:40px;
-  border:4px solid #dde5f8;
-  border-top-color:#1a6ef5;
-  border-radius:50%;
-  animation:spin .8s linear infinite;
-}
+.modal-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#f0f4fb;}
+.spinner{width:40px;height:40px;border:4px solid #dde5f8;border-top-color:#1a6ef5;border-radius:50%;animation:spin .8s linear infinite;}
 @keyframes spin{to{transform:rotate(360deg)}}
 .modal-loading p{font-size:13px;color:#9ca3af;}
 
-@media(max-width:620px){
-  .hero{grid-template-columns:1fr;}
-  .hero-img{min-height:180px;}
+@media(max-width:640px){
+  .hero{grid-template-columns:1fr;} .hero-img{min-height:180px;}
   .wcard-icon-box{width:54px;font-size:24px;}
   .stats{grid-template-columns:1fr 1fr;}
-  .modal-box{height:92vh;border-radius:16px;}
+  .patent-grid{grid-template-columns:1fr 1fr;}
+  .tl-mkt{display:none;}
 }
 </style>
 </head>
 <body>
 
-<!-- ══ MODAL POPUP ══ -->
+<!-- MODAL -->
 <div class="modal-overlay" id="modal" role="dialog" aria-modal="true">
   <div class="modal-box">
     <div class="modal-head">
@@ -229,25 +171,22 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
       <button class="modal-btn-close" id="modal-close" aria-label="닫기">&#x2715;</button>
     </div>
     <div class="modal-iframe-wrap" id="modal-iframe-wrap">
-      <!-- 로딩 -->
       <div class="modal-loading" id="modal-loading">
         <div class="spinner"></div>
         <p>기사를 불러오는 중입니다&hellip;</p>
       </div>
-      <!-- iframe -->
       <iframe id="modal-iframe" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" title="기사"></iframe>
-      <!-- fallback (iframe 차단 시) -->
       <div class="modal-fallback" id="modal-fallback">
         <div class="fb-icon">&#x1F4F0;</div>
         <h3>해당 언론사 페이지는<br>직접 열기가 필요합니다</h3>
-        <p>일부 뉴스 사이트는 보안 정책으로 인해<br>팝업 내 미리보기를 지원하지 않습니다.<br>아래 버튼으로 새 탭에서 바로 열어보세요.</p>
+        <p>보안 정책으로 팝업 미리보기가 차단됐습니다.<br>아래 버튼으로 새 탭에서 바로 열어보세요.<br>(원래 매거진 페이지는 그대로 유지됩니다)</p>
         <a href="#" id="fallback-link" target="_blank" rel="noopener">&#x1F4F0; 기사 새 탭에서 읽기</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ══ HEADER ══ -->
+<!-- HEADER -->
 <div class="mag-header">
   <div class="mag-header-inner">
     <div class="mag-meta">
@@ -255,8 +194,8 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
       <span class="mag-issue">CSO 위클리 매거진 &middot; 2026년 4월 4주차</span>
       <span class="mag-date">2026.04.27</span>
     </div>
-    <div class="mag-title">제네릭 약가 45% 충격파 &mdash;<br>CSO 수수료 전쟁과 릭시아나 특허 만료</div>
-    <div class="mag-subtitle">이번 주 CSO 법인&middot;개인이 반드시 알아야 할 핵심 뉴스 완전 정리</div>
+    <div class="mag-title">제네릭 약가 45% 충격파 &mdash;<br>CSO 수수료 전쟁과 2026 특허 만료 총정리</div>
+    <div class="mag-subtitle">이번 주 CSO 법인&middot;개인이 반드시 알아야 할 핵심 뉴스 + 올해 특허만료 품목 완전 정리</div>
     <div class="mag-divider"></div>
   </div>
 </div>
@@ -271,8 +210,7 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
   <!-- HERO -->
   <div class="news-link hero" data-url="https://www.pharmnews.com/news/articleView.html?idxno=302425" data-title="'약가 45%' 절벽 선 중소제약, CSO 수수료 전쟁서 '완패' 위기 — 팜뉴스" role="button" tabindex="0">
     <div class="hero-img">
-      <img src="https://images.unsplash.com/photo-1563213126-a4273aed2016?w=640&q=80"
-           alt="약가인하 제약업계"
+      <img src="https://images.unsplash.com/photo-1563213126-a4273aed2016?w=640&q=80" alt="약가인하"
            onerror="this.parentElement.style.background='linear-gradient(135deg,#1a3a8f,#060f2d)';this.style.display='none'"/>
     </div>
     <div class="hero-body">
@@ -287,7 +225,6 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
   <!-- 약가·정책 -->
   <div class="sec-head"><div class="sec-bar"></div><h2>&#x1F4CB; 약가 &middot; 정책</h2></div>
   <div class="grid">
-
     <div class="news-link card blue" data-url="https://www.pharmnews.com/news/articleView.html?idxno=302400" data-title="제네릭 약가 45% 시대 — 팜뉴스" role="button" tabindex="0">
       <div class="card-icon">&#x1F4C9;</div>
       <div class="card-body">
@@ -296,8 +233,7 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
         <div class="card-foot"><span class="card-tag">#약가45%</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </div>
-
-    <div class="news-link card red" data-url="https://www.hitnews.co.kr/news/articleView.html?idxno=75246" data-title="약가개편 후 CSO 향한 제약사들의 메시지 — 히트뉴스" role="button" tabindex="0">
+    <div class="news-link card red" data-url="https://www.hitnews.co.kr/news/articleView.html?idxno=75246" data-title="약가개편 후 CSO 향한 제약사 메시지 — 히트뉴스" role="button" tabindex="0">
       <div class="card-icon">&#x1F3AF;</div>
       <div class="card-body">
         <div class="card-src">히트뉴스</div>
@@ -305,7 +241,6 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
         <div class="card-foot"><span class="card-tag">#혁신형전략</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </div>
-
     <div class="news-link card green" data-url="https://www.hitnews.co.kr/news/articleView.html?idxno=75302" data-title="혁신형 제약 인증 기준 개편 — 히트뉴스" role="button" tabindex="0">
       <div class="card-icon">&#x2705;</div>
       <div class="card-body">
@@ -314,8 +249,7 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
         <div class="card-foot"><span class="card-tag">#혁신형인증</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </div>
-
-    <div class="news-link card orange" data-url="https://www.hitnews.co.kr/news/articleView.html?idxno=75260" data-title="약가인하·혁신형제약 부담 긴급점검 세미나 — 히트뉴스" role="button" tabindex="0">
+    <div class="news-link card orange" data-url="https://www.hitnews.co.kr/news/articleView.html?idxno=75260" data-title="약가인하 긴급점검 세미나 — 히트뉴스" role="button" tabindex="0">
       <div class="card-icon">&#x26A0;&#xFE0F;</div>
       <div class="card-body">
         <div class="card-src">히트뉴스</div>
@@ -323,7 +257,6 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
         <div class="card-foot"><span class="card-tag">#약가부담</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </div>
-
     <div class="news-link card purple" data-url="https://www.hitnews.co.kr/news/articleView.html?idxno=75326" data-title="약가제도 개선·공급 불안 — 히트뉴스" role="button" tabindex="0">
       <div class="card-icon">&#x1F4F0;</div>
       <div class="card-body">
@@ -332,7 +265,6 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
         <div class="card-foot"><span class="card-tag">#업계동향</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </div>
-
     <div class="news-link card teal" data-url="https://www.apsk.co.kr/news/articleView.html?idxno=539111" data-title="약가 인하보다 무서운 CSO 눈치 보기 — 메디팜스투데이" role="button" tabindex="0">
       <div class="card-icon">&#x1F4A1;</div>
       <div class="card-body">
@@ -341,65 +273,155 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
         <div class="card-foot"><span class="card-tag">#CSO수수료</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       2026 특허만료 의약품 — NEW 섹션
+  ══════════════════════════════════ -->
+  <div class="sec-head"><div class="sec-bar"></div><h2>&#x1F512; 2026년 특허 만료 의약품 완전 정리</h2></div>
+
+  <div class="patent-grid">
+
+    <!-- 엑스탄디 (6월) -->
+    <div class="news-link pat-card" data-url="https://www.monews.co.kr/news/articleView.html?idxno=410791" data-title="릭시아나·엑스탄디 올해 특허 만료 — 메디칼업저버" role="button" tabindex="0">
+      <div class="pat-header">
+        <div class="pat-brand">엑스탄디</div>
+        <span class="pat-badge red">6월 만료</span>
+      </div>
+      <div class="pat-divider"></div>
+      <div class="pat-body">
+        <div class="pat-ingredient">성분명 <strong>엔잘루타마이드</strong><br>(Enzalutamide)</div>
+        <div class="pat-exp"><span class="pat-exp-icon">&#x23F0;</span><span class="pat-exp-date">2026년 6월 27일</span></div>
+        <div class="pat-market">처방 시장 <strong>연 ~400억원대</strong></div>
+        <span class="pat-category">전립선암 치료제</span>
+      </div>
+      <div class="pat-footer">
+        <div class="pat-count">한미약품·종근당 등 <strong>특허 회피 성공</strong></div>
+      </div>
+    </div>
+
+    <!-- 엘리퀴스 (9월) -->
+    <div class="news-link pat-card" data-url="https://www.monews.co.kr/news/articleView.html?idxno=333439" data-title="9월 특허만료 엘리퀴스, 제네릭 경쟁 재점화 — 메디칼업저버" role="button" tabindex="0">
+      <div class="pat-header">
+        <div class="pat-brand">엘리퀴스</div>
+        <span class="pat-badge orange">9월 만료</span>
+      </div>
+      <div class="pat-divider"></div>
+      <div class="pat-body">
+        <div class="pat-ingredient">성분명 <strong>아픽사반</strong><br>(Apixaban)</div>
+        <div class="pat-exp"><span class="pat-exp-icon">&#x23F0;</span><span class="pat-exp-date">2026년 9월 9일</span></div>
+        <div class="pat-market">처방 시장 <strong>연 ~2,000억원대</strong></div>
+        <span class="pat-category">항응고제 (NOAC)</span>
+      </div>
+      <div class="pat-footer">
+        <div class="pat-count">허가 완료 제네릭 <strong>45개사 89품목</strong></div>
+      </div>
+    </div>
+
+    <!-- 자디앙 (10월) -->
+    <div class="news-link pat-card" data-url="https://www.monews.co.kr/news/articleView.html?idxno=405226" data-title="자디앙 특허 만료 임박, 1000억 시장 공략 — 메디칼업저버" role="button" tabindex="0">
+      <div class="pat-header">
+        <div class="pat-brand">자디앙</div>
+        <span class="pat-badge amber">10월 만료</span>
+      </div>
+      <div class="pat-divider"></div>
+      <div class="pat-body">
+        <div class="pat-ingredient">성분명 <strong>엠파글리플로진</strong><br>(Empagliflozin)</div>
+        <div class="pat-exp"><span class="pat-exp-icon">&#x23F0;</span><span class="pat-exp-date">2026년 10월 23일</span></div>
+        <div class="pat-market">처방 시장 <strong>연 ~1,000억원+</strong></div>
+        <span class="pat-category">SGLT-2억제제 (당뇨·심부전)</span>
+      </div>
+      <div class="pat-footer">
+        <div class="pat-count">허가 완료 제네릭 <strong>48개사 96품목</strong></div>
+      </div>
+    </div>
+
+    <!-- 릭시아나 (11월) -->
+    <div class="news-link pat-card" data-url="https://www.kpanews.co.kr/news/articleView.html?idxno=533362" data-title="릭시아나 제네릭 11월 진입, 시장 50% 감소 전망 — 약사공론" role="button" tabindex="0">
+      <div class="pat-header">
+        <div class="pat-brand">릭시아나</div>
+        <span class="pat-badge blue">11월 만료</span>
+      </div>
+      <div class="pat-divider"></div>
+      <div class="pat-body">
+        <div class="pat-ingredient">성분명 <strong>에독사반</strong><br>(Edoxaban)</div>
+        <div class="pat-exp"><span class="pat-exp-icon">&#x23F0;</span><span class="pat-exp-date">2026년 11월 10일</span></div>
+        <div class="pat-market">처방 시장 <strong>연 ~1,200억원대</strong></div>
+        <span class="pat-category">항응고제 (NOAC)</span>
+      </div>
+      <div class="pat-footer">
+        <div class="pat-count">누적 제네릭 허가 신청 <strong>46건+</strong></div>
+      </div>
+    </div>
 
   </div>
 
-  <!-- 특허·제네릭 -->
-  <div class="sec-head"><div class="sec-bar"></div><h2>&#x1F48A; 특허 &middot; 제네릭 기회</h2></div>
-  <div class="wlist">
+  <!-- 타임라인 요약 -->
+  <div class="timeline">
+    <h4>&#x1F5D3; 2026년 특허만료 타임라인 요약</h4>
+    <div class="tl-row">
+      <span class="tl-month red">6월</span>
+      <span class="tl-drug">엑스탄디</span><span class="tl-ing">엔잘루타마이드 / 전립선암</span>
+      <span class="tl-mkt" style="color:#e8294a;">~400억</span>
+    </div>
+    <div class="tl-row">
+      <span class="tl-month orange">9월</span>
+      <span class="tl-drug">엘리퀴스</span><span class="tl-ing">아픽사반 / 항응고제</span>
+      <span class="tl-mkt" style="color:#059669;">~2,000억</span>
+    </div>
+    <div class="tl-row">
+      <span class="tl-month orange">10월</span>
+      <span class="tl-drug">자디앙</span><span class="tl-ing">엠파글리플로진 / 당뇨·심부전</span>
+      <span class="tl-mkt" style="color:#059669;">~1,000억+</span>
+    </div>
+    <div class="tl-row">
+      <span class="tl-month purple">11월</span>
+      <span class="tl-drug">릭시아나</span><span class="tl-ing">에독사반 / 항응고제</span>
+      <span class="tl-mkt" style="color:#059669;">~1,200억</span>
+    </div>
+  </div>
 
+  <!-- 특허·제네릭 심화 -->
+  <div class="sec-head"><div class="sec-bar"></div><h2>&#x1F4F0; 관련 기사 심화 읽기</h2></div>
+  <div class="wlist">
     <div class="news-link wcard" data-url="https://www.monews.co.kr/news/articleView.html?idxno=410791" data-title="릭시아나·엑스탄디 올해 특허 만료 — 메디칼업저버" role="button" tabindex="0">
       <div class="wcard-accent" style="background:#e8294a;"></div>
       <div class="wcard-icon-box">&#x1F489;</div>
       <div class="wcard-body">
         <div class="wcard-src">메디칼업저버</div>
         <div class="wcard-title">릭시아나&middot;엑스탄디 올해 특허 만료, 국내 제네릭 경쟁 가열</div>
-        <div class="wcard-desc">다이이찌산쿄의 항응고제 릭시아나와 아스텔라스의 전립선암 치료제 엑스탄디 특허가 올해 만료됩니다. 국내 10개 이상 제약사가 특허 회피 성공, 제네릭 출시 경쟁 본격화.</div>
-        <span class="wcard-tag">#릭시아나제네릭</span>
+        <div class="wcard-desc">국내 10개 이상 제약사가 특허 회피에 성공해 제네릭 출시 경쟁이 본격화됩니다. CSO 법인은 담당 품목 포트폴리오에 신규 제네릭 진입 여부를 사전 점검해야 합니다.</div>
+        <span class="wcard-tag">#릭시아나 #엑스탄디</span>
       </div>
     </div>
-
-    <div class="news-link wcard" data-url="https://www.kpanews.co.kr/news/articleView.html?idxno=533362" data-title="릭시아나 제네릭 11월 진입, 시장 50% 감소 — 약사공론" role="button" tabindex="0">
+    <div class="news-link wcard" data-url="https://www.monews.co.kr/news/articleView.html?idxno=405226" data-title="자디앙 1000억 시장 제네릭 공략 — 메디칼업저버" role="button" tabindex="0">
       <div class="wcard-accent" style="background:#f59e0b;"></div>
       <div class="wcard-icon-box">&#x1F4C8;</div>
       <div class="wcard-body">
+        <div class="wcard-src">메디칼업저버</div>
+        <div class="wcard-title">'자디앙' 특허 만료 임박에 1000억원 시장 공략 나서는 제네릭</div>
+        <div class="wcard-desc">48개사 96개 품목이 허가를 마쳤습니다. 단, 미등재 특허 리스크가 존재해 출시 후 분쟁 가능성에 유의해야 합니다. 제네릭 위탁판매 계약 시점 결정이 중요합니다.</div>
+        <span class="wcard-tag">#자디앙 #SGLT2</span>
+      </div>
+    </div>
+    <div class="news-link wcard" data-url="https://www.kpanews.co.kr/news/articleView.html?idxno=533362" data-title="릭시아나 시장 50% 감소 전망 — 약사공론" role="button" tabindex="0">
+      <div class="wcard-accent" style="background:#7c3aed;"></div>
+      <div class="wcard-icon-box">&#x1F4CA;</div>
+      <div class="wcard-body">
         <div class="wcard-src">약사공론</div>
         <div class="wcard-title">릭시아나 제네릭 11월 진입&hellip; 시장 규모 최대 50% 감소 전망</div>
-        <div class="wcard-desc">오리지널 점유율 35~40%까지 하락 가능. 처방액 기준 최대 50% 시장 축소 전망. 제네릭 품목을 보유한 CSO 법인에는 영업 기회가 확대됩니다.</div>
-        <span class="wcard-tag">#시장기회</span>
+        <div class="wcard-desc">오리지널 점유율 35~40%까지 하락 가능. 제네릭 품목을 보유한 CSO 법인에는 신규 영업 기회가 확대되나, 오리지널 단독 취급 법인은 수익 하락 리스크가 있습니다.</div>
+        <span class="wcard-tag">#시장기회 #리스크</span>
       </div>
     </div>
-
-    <div class="news-link wcard" data-url="https://www.kpanews.co.kr/news/articleView.html?idxno=528538" data-title="스티렌·크레메진 자진 약가 인하 급여 유지 — 약사공론" role="button" tabindex="0">
-      <div class="wcard-accent" style="background:#059669;"></div>
-      <div class="wcard-icon-box">&#x1F33F;</div>
-      <div class="wcard-body">
-        <div class="wcard-src">약사공론</div>
-        <div class="wcard-title">스티렌&middot;크레메진 자진 약가 인하로 급여 유지&hellip; 건정심 결정</div>
-        <div class="wcard-desc">천연물신약 스티렌과 크레메진이 약가를 자진 인하하며 급여 유지를 선택했습니다. 동일 계열 대체 품목을 다루는 CSO 법인은 경쟁 구도 변화에 주목해야 합니다.</div>
-        <span class="wcard-tag">#급여재평가</span>
-      </div>
-    </div>
-
-    <div class="news-link wcard" data-url="https://www.kpanews.co.kr/news/articleView.html?idxno=533652" data-title="1381억 급여재평가 반복 평가 방침 — 약사공론" role="button" tabindex="0">
-      <div class="wcard-accent" style="background:#7c3aed;"></div>
-      <div class="wcard-icon-box">&#x1F504;</div>
-      <div class="wcard-body">
-        <div class="wcard-src">약사공론</div>
-        <div class="wcard-title">1381억 규모 급여재평가&hellip; 필요 시 반복 평가 방침 확정</div>
-        <div class="wcard-desc">약제 급여재평가를 일회성이 아닌 상시 사후관리 체계로 운영. 임상 논란 발생 시 재평가를 반복할 수 있어 CSO 품목 포트폴리오 점검이 중요해집니다.</div>
-        <span class="wcard-tag">#품목관리</span>
-      </div>
-    </div>
-
   </div>
 
   <!-- 수치 -->
   <div class="stat-box">
     <h3>&#x1F4CA; 이번 주 핵심 수치</h3>
     <div class="stats">
-      <div class="st"><div class="st-num">45%</div><div class="st-label">정부 확정 제네릭 약가 기본 산정률</div><div class="st-val">기존 53.55% &rarr; 2026 하반기 적용</div></div>
-      <div class="st"><div class="st-num">49%</div><div class="st-label">혁신형 제약사 한시 특례 산정률</div><div class="st-val">준혁신형은 47% 적용</div></div>
+      <div class="st"><div class="st-num">45%</div><div class="st-label">제네릭 약가 기본 산정률 (2026 하반기)</div><div class="st-val">기존 53.55%에서 인하 확정</div></div>
+      <div class="st"><div class="st-num">4,700억</div><div class="st-label">2026년 특허만료 4개 품목 합산 시장</div><div class="st-val">엘리퀴스·자디앙·릭시아나·엑스탄디</div></div>
       <div class="st"><div class="st-num">50%</div><div class="st-label">릭시아나 시장 규모 감소 전망</div><div class="st-val">제네릭 11월 진입 시 최대치</div></div>
       <div class="st"><div class="st-num">1381억</div><div class="st-label">2026년 급여재평가 대상 규모</div><div class="st-val">필요 시 반복 평가 가능</div></div>
     </div>
@@ -408,7 +430,6 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
   <!-- CSO 실무 -->
   <div class="sec-head"><div class="sec-bar"></div><h2>&#x2705; CSO 신고제 &middot; 준법 포인트</h2></div>
   <div class="grid">
-
     <div class="news-link card blue" data-url="https://dailypharm.com/user/news/336467" data-title="위탁 제네릭 약가 24% 하락 — 데일리팜" role="button" tabindex="0">
       <div class="card-icon">&#x1F4B0;</div>
       <div class="card-body">
@@ -417,7 +438,6 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
         <div class="card-foot"><span class="card-tag">#위탁약가</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </div>
-
     <div class="news-link card red" data-url="https://www.kpanews.co.kr/article/show.asp?category=D&idx=253932" data-title="CSO 신고제 본격 시행 — 약사공론" role="button" tabindex="0">
       <div class="card-icon">&#x1F4CB;</div>
       <div class="card-body">
@@ -426,7 +446,6 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
         <div class="card-foot"><span class="card-tag">#CSO신고제</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </div>
-
     <div class="news-link card green" data-url="https://m.dailypharm.com/newsView.html?ID=311948" data-title="지출보고서 공개·CSO 신고제 대비 — 데일리팜" role="button" tabindex="0">
       <div class="card-icon">&#x1F4C4;</div>
       <div class="card-body">
@@ -435,7 +454,6 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
         <div class="card-foot"><span class="card-tag">#지출보고서</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </div>
-
   </div>
 
   <!-- ProMR -->
@@ -456,115 +474,49 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
   <span>&#169; 2026 ProMR. 본 매거진은 공개된 뉴스 자료를 요약 제공합니다.</span>
 </footer>
 
-<!-- ══════════════════════════════════
-     MODAL SCRIPT
-══════════════════════════════════ -->
 <script>
 (function(){
-  var modal      = document.getElementById('modal');
-  var modalTitle = document.getElementById('modal-title');
-  var modalIframe= document.getElementById('modal-iframe');
-  var modalLoad  = document.getElementById('modal-loading');
-  var modalFall  = document.getElementById('modal-fallback');
-  var btnNew     = document.getElementById('modal-btn-new');
-  var btnClose   = document.getElementById('modal-close');
-  var fallLink   = document.getElementById('fallback-link');
-  var currentUrl = '';
+  var modal=document.getElementById('modal'),
+      modalTitle=document.getElementById('modal-title'),
+      modalIframe=document.getElementById('modal-iframe'),
+      modalLoad=document.getElementById('modal-loading'),
+      modalFall=document.getElementById('modal-fallback'),
+      btnNew=document.getElementById('modal-btn-new'),
+      btnClose=document.getElementById('modal-close'),
+      fallLink=document.getElementById('fallback-link');
 
-  /* ── 팝업 열기 ── */
-  function openModal(url, title) {
-    currentUrl = url;
-
-    /* 상태 초기화 */
-    modalIframe.src = 'about:blank';
-    modalIframe.style.display  = 'none';
-    modalFall.style.display    = 'none';
-    modalLoad.style.opacity    = '1';
-    modalLoad.style.display    = 'flex';
-
-    modalTitle.textContent = title || url;
-    btnNew.href     = url;
-    fallLink.href   = url;
-
+  function openModal(url,title){
+    modalIframe.src='about:blank';
+    modalIframe.style.display='none';
+    modalFall.style.display='none';
+    modalLoad.style.display='flex';
+    modalTitle.textContent=title||url;
+    btnNew.href=url; fallLink.href=url;
     modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-
-    /* iframe 로드 타임아웃 (5초 내 load 이벤트 없으면 차단으로 간주) */
-    var timer = setTimeout(function(){ showFallback(); }, 5000);
-
-    /* iframe load 감지 */
+    document.body.style.overflow='hidden';
+    var timer=setTimeout(showFallback,5000);
     function onLoad(){
       clearTimeout(timer);
-      /* 실제로 내용이 있는지 확인 (차단 시 contentDocument 접근 오류) */
-      try {
-        var doc = modalIframe.contentDocument || modalIframe.contentWindow.document;
-        if(!doc || doc.location.href === 'about:blank' || doc.body === null){
-          showFallback(); return;
-        }
-        /* body가 비어있으면 차단 */
-        if(doc.body.innerHTML.trim() === ''){
-          showFallback(); return;
-        }
-      } catch(e){
-        /* cross-origin: 기사가 로드됐지만 접근 불가 (정상 케이스) */
-        /* 여기서는 iframe이 뭔가 로드된 것으로 간주 */
-      }
+      try{
+        var doc=modalIframe.contentDocument||modalIframe.contentWindow.document;
+        if(!doc||doc.body===null||doc.body.innerHTML.trim()===''){showFallback();return;}
+      }catch(e){}
       showIframe();
     }
-
-    modalIframe.addEventListener('load', onLoad, {once:true});
-    modalIframe.src = url;
+    modalIframe.addEventListener('load',onLoad,{once:true});
+    modalIframe.src=url;
   }
-
-  function showIframe(){
-    modalLoad.style.display   = 'none';
-    modalFall.style.display   = 'none';
-    modalIframe.style.display = 'block';
-  }
-
-  function showFallback(){
-    modalLoad.style.display   = 'none';
-    modalIframe.style.display = 'none';
-    modalFall.style.display   = 'flex';
-  }
-
-  /* ── 팝업 닫기 ── */
-  function closeModal(){
-    modal.classList.remove('open');
-    document.body.style.overflow = '';
-    modalIframe.src = 'about:blank';
-  }
-
-  btnClose.addEventListener('click', closeModal);
-
-  /* 오버레이 배경 클릭 시 닫기 */
-  modal.addEventListener('click', function(e){
-    if(e.target === modal) closeModal();
-  });
-
-  /* ESC 키로 닫기 */
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') closeModal();
-  });
-
-  /* ── 모든 news-link 카드에 클릭 이벤트 연결 ── */
+  function showIframe(){modalLoad.style.display='none';modalFall.style.display='none';modalIframe.style.display='block';}
+  function showFallback(){modalLoad.style.display='none';modalIframe.style.display='none';modalFall.style.display='flex';}
+  function closeModal(){modal.classList.remove('open');document.body.style.overflow='';modalIframe.src='about:blank';}
+  btnClose.addEventListener('click',closeModal);
+  modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
   document.querySelectorAll('.news-link').forEach(function(el){
-    el.addEventListener('click', function(e){
-      e.preventDefault();
-      var url   = el.getAttribute('data-url');
-      var title = el.getAttribute('data-title');
-      if(url) openModal(url, title);
-    });
-    /* 키보드 접근성 */
-    el.addEventListener('keydown', function(e){
-      if(e.key === 'Enter' || e.key === ' '){
-        e.preventDefault();
-        el.click();
-      }
-    });
+    el.addEventListener('click',function(e){e.preventDefault();var u=el.getAttribute('data-url'),t=el.getAttribute('data-title');if(u)openModal(u,t);});
+    el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click();}});
   });
 })();
 </script>
-
 </body>
 </html>
