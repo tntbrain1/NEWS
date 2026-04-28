@@ -7,423 +7,349 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700;900&family=Noto+Serif+KR:wght@400;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Noto Sans KR',sans-serif;background:#f2f4f8;color:#1a1d2e;}
+body{font-family:'Noto Sans KR',sans-serif;background:#f0f4fb;color:#1a1d2e;}
 
-/* ── HEADER ── */
 .mag-header{background:linear-gradient(160deg,#060f2d 0%,#0d2260 60%,#1a3a8f 100%);color:#fff;padding:0;}
 .mag-header-inner{max-width:900px;margin:0 auto;padding:36px 24px 28px;}
 .mag-meta{display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap;}
 .mag-brand{background:#e8294a;color:#fff;font-size:11px;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1px;}
 .mag-issue{font-size:12px;opacity:.6;letter-spacing:.5px;}
 .mag-date{font-size:12px;opacity:.6;margin-left:auto;}
-.mag-title{font-family:'Noto Serif KR',serif;font-size:clamp(22px,5vw,34px);font-weight:700;line-height:1.25;margin-bottom:12px;}
+.mag-title{font-family:'Noto Serif KR',serif;font-size:clamp(20px,5vw,32px);font-weight:700;line-height:1.3;margin-bottom:12px;}
 .mag-subtitle{font-size:13px;opacity:.55;line-height:1.6;}
 .mag-divider{height:2px;background:linear-gradient(90deg,#e8294a,transparent);margin-top:28px;}
 
-/* ── BANNER ── */
 .promo-banner{background:linear-gradient(90deg,#e8294a,#ff6b35);color:#fff;padding:11px 20px;text-align:center;font-size:13px;font-weight:600;}
 .promo-banner a{background:#fff;color:#e8294a;font-weight:800;font-size:11.5px;padding:5px 14px;border-radius:18px;text-decoration:none;margin-left:10px;}
 
-/* ── LAYOUT ── */
 .wrap{max-width:900px;margin:0 auto;padding:36px 18px 80px;}
 
-/* ── HERO ARTICLE ── */
-.hero{display:grid;grid-template-columns:1fr 1fr;gap:0;background:#fff;border-radius:20px;overflow:hidden;margin-bottom:32px;box-shadow:0 4px 24px rgba(0,0,0,.09);}
-.hero-img{position:relative;min-height:280px;}
-.hero-img img{width:100%;height:100%;object-fit:cover;display:block;}
-.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,rgba(255,255,255,.08));}
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:0;background:#fff;border-radius:20px;overflow:hidden;margin-bottom:32px;box-shadow:0 4px 24px rgba(0,0,0,.1);text-decoration:none;color:inherit;}
+.hero:hover .hero-img img{transform:scale(1.04);}
+.hero-img{position:relative;min-height:280px;overflow:hidden;}
+.hero-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
 .hero-body{padding:32px 28px;display:flex;flex-direction:column;justify-content:center;}
-.hero-tag{background:#e8294a;color:#fff;font-size:10.5px;font-weight:800;padding:3px 10px;border-radius:12px;display:inline-block;margin-bottom:14px;letter-spacing:.5px;}
-.hero-title{font-family:'Noto Serif KR',serif;font-size:22px;font-weight:700;line-height:1.4;margin-bottom:12px;color:#111827;}
+.hero-tag{background:#e8294a;color:#fff;font-size:10.5px;font-weight:800;padding:3px 10px;border-radius:12px;display:inline-block;margin-bottom:14px;}
+.hero-source{font-size:11px;color:#9ca3af;margin-bottom:6px;}
+.hero-title{font-family:'Noto Serif KR',serif;font-size:20px;font-weight:700;line-height:1.45;margin-bottom:12px;color:#111827;}
 .hero-desc{font-size:13px;color:#6b7280;line-height:1.75;margin-bottom:20px;}
-.hero-link{display:inline-block;background:#1a1d2e;color:#fff;font-size:12px;font-weight:700;padding:9px 20px;border-radius:22px;text-decoration:none;transition:background .2s;}
-.hero-link:hover{background:#e8294a;}
+.hero-btn{display:inline-block;background:#1a1d2e;color:#fff;font-size:12px;font-weight:700;padding:9px 20px;border-radius:22px;align-self:flex-start;transition:background .2s;}
+.hero:hover .hero-btn{background:#e8294a;}
 
-/* ── SECTION TITLE ── */
+/* SECTION */
 .sec-head{display:flex;align-items:center;gap:12px;margin:36px 0 18px;}
-.sec-head-bar{width:4px;height:24px;background:#e8294a;border-radius:2px;}
-.sec-head h2{font-size:17px;font-weight:800;color:#1a1d2e;}
+.sec-bar{width:4px;height:22px;background:#e8294a;border-radius:2px;}
+.sec-head h2{font-size:16px;font-weight:800;}
 
-/* ── CARD GRID ── */
-.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-bottom:12px;}
+/* CARD GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(256px,1fr));gap:18px;margin-bottom:8px;}
 .card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07);text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;}
 .card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.13);}
-.card-img{height:160px;overflow:hidden;position:relative;}
+.card-img{height:158px;overflow:hidden;position:relative;}
 .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
-.card:hover .card-img img{transform:scale(1.05);}
-.card-cat{position:absolute;top:10px;left:10px;background:rgba(26,110,245,.9);color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:10px;}
-.card-body{padding:16px 18px 20px;flex:1;display:flex;flex-direction:column;}
-.card-source{font-size:10.5px;color:#9ca3af;margin-bottom:6px;}
-.card-title{font-size:14px;font-weight:700;line-height:1.45;flex:1;margin-bottom:10px;color:#111827;}
-.card-footer{display:flex;align-items:center;justify-content:space-between;}
+.card:hover .card-img img{transform:scale(1.06);}
+.card-cat{position:absolute;top:10px;left:10px;background:rgba(26,110,245,.88);color:#fff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:10px;}
+.card-body{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column;}
+.card-src{font-size:10.5px;color:#9ca3af;margin-bottom:5px;}
+.card-title{font-size:13.5px;font-weight:700;line-height:1.5;flex:1;margin-bottom:10px;color:#111827;}
+.card-foot{display:flex;align-items:center;justify-content:space-between;}
 .card-tag{font-size:10px;background:#f0f4fb;color:#1a6ef5;padding:2px 8px;border-radius:8px;font-weight:600;}
-.card-arrow{font-size:16px;color:#d1d5db;}
+.card-arr{font-size:17px;color:#d1d5db;}
 
-/* ── WIDE CARD (list style) ── */
-.list-cards{display:flex;flex-direction:column;gap:14px;}
+/* WIDE CARD */
+.wlist{display:flex;flex-direction:column;gap:14px;}
 .wcard{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.06);text-decoration:none;color:inherit;display:flex;align-items:stretch;transition:transform .2s,box-shadow .2s;}
 .wcard:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,0,0,.11);}
-.wcard-img{width:130px;min-height:100px;flex-shrink:0;overflow:hidden;}
+.wcard-img{width:130px;flex-shrink:0;overflow:hidden;}
 .wcard-img img{width:100%;height:100%;object-fit:cover;}
 .wcard-body{padding:16px 20px;display:flex;flex-direction:column;justify-content:center;flex:1;}
-.wcard-source{font-size:10.5px;color:#9ca3af;margin-bottom:5px;}
+.wcard-src{font-size:10.5px;color:#9ca3af;margin-bottom:5px;}
 .wcard-title{font-size:14px;font-weight:700;line-height:1.45;margin-bottom:6px;color:#111827;}
-.wcard-desc{font-size:12px;color:#6b7280;line-height:1.6;}
+.wcard-desc{font-size:12px;color:#6b7280;line-height:1.65;}
 .wcard-tag{font-size:10px;background:#fef3f2;color:#e8294a;padding:2px 8px;border-radius:8px;font-weight:600;margin-top:8px;display:inline-block;}
 
-/* ── HIGHLIGHT BOX ── */
-.highlight-box{background:linear-gradient(135deg,#060f2d,#1a3a8f);border-radius:20px;padding:28px 32px;color:#fff;margin:36px 0;}
-.highlight-box h3{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
-.highlight-items{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.hi{background:rgba(255,255,255,.08);border-radius:12px;padding:14px 16px;}
-.hi-num{font-size:22px;font-weight:900;color:#e8294a;margin-bottom:4px;}
-.hi-label{font-size:11px;opacity:.65;margin-bottom:2px;}
-.hi-val{font-size:13px;font-weight:700;}
+/* STAT BOX */
+.stat-box{background:linear-gradient(135deg,#060f2d,#1a3a8f);border-radius:20px;padding:28px 30px;color:#fff;margin:36px 0;}
+.stat-box h3{font-size:17px;font-weight:800;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;}
+.st{background:rgba(255,255,255,.09);border-radius:12px;padding:16px;}
+.st-num{font-size:26px;font-weight:900;color:#e8294a;line-height:1;}
+.st-label{font-size:11px;opacity:.6;margin:6px 0 3px;}
+.st-val{font-size:12.5px;font-weight:700;}
 
-/* ── PROMR BLOCK ── */
-.promr-block{background:linear-gradient(135deg,#060f2d,#1a3a8f);border-radius:20px;padding:32px;color:#fff;margin-top:40px;text-align:center;}
-.promr-block h3{font-size:21px;font-weight:900;margin-bottom:10px;}
-.promr-block p{font-size:13px;opacity:.7;margin-bottom:22px;line-height:1.8;}
+/* PROMR */
+.promr{background:linear-gradient(135deg,#060f2d,#1a3a8f);border-radius:20px;padding:32px;color:#fff;margin-top:40px;text-align:center;}
+.promr h3{font-size:20px;font-weight:900;margin-bottom:10px;}
+.promr p{font-size:13px;opacity:.7;margin-bottom:22px;line-height:1.8;}
 .btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
 .btn-r{background:#e8294a;color:#fff;font-weight:800;font-size:13px;padding:12px 26px;border-radius:26px;text-decoration:none;}
 .btn-o{background:transparent;border:2px solid rgba(255,255,255,.35);color:#fff;font-weight:700;font-size:13px;padding:11px 20px;border-radius:26px;text-decoration:none;}
 
-/* ── FOOTER ── */
-footer{background:#060f2d;color:rgba(255,255,255,.35);text-align:center;padding:22px;font-size:11.5px;}
+footer{background:#060f2d;color:rgba(255,255,255,.35);text-align:center;padding:22px;font-size:11.5px;line-height:1.9;}
 footer a{color:rgba(255,255,255,.5);text-decoration:none;}
 
 @media(max-width:620px){
   .hero{grid-template-columns:1fr;}
   .hero-img{min-height:200px;}
-  .highlight-items{grid-template-columns:1fr;}
   .wcard-img{width:90px;}
+  .stats{grid-template-columns:1fr 1fr;}
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="mag-header">
   <div class="mag-header-inner">
     <div class="mag-meta">
       <span class="mag-brand">PRO MR</span>
-      <span class="mag-issue">CSO 위클리 매거진 · Vol.04</span>
-      <span class="mag-date">2026년 4월 4주차 · 2026.04.25</span>
+      <span class="mag-issue">CSO 위클리 매거진 &middot; 2026년 4월 4주차</span>
+      <span class="mag-date">2026.04.27</span>
     </div>
-    <div class="mag-title">CSO 수수료 상한제 논란,<br>가짜거래 세금 철퇴, 릭시아나 특허 만료</div>
-    <div class="mag-subtitle">이번 주 CSO 법인·개인이 반드시 알아야 할 핵심 뉴스 16건 완전 정리</div>
+    <div class="mag-title">제네릭 약가 45% 충격파 &mdash;<br>CSO 수수료 전쟁과 릭시아나 특허 만료</div>
+    <div class="mag-subtitle">이번 주 CSO 법인&middot;개인이 반드시 알아야 할 핵심 뉴스 완전 정리</div>
     <div class="mag-divider"></div>
   </div>
 </div>
 
-<!-- PROMO BANNER -->
 <div class="promo-banner">
-  🚀 <strong>프로엠알(ProMR)</strong> — CSO·CMR 전용 제약영업 SaaS 플랫폼 No.1
-  <a href="https://promr.co.kr" target="_blank">무료로 시작하기 →</a>
+  &#x1F680; <strong>프로엠알(ProMR)</strong> &mdash; CSO&middot;CMR 전용 제약영업 SaaS 플랫폼 No.1
+  <a href="https://promr.co.kr" target="_blank">무료로 시작하기 &rarr;</a>
 </div>
 
 <div class="wrap">
 
-  <!-- ── HERO ── -->
-  <a href="https://www.hitnews.co.kr/news/articleView.html?idxno=75246" target="_blank" class="hero" style="text-decoration:none;">
+  <!-- ══ HERO : 이번 주 최대 이슈 ══ -->
+  <a href="https://www.pharmnews.com/news/articleView.html?idxno=302425" target="_blank" class="hero">
     <div class="hero-img">
-      <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80" alt="수수료 상한제"/>
-      <div class="hero-img-overlay"></div>
+      <img src="https://images.unsplash.com/photo-1563213126-a4273aed2016?w=600&q=80" alt="약가인하 충격"/>
     </div>
     <div class="hero-body">
-      <span class="hero-tag">🔥 이슈 PICK</span>
-      <div class="hero-title">CSO 수수료 상한제 도입 논란 — 업계 반발 거세다</div>
-      <div class="hero-desc">복지부가 CSO 판매대행 수수료율 상한을 법제화하는 방안을 검토하면서 업계가 강하게 반발하고 있습니다. 수익구조 훼손과 소규모 법인 폐업 우려가 현실화되고 있습니다.</div>
-      <span class="hero-link">기사 전문 읽기 →</span>
+      <span class="hero-tag">&#x1F525; 이번 주 PICK</span>
+      <div class="hero-source">팜뉴스</div>
+      <div class="hero-title">'약가 45%' 절벽 선 중소제약, CSO 수수료 전쟁서 '완패' 위기</div>
+      <div class="hero-desc">정부가 제네릭 약가 기본 산정률을 53.55%에서 45%로 낮추면서 비혁신형 중소제약의 CSO 수수료 지급 여력이 급격히 떨어지고 있습니다. 영업 우선순위에서 밀릴 품목과 살아남을 품목이 명확히 갈리는 시점입니다.</div>
+      <span class="hero-btn">기사 전문 읽기 &rarr;</span>
     </div>
   </a>
 
-  <!-- ── 규제·정책 ── -->
-  <div class="sec-head">
-    <div class="sec-head-bar"></div>
-    <h2>📋 규제 · 정책</h2>
-  </div>
-  <div class="grid-3">
+  <!-- ══ 약가·정책 ══ -->
+  <div class="sec-head"><div class="sec-bar"></div><h2>&#x1F4CB; 약가 &middot; 정책</h2></div>
+  <div class="grid">
 
-    <a href="https://www.pharmnews.com/news/articleView.html?idxno=302425" target="_blank" class="card">
+    <a href="https://www.pharmnews.com/news/articleView.html?idxno=302400" target="_blank" class="card">
       <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&q=80" alt="세금"/>
-        <span class="card-cat">세무</span>
+        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&q=80" alt="약가개편"/>
+        <span class="card-cat">약가개편</span>
       </div>
       <div class="card-body">
-        <div class="card-source">팜뉴스</div>
-        <div class="card-title">CSO 가짜거래 적발 시 세금 환수 — 국세청, 강도 높은 조사 예고</div>
-        <div class="card-footer">
-          <span class="card-tag">#탈세방지</span>
-          <span class="card-arrow">›</span>
-        </div>
+        <div class="card-src">팜뉴스</div>
+        <div class="card-title">제네릭 약가 45% 시대&hellip; 혁신형 기업 '완충' VS 중소사 '직격탄'</div>
+        <div class="card-foot"><span class="card-tag">#약가45%</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </a>
 
-    <a href="https://www.dailypharm.com/user/news/337813" target="_blank" class="card">
+    <a href="https://www.hitnews.co.kr/news/articleView.html?idxno=75246" target="_blank" class="card">
       <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=500&q=80" alt="민관협의"/>
-        <span class="card-cat">정책</span>
+        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=500&q=80" alt="혁신형"/>
+        <span class="card-cat">전략</span>
       </div>
       <div class="card-body">
-        <div class="card-source">데일리팜</div>
-        <div class="card-title">복지부-CSO협회 민관협의체 첫 회의 — 신고제 보완책 논의</div>
-        <div class="card-footer">
-          <span class="card-tag">#CSO신고제</span>
-          <span class="card-arrow">›</span>
-        </div>
+        <div class="card-src">히트뉴스</div>
+        <div class="card-title">약가개편 후 CSO 향한 제약사들 은근한 메시지&hellip; "우린 혁신형"</div>
+        <div class="card-foot"><span class="card-tag">#혁신형전략</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </a>
 
     <a href="https://www.hitnews.co.kr/news/articleView.html?idxno=75302" target="_blank" class="card">
       <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=500&q=80" alt="혁신형 제약"/>
+        <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?w=500&q=80" alt="혁신형 인증"/>
         <span class="card-cat">인증</span>
       </div>
       <div class="card-body">
-        <div class="card-source">히트뉴스</div>
-        <div class="card-title">혁신형 제약기업 인증 갱신 절차 간소화 — CSO 파트너사 수혜 기대</div>
-        <div class="card-footer">
-          <span class="card-tag">#혁신형인증</span>
-          <span class="card-arrow">›</span>
-        </div>
+        <div class="card-src">히트뉴스</div>
+        <div class="card-title">혁신형 제약, 평균 65점 이상이면 통과&hellip; 공급망 기여 항목 신설</div>
+        <div class="card-foot"><span class="card-tag">#혁신형인증</span><span class="card-arr">&rsaquo;</span></div>
+      </div>
+    </a>
+
+    <a href="https://www.hitnews.co.kr/news/articleView.html?idxno=75260" target="_blank" class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=500&q=80" alt="세미나"/>
+        <span class="card-cat">긴급점검</span>
+      </div>
+      <div class="card-body">
+        <div class="card-src">히트뉴스</div>
+        <div class="card-title">약가인하에 혁신형제약 부담까지? 긴급점검 세미나 개최</div>
+        <div class="card-foot"><span class="card-tag">#약가부담</span><span class="card-arr">&rsaquo;</span></div>
+      </div>
+    </a>
+
+    <a href="https://www.hitnews.co.kr/news/articleView.html?idxno=75326" target="_blank" class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&q=80" alt="제약업계"/>
+        <span class="card-cat">업계동향</span>
+      </div>
+      <div class="card-body">
+        <div class="card-src">히트뉴스</div>
+        <div class="card-title">약가제도 개선&middot;의료용 소재 공급 불안&hellip; 계속되는 제약업계 혼란</div>
+        <div class="card-foot"><span class="card-tag">#업계혼란</span><span class="card-arr">&rsaquo;</span></div>
+      </div>
+    </a>
+
+    <a href="https://www.apsk.co.kr/news/articleView.html?idxno=539111" target="_blank" class="card">
+      <div class="card-img">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&q=80" alt="CSO 수수료"/>
+        <span class="card-cat">CSO</span>
+      </div>
+      <div class="card-body">
+        <div class="card-src">메디팜스투데이</div>
+        <div class="card-title">약가 인하보다 무서운 'CSO 눈치 보기'&hellip; R&amp;D 동력 꺼질라</div>
+        <div class="card-foot"><span class="card-tag">#CSO수수료</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </a>
 
   </div>
 
-  <!-- ── 특허·제네릭 ── -->
-  <div class="sec-head">
-    <div class="sec-head-bar"></div>
-    <h2>💊 특허 · 제네릭 기회</h2>
-  </div>
-  <div class="list-cards">
+  <!-- ══ 특허·제네릭 ══ -->
+  <div class="sec-head"><div class="sec-bar"></div><h2>&#x1F48A; 특허 &middot; 제네릭 기회</h2></div>
+  <div class="wlist">
 
     <a href="https://www.monews.co.kr/news/articleView.html?idxno=410791" target="_blank" class="wcard">
       <div class="wcard-img">
         <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=300&q=80" alt="릭시아나"/>
       </div>
       <div class="wcard-body">
-        <div class="wcard-source">메디칼옵저버</div>
-        <div class="wcard-title">릭시아나(에독사반) 특허 만료 — 제네릭 출시 경쟁 본격화</div>
-        <div class="wcard-desc">다이이찌산쿄의 항응고제 릭시아나의 물질특허가 올 하반기 만료됩니다. 국내 10여 개사가 동등성 시험을 진행 중이며 CSO 영업 기회가 확대될 전망입니다.</div>
-        <span class="wcard-tag">#제네릭출시</span>
+        <div class="wcard-src">메디칼업저버</div>
+        <div class="wcard-title">릭시아나&middot;엑스탄디 올해 특허 만료, 국내 제네릭 경쟁 가열</div>
+        <div class="wcard-desc">다이이찌산쿄의 항응고제 릭시아나와 아스텔라스의 전립선암 치료제 엑스탄디의 특허가 올해 만료됩니다. 국내 10개 이상 제약사가 특허 회피에 성공해 제네릭 출시 경쟁이 본격화됩니다.</div>
+        <span class="wcard-tag">#릭시아나제네릭</span>
       </div>
     </a>
 
-    <a href="https://www.apsk.co.kr/news/articleView.html?idxno=539111" target="_blank" class="wcard">
+    <a href="https://www.kpanews.co.kr/news/articleView.html?idxno=533362" target="_blank" class="wcard">
       <div class="wcard-img">
-        <img src="https://images.unsplash.com/photo-1583912267550-d974b6ee4761?w=300&q=80" alt="스티렌"/>
+        <img src="https://images.unsplash.com/photo-1583912267550-d974b6ee4761?w=300&q=80" alt="릭시아나 시장"/>
       </div>
       <div class="wcard-body">
-        <div class="wcard-source">약사공론</div>
-        <div class="wcard-title">스티렌정 퇴출 여부 최종 결론 — 대체재 CSO 영업 전략 필요</div>
-        <div class="wcard-desc">식약처의 스티렌정 재평가 결과 발표를 앞두고 대체 NSAIDs 품목을 보유한 CSO 법인들의 사전 영업 움직임이 빨라지고 있습니다.</div>
-        <span class="wcard-tag">#대체품목전략</span>
+        <div class="wcard-src">약사공론</div>
+        <div class="wcard-title">릭시아나 제네릭 11월 진입&hellip; 시장 규모 최대 50% 감소 전망</div>
+        <div class="wcard-desc">공격적 시나리오 기준 오리지널 점유율이 35~40% 수준까지 하락할 수 있으며, 처방액 기준 시장 규모도 최대 50% 감소 가능. 제네릭을 보유한 CSO 법인에는 영업 기회가 확대됩니다.</div>
+        <span class="wcard-tag">#시장기회</span>
       </div>
     </a>
 
-    <a href="https://www.kpanews.co.kr/news/articleView.html?idxno=533641" target="_blank" class="wcard">
+    <a href="https://www.kpanews.co.kr/news/articleView.html?idxno=528538" target="_blank" class="wcard">
       <div class="wcard-img">
-        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&q=80" alt="혁신신약"/>
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=300&q=80" alt="스티렌 재평가"/>
       </div>
       <div class="wcard-body">
-        <div class="wcard-source">약사공론</div>
-        <div class="wcard-title">혁신신약 급여 등재 속도 개선 — 신약 CSO 계약 기회 확대</div>
-        <div class="wcard-desc">보험 등재 기간 단축 제도가 시행되면서 신약을 위탁판매하는 CSO 법인의 매출 실현 시점이 앞당겨질 것으로 보입니다.</div>
-        <span class="wcard-tag">#신약급여</span>
+        <div class="wcard-src">약사공론</div>
+        <div class="wcard-title">스티렌&middot;크레메진 자진 인하 급여, 건정심서 나온 속내는?</div>
+        <div class="wcard-desc">천연물신약 스티렌과 크레메진이 약가를 자진 인하하며 급여 유지를 선택했습니다. 대체 품목을 다루는 CSO 법인은 경쟁 구도 변화에 주목할 필요가 있습니다.</div>
+        <span class="wcard-tag">#급여재평가</span>
+      </div>
+    </a>
+
+    <a href="https://www.kpanews.co.kr/news/articleView.html?idxno=533652" target="_blank" class="wcard">
+      <div class="wcard-img">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&q=80" alt="급여재평가"/>
+      </div>
+      <div class="wcard-body">
+        <div class="wcard-src">약사공론</div>
+        <div class="wcard-title">1381억 규모 급여재평가&hellip; 필요 시 반복 평가 방침 확정</div>
+        <div class="wcard-desc">정부가 약제 급여재평가를 일회성이 아닌 상시 사후관리 체계로 운영하기로 했습니다. 임상 논란이 생기면 재평가가 반복될 수 있어 CSO 품목 포트폴리오 점검이 중요해집니다.</div>
+        <span class="wcard-tag">#품목관리</span>
       </div>
     </a>
 
   </div>
 
-  <!-- ── 수치 하이라이트 ── -->
-  <div class="highlight-box">
-    <h3>📊 이번 주 주요 수치</h3>
-    <div class="highlight-items">
-      <div class="hi">
-        <div class="hi-num">3,200+</div>
-        <div class="hi-label">CSO 신고 법인 수 (2026.04 기준)</div>
-        <div class="hi-val">전년 동기 대비 +18%</div>
+  <!-- ══ 수치 하이라이트 ══ -->
+  <div class="stat-box">
+    <h3>&#x1F4CA; 이번 주 핵심 수치</h3>
+    <div class="stats">
+      <div class="st">
+        <div class="st-num">45%</div>
+        <div class="st-label">정부 확정 제네릭 약가 기본 산정률</div>
+        <div class="st-val">기존 53.55% &rarr; 2026 하반기 적용</div>
       </div>
-      <div class="hi">
-        <div class="hi-num">15%</div>
-        <div class="hi-label">복지부 검토 수수료 상한율</div>
-        <div class="hi-val">업계 주장 25% 이상 필요</div>
+      <div class="st">
+        <div class="st-num">49%</div>
+        <div class="st-label">혁신형 제약사 한시 특례 산정률</div>
+        <div class="st-val">준혁신형은 47% 적용</div>
       </div>
-      <div class="hi">
-        <div class="hi-num">10개+</div>
-        <div class="hi-label">릭시아나 제네릭 허가 신청사</div>
-        <div class="hi-val">하반기 출시 예정</div>
+      <div class="st">
+        <div class="st-num">50%</div>
+        <div class="st-label">릭시아나 시장 규모 감소 전망</div>
+        <div class="st-val">제네릭 진입 시 최대 시나리오</div>
       </div>
-      <div class="hi">
-        <div class="hi-num">5년</div>
-        <div class="hi-label">CSO 계약·지출 서류 보관 의무</div>
-        <div class="hi-val">신고제 핵심 준수 사항</div>
+      <div class="st">
+        <div class="st-num">1381억</div>
+        <div class="st-label">2026년 급여재평가 대상 규모</div>
+        <div class="st-val">필요 시 반복 평가 가능</div>
       </div>
     </div>
   </div>
 
-  <!-- ── 업계 소식 ── -->
-  <div class="sec-head">
-    <div class="sec-head-bar"></div>
-    <h2>🏢 제약사 · 업계 소식</h2>
-  </div>
-  <div class="grid-3">
+  <!-- ══ CSO 실무 ══ -->
+  <div class="sec-head"><div class="sec-bar"></div><h2>&#x2705; CSO 신고제 &middot; 준법 포인트</h2></div>
+  <div class="grid">
 
-    <a href="https://www.dailypharm.com/user/news/337820" target="_blank" class="card">
+    <a href="https://dailypharm.com/user/news/336467" target="_blank" class="card">
       <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=500&q=80" alt="메디카코리아"/>
-        <span class="card-cat">실적</span>
+        <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=500&q=80" alt="위탁약가"/>
+        <span class="card-cat">약가</span>
       </div>
       <div class="card-body">
-        <div class="card-source">데일리팜</div>
-        <div class="card-title">메디카코리아, 1분기 CMR 계약 매출 전년비 22% 성장</div>
-        <div class="card-footer">
-          <span class="card-tag">#메디카코리아</span>
-          <span class="card-arrow">›</span>
-        </div>
+        <div class="card-src">데일리팜</div>
+        <div class="card-title">제네릭 기준 43% 설정되면 위탁 제네릭 약가 24% 하락</div>
+        <div class="card-foot"><span class="card-tag">#위탁약가</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </a>
 
-    <a href="https://www.dailypharm.com/user/news/337830" target="_blank" class="card">
+    <a href="https://www.kpanews.co.kr/article/show.asp?category=D&idx=253932" target="_blank" class="card">
       <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=80" alt="셀트리온"/>
-        <span class="card-cat">바이오시밀러</span>
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="CSO신고제"/>
+        <span class="card-cat">신고제</span>
       </div>
       <div class="card-body">
-        <div class="card-source">데일리팜</div>
-        <div class="card-title">셀트리온제약, CSO 위탁판매 채널 확대 — 바이오시밀러 국내 점유율 목표 상향</div>
-        <div class="card-footer">
-          <span class="card-tag">#셀트리온</span>
-          <span class="card-arrow">›</span>
-        </div>
+        <div class="card-src">약사공론</div>
+        <div class="card-title">CSO 신고제 본격 시행&hellip; "신고 안 하면 영업 못 한다"</div>
+        <div class="card-foot"><span class="card-tag">#CSO신고제</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </a>
 
-    <a href="https://www.dailypharm.com/user/news/337840" target="_blank" class="card">
+    <a href="https://m.dailypharm.com/newsView.html?ID=311948" target="_blank" class="card">
       <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&q=80" alt="유유제약"/>
-        <span class="card-cat">전략</span>
+        <img src="https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=500&q=80" alt="지출보고서"/>
+        <span class="card-cat">준법</span>
       </div>
       <div class="card-body">
-        <div class="card-source">데일리팜</div>
-        <div class="card-title">유유제약, 고령화 타깃 품목 CSO 네트워크 강화 선언</div>
-        <div class="card-footer">
-          <span class="card-tag">#유유제약</span>
-          <span class="card-arrow">›</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="https://www.hitnews.co.kr/news/articleView.html?idxno=75310" target="_blank" class="card">
-      <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1576671081837-49000212a370?w=500&q=80" alt="대화제약"/>
-        <span class="card-cat">신제품</span>
-      </div>
-      <div class="card-body">
-        <div class="card-source">히트뉴스</div>
-        <div class="card-title">대화제약, 복합제 3종 신규 품목 CSO 위탁판매 파트너 모집</div>
-        <div class="card-footer">
-          <span class="card-tag">#대화제약</span>
-          <span class="card-arrow">›</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="https://www.hitnews.co.kr/news/articleView.html?idxno=75320" target="_blank" class="card">
-      <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?w=500&q=80" alt="대웅바이오"/>
-        <span class="card-cat">바이오</span>
-      </div>
-      <div class="card-body">
-        <div class="card-source">히트뉴스</div>
-        <div class="card-title">대웅바이오, 보툴리눔 신규 적응증 확대 — CSO 영업 범위 확장</div>
-        <div class="card-footer">
-          <span class="card-tag">#대웅바이오</span>
-          <span class="card-arrow">›</span>
-        </div>
-      </div>
-    </a>
-
-    <a href="https://www.monews.co.kr/news/articleView.html?idxno=410800" target="_blank" class="card">
-      <div class="card-img">
-        <img src="https://images.unsplash.com/photo-1543286386-2e659306cd6c?w=500&q=80" alt="한국파마"/>
-        <span class="card-cat">공급망</span>
-      </div>
-      <div class="card-body">
-        <div class="card-source">메디칼옵저버</div>
-        <div class="card-title">한국파마, 원료의약품 자체 생산 투자 확대 — 안정적 공급으로 CSO 신뢰도 향상</div>
-        <div class="card-footer">
-          <span class="card-tag">#한국파마</span>
-          <span class="card-arrow">›</span>
-        </div>
+        <div class="card-src">데일리팜</div>
+        <div class="card-title">지출보고서 공개 &middot; CSO 신고제&hellip; 어떻게 대비할까</div>
+        <div class="card-foot"><span class="card-tag">#지출보고서</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </a>
 
   </div>
 
-  <!-- ── CSO 실무 팁 ── -->
-  <div class="sec-head">
-    <div class="sec-head-bar"></div>
-    <h2>✅ CSO 실무 · 준법 포인트</h2>
-  </div>
-  <div class="list-cards">
-
-    <a href="https://www.dailypharm.com/user/news/337850" target="_blank" class="wcard">
-      <div class="wcard-img">
-        <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=300&q=80" alt="EDI"/>
-      </div>
-      <div class="wcard-body">
-        <div class="wcard-source">데일리팜</div>
-        <div class="wcard-title">EDI 청구 데이터 기반 실적 검증 의무화 — CSO 정산 자동화 필수</div>
-        <div class="wcard-desc">복지부가 EDI 청구 데이터와 실적 보고를 연계하는 방안을 추진함에 따라 CSO 정산 자동화 시스템 도입이 시급해졌습니다.</div>
-        <span class="wcard-tag">#EDI정산</span>
-      </div>
-    </a>
-
-    <a href="https://www.dailypharm.com/user/news/337860" target="_blank" class="wcard">
-      <div class="wcard-img">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80" alt="준법"/>
-      </div>
-      <div class="wcard-body">
-        <div class="wcard-source">데일리메디</div>
-        <div class="wcard-title">리베이트 쌍벌제 개정안 국회 통과 — CSO도 처벌 대상 포함 확정</div>
-        <div class="wcard-desc">개정 약사법에서 CSO 법인 및 개인이 리베이트 제공 시 제약사와 동일하게 처벌받는 조항이 신설되었습니다. 준법 체계 점검이 필요합니다.</div>
-        <span class="wcard-tag">#리베이트쌍벌제</span>
-      </div>
-    </a>
-
-    <a href="https://www.dailypharm.com/user/news/337870" target="_blank" class="wcard">
-      <div class="wcard-img">
-        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300&q=80" alt="계약서"/>
-      </div>
-      <div class="wcard-body">
-        <div class="wcard-source">약업신문</div>
-        <div class="wcard-title">CSO 신고제 1년 반 점검 — 계약서 보관·보고 미비 법인 행정처분 사례 속출</div>
-        <div class="wcard-desc">신고제 시행 이후 계약서 보관 의무와 정기보고 미이행으로 행정처분을 받은 CSO 법인이 누적 47곳으로 늘었습니다. 서류 관리가 핵심입니다.</div>
-        <span class="wcard-tag">#CSO신고제준수</span>
-      </div>
-    </a>
-
-  </div>
-
-  <!-- ── ProMR 블록 ── -->
-  <div class="promr-block">
-    <h3>📱 프로엠알(ProMR)로 CSO 영업을 스마트하게</h3>
-    <p>EDI 자동정산 · CSO 신고제 완벽 대응 · 계약·지출 5년 자동 보관<br>제약사-CSO 매칭 · 품목별 수익 분석 · 모바일 영업 지원</p>
+  <!-- ══ ProMR ══ -->
+  <div class="promr">
+    <h3>&#x1F4F1; 프로엠알(ProMR)로 CSO 영업을 스마트하게</h3>
+    <p>EDI 자동정산 &middot; CSO 신고제 완벽 대응 &middot; 계약&middot;지출 5년 자동 보관<br>제약사-CSO 매칭 &middot; 품목별 수익 분석 &middot; 모바일 영업 지원</p>
     <div class="btns">
-      <a href="https://promr.co.kr" target="_blank" class="btn-r">🚀 무료로 시작하기</a>
-      <a href="https://play.google.com/store/apps/details?id=kr.co.promr" target="_blank" class="btn-o">📲 Google Play</a>
-      <a href="https://apps.apple.com/kr/app/pro-mr/id1602955117" target="_blank" class="btn-o">🍎 App Store</a>
+      <a href="https://promr.co.kr" target="_blank" class="btn-r">&#x1F680; 무료로 시작하기</a>
+      <a href="https://play.google.com/store/apps/details?id=kr.co.promr" target="_blank" class="btn-o">&#x1F4F2; Google Play</a>
+      <a href="https://apps.apple.com/kr/app/pro-mr/id1602955117" target="_blank" class="btn-o">&#x1F34E; App Store</a>
     </div>
   </div>
 
-</div><!-- /wrap -->
+</div>
 
 <footer>
-  CSO 위클리 매거진 · powered by <a href="https://promr.co.kr">ProMR</a> · 매주 금요일 발행<br>
-  <span style="opacity:.5">© 2026 ProMR. 본 매거진은 공개된 뉴스 자료를 요약 제공합니다.</span>
+  CSO 위클리 매거진 &middot; powered by <a href="https://promr.co.kr">ProMR</a> &middot; 매주 금요일 발행<br>
+  <span>&#169; 2026 ProMR. 본 매거진은 공개된 뉴스 자료를 요약 제공합니다.</span>
 </footer>
 
 </body>
