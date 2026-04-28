@@ -9,20 +9,26 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Noto Sans KR',sans-serif;background:#f0f4fb;color:#1a1d2e;}
 
+/* HEADER */
 .mag-header{background:linear-gradient(160deg,#060f2d 0%,#0d2260 60%,#1a3a8f 100%);color:#fff;}
 .mag-header-inner{max-width:900px;margin:0 auto;padding:36px 24px 28px;}
 .mag-meta{display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap;}
 .mag-brand{background:#e8294a;color:#fff;font-size:11px;font-weight:900;padding:4px 14px;border-radius:20px;letter-spacing:1px;}
 .mag-issue{font-size:12px;opacity:.6;}
 .mag-date{font-size:12px;opacity:.6;margin-left:auto;}
-.mag-title{font-family:'Noto Serif KR',serif;font-size:clamp(20px,5vw,32px);font-weight:700;line-height:1.3;margin-bottom:12px;}
-.mag-subtitle{font-size:13px;opacity:.55;line-height:1.6;}
+.mag-title{font-family:'Noto Serif KR',serif;font-size:clamp(20px,5vw,30px);font-weight:700;line-height:1.35;margin-bottom:12px;}
+.mag-subtitle{font-size:13px;opacity:.55;line-height:1.65;}
 .mag-divider{height:2px;background:linear-gradient(90deg,#e8294a,transparent);margin-top:28px;}
 
+/* BANNER */
 .promo-banner{background:linear-gradient(90deg,#e8294a,#ff6b35);color:#fff;padding:11px 20px;text-align:center;font-size:13px;font-weight:600;}
 .promo-banner a{background:#fff;color:#e8294a;font-weight:800;font-size:11.5px;padding:5px 14px;border-radius:18px;text-decoration:none;margin-left:10px;}
 
 .wrap{max-width:900px;margin:0 auto;padding:36px 18px 80px;}
+
+/* NOTICE BAR */
+.notice-bar{background:#fffbeb;border:1.5px solid #fbbf24;border-radius:12px;padding:12px 18px;font-size:12px;color:#92400e;margin-bottom:28px;display:flex;align-items:center;gap:10px;line-height:1.6;}
+.notice-bar strong{color:#b45309;}
 
 /* HERO */
 .hero{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:20px;overflow:hidden;margin-bottom:32px;box-shadow:0 4px 24px rgba(0,0,0,.1);color:inherit;cursor:pointer;}
@@ -30,13 +36,15 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0f4fb;color:#1a1d2e;}
 .hero-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
 .hero:hover .hero-img img{transform:scale(1.04);}
 .hero-body{padding:32px 28px;display:flex;flex-direction:column;justify-content:center;}
-.hero-tag{background:#e8294a;color:#fff;font-size:10.5px;font-weight:800;padding:3px 10px;border-radius:12px;display:inline-block;margin-bottom:12px;}
-.hero-src{font-size:11px;color:#9ca3af;margin-bottom:6px;}
+.hero-tag{background:#e8294a;color:#fff;font-size:10.5px;font-weight:800;padding:3px 10px;border-radius:12px;display:inline-block;margin-bottom:10px;}
+.hero-date{font-size:10.5px;color:#9ca3af;margin-bottom:4px;}
+.hero-src{font-size:11px;color:#6b7280;margin-bottom:6px;}
 .hero-title{font-family:'Noto Serif KR',serif;font-size:19px;font-weight:700;line-height:1.5;margin-bottom:12px;color:#111827;}
 .hero-desc{font-size:13px;color:#6b7280;line-height:1.75;margin-bottom:20px;}
 .hero-btn{display:inline-block;background:#1a1d2e;color:#fff;font-size:12px;font-weight:700;padding:9px 20px;border-radius:22px;align-self:flex-start;transition:background .2s;}
 .hero:hover .hero-btn{background:#e8294a;}
 
+/* SECTION */
 .sec-head{display:flex;align-items:center;gap:12px;margin:36px 0 18px;}
 .sec-bar{width:4px;height:22px;background:#e8294a;border-radius:2px;}
 .sec-head h2{font-size:16px;font-weight:800;}
@@ -50,7 +58,10 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0f4fb;color:#1a1d2e;}
 .card.purple{border-top-color:#7c3aed;} .card.teal{border-top-color:#0891b2;}
 .card-icon{font-size:28px;padding:18px 20px 0;}
 .card-body{padding:10px 20px 20px;flex:1;display:flex;flex-direction:column;}
-.card-src{font-size:10.5px;color:#9ca3af;margin-bottom:5px;}
+.card-meta{display:flex;align-items:center;gap:6px;margin-bottom:5px;}
+.card-src{font-size:10.5px;color:#9ca3af;}
+.card-date{font-size:10px;color:#fff;background:#10b981;padding:1px 7px;border-radius:8px;font-weight:700;}
+.card-date.amber{background:#f59e0b;}
 .card-title{font-size:13.5px;font-weight:700;line-height:1.55;flex:1;margin-bottom:12px;color:#111827;}
 .card-foot{display:flex;align-items:center;justify-content:space-between;}
 .card-tag{font-size:10px;background:#f0f4fb;color:#1a6ef5;padding:2px 8px;border-radius:8px;font-weight:600;}
@@ -63,12 +74,15 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0f4fb;color:#1a1d2e;}
 .wcard-accent{width:6px;flex-shrink:0;}
 .wcard-icon-box{width:72px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:30px;background:#f8fafc;}
 .wcard-body{padding:18px 22px;display:flex;flex-direction:column;justify-content:center;flex:1;}
-.wcard-src{font-size:10.5px;color:#9ca3af;margin-bottom:5px;}
+.wcard-meta{display:flex;align-items:center;gap:8px;margin-bottom:5px;}
+.wcard-src{font-size:10.5px;color:#9ca3af;}
+.wcard-date{font-size:10px;color:#fff;background:#10b981;padding:1px 7px;border-radius:8px;font-weight:700;}
 .wcard-title{font-size:14px;font-weight:700;line-height:1.5;margin-bottom:6px;color:#111827;}
 .wcard-desc{font-size:12px;color:#6b7280;line-height:1.65;}
 .wcard-tag{font-size:10px;background:#fef3f2;color:#e8294a;padding:2px 8px;border-radius:8px;font-weight:600;margin-top:8px;display:inline-block;}
 
-/* ── 2026 특허만료 테이블 카드 ── */
+/* 특허만료 섹션 */
+.patent-note{font-size:11.5px;color:#6b7280;background:#f0f4fb;border-radius:10px;padding:10px 16px;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
 .patent-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:20px;}
 .pat-card{background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;}
 .pat-card:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(0,0,0,.13);}
@@ -84,7 +98,6 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0f4fb;color:#1a1d2e;}
 .pat-ingredient{font-size:11px;color:#6b7280;margin-bottom:8px;}
 .pat-ingredient strong{color:#374151;font-weight:700;}
 .pat-exp{display:flex;align-items:center;gap:6px;margin-bottom:8px;}
-.pat-exp-icon{font-size:13px;}
 .pat-exp-date{font-size:12px;font-weight:700;color:#111827;}
 .pat-market{font-size:11.5px;color:#6b7280;margin-bottom:8px;}
 .pat-market strong{color:#059669;font-weight:800;}
@@ -93,19 +106,16 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0f4fb;color:#1a1d2e;}
 .pat-count{font-size:10.5px;color:#9ca3af;}
 .pat-count strong{color:#1a6ef5;font-weight:700;}
 
-/* 요약 타임라인 */
+/* 타임라인 */
 .timeline{background:#fff;border-radius:16px;padding:22px 24px;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-top:16px;}
 .timeline h4{font-size:13px;font-weight:800;color:#1a1d2e;margin-bottom:16px;}
 .tl-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f0f4fb;}
 .tl-row:last-child{border-bottom:none;}
-.tl-month{font-size:12px;font-weight:800;color:#fff;background:#1a6ef5;padding:3px 10px;border-radius:10px;min-width:42px;text-align:center;flex-shrink:0;}
-.tl-month.red{background:#e8294a;}
-.tl-month.orange{background:#f59e0b;}
-.tl-month.green{background:#059669;}
-.tl-month.purple{background:#7c3aed;}
+.tl-month{font-size:12px;font-weight:800;color:#fff;padding:3px 10px;border-radius:10px;min-width:42px;text-align:center;flex-shrink:0;}
+.tl-info{flex:1;}
 .tl-drug{font-size:13px;font-weight:700;color:#111827;}
 .tl-ing{font-size:11px;color:#9ca3af;margin-left:6px;}
-.tl-mkt{font-size:11.5px;font-weight:700;color:#059669;margin-left:auto;flex-shrink:0;}
+.tl-mkt{font-size:11.5px;font-weight:700;margin-left:auto;flex-shrink:0;}
 
 /* STAT BOX */
 .stat-box{background:linear-gradient(135deg,#060f2d,#1a3a8f);border-radius:20px;padding:28px 30px;color:#fff;margin:36px 0;}
@@ -127,14 +137,14 @@ body{font-family:'Noto Sans KR',sans-serif;background:#f0f4fb;color:#1a1d2e;}
 footer{background:#060f2d;color:rgba(255,255,255,.35);text-align:center;padding:22px;font-size:11.5px;line-height:1.9;}
 footer a{color:rgba(255,255,255,.5);text-decoration:none;}
 
-/* ══ MODAL ══ */
+/* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(6,15,45,.75);backdrop-filter:blur(4px);z-index:9000;align-items:center;justify-content:center;padding:16px;}
 .modal-overlay.open{display:flex;}
 .modal-box{background:#fff;border-radius:20px;width:100%;max-width:860px;height:88vh;max-height:860px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.35);animation:slideUp .25s ease;}
 @keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
 .modal-head{display:flex;align-items:center;gap:12px;padding:14px 20px;background:#060f2d;color:#fff;flex-shrink:0;}
 .modal-head-title{flex:1;font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.85;}
-.modal-btn-new{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:11.5px;font-weight:700;padding:6px 14px;border-radius:16px;cursor:pointer;text-decoration:none;flex-shrink:0;transition:background .2s;}
+.modal-btn-new{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:11.5px;font-weight:700;padding:6px 14px;border-radius:16px;cursor:pointer;text-decoration:none;flex-shrink:0;}
 .modal-btn-new:hover{background:rgba(255,255,255,.28);}
 .modal-btn-close{background:#e8294a;border:none;color:#fff;font-size:18px;font-weight:900;width:34px;height:34px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .modal-btn-close:hover{background:#c0182e;}
@@ -192,10 +202,10 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
     <div class="mag-meta">
       <span class="mag-brand">PRO MR</span>
       <span class="mag-issue">CSO 위클리 매거진 &middot; 2026년 4월 4주차</span>
-      <span class="mag-date">2026.04.27</span>
+      <span class="mag-date">2026.04.21 &ndash; 04.27</span>
     </div>
-    <div class="mag-title">제네릭 약가 45% 충격파 &mdash;<br>CSO 수수료 전쟁과 2026 특허 만료 총정리</div>
-    <div class="mag-subtitle">이번 주 CSO 법인&middot;개인이 반드시 알아야 할 핵심 뉴스 + 올해 특허만료 품목 완전 정리</div>
+    <div class="mag-title">필수약 공급 중단 경고 &mdash;<br>약가 쇼크·급여재평가·특허만료 총정리</div>
+    <div class="mag-subtitle">이번 주(4월 21&ndash;27일) 발행 기사 중 CSO 법인&middot;개인이 반드시 알아야 할 뉴스만 선별</div>
     <div class="mag-divider"></div>
   </div>
 </div>
@@ -207,91 +217,146 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
 
 <div class="wrap">
 
-  <!-- HERO -->
-  <div class="news-link hero" data-url="https://www.pharmnews.com/news/articleView.html?idxno=302425" data-title="'약가 45%' 절벽 선 중소제약, CSO 수수료 전쟁서 '완패' 위기 — 팜뉴스" role="button" tabindex="0">
+  <!-- 안내 -->
+  <div class="notice-bar">
+    &#x1F4CC; <span>이번 호 수록 기사는 모두 <strong>2026년 4월 21&ndash;27일</strong> 사이 발행이 확인된 기사입니다. 날짜 확인이 안 된 기사는 싣지 않았습니다.</span>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <div class="news-link hero"
+       data-url="https://www.hitnews.co.kr/news/articleView.html?idxno=75601"
+       data-title="필수약 아티반 퇴장에 응급실 1차 치료제 공백 우려 — 히트뉴스 (4월 22일)"
+       role="button" tabindex="0">
     <div class="hero-img">
-      <img src="https://images.unsplash.com/photo-1563213126-a4273aed2016?w=640&q=80" alt="약가인하"
+      <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=640&q=80"
+           alt="응급실 의약품"
            onerror="this.parentElement.style.background='linear-gradient(135deg,#1a3a8f,#060f2d)';this.style.display='none'"/>
     </div>
     <div class="hero-body">
       <span class="hero-tag">&#x1F525; 이번 주 PICK</span>
-      <div class="hero-src">팜뉴스</div>
-      <div class="hero-title">'약가 45%' 절벽 선 중소제약, CSO 수수료 전쟁서 '완패' 위기</div>
-      <div class="hero-desc">정부가 제네릭 약가 기본 산정률을 53.55%에서 45%로 낮추면서 비혁신형 중소제약의 CSO 수수료 지급 여력이 급격히 떨어지고 있습니다. 어떤 품목이 살아남을지 지금 파악해야 합니다.</div>
+      <div class="hero-date">&#x1F4C5; 2026년 4월 22일 &middot; 히트뉴스</div>
+      <div class="hero-title">필수약 '아티반' 퇴장에<br>응급실 1차 치료제 공백 우려 확산</div>
+      <div class="hero-desc">낮은 약가로 설비 투자비를 회수할 수 없게 된 일동제약이 아티반 주사제 생산을 중단했습니다. 약가 인하가 단순한 수익 문제를 넘어 필수의약품 공급 자체를 위협할 수 있다는 경고입니다. CSO 취급 품목의 공급 리스크 점검이 필요합니다.</div>
       <span class="hero-btn">기사 읽기 (팝업) &rarr;</span>
     </div>
   </div>
 
-  <!-- 약가·정책 -->
-  <div class="sec-head"><div class="sec-bar"></div><h2>&#x1F4CB; 약가 &middot; 정책</h2></div>
+  <!-- ══ 이번 주 주요 뉴스 ══ -->
+  <div class="sec-head"><div class="sec-bar"></div><h2>&#x1F4F0; 이번 주 주요 뉴스 (4월 21&ndash;27일)</h2></div>
   <div class="grid">
-    <div class="news-link card blue" data-url="https://www.pharmnews.com/news/articleView.html?idxno=302400" data-title="제네릭 약가 45% 시대 — 팜뉴스" role="button" tabindex="0">
-      <div class="card-icon">&#x1F4C9;</div>
+
+    <div class="news-link card red"
+         data-url="https://www.kpanews.co.kr/news/articleView.html?idxno=533654"
+         data-title="흔들리는 공급망 약국가 품절·반품·지연 삼중고 — 약사공론 (4월 4주차)"
+         role="button" tabindex="0">
+      <div class="card-icon">&#x1F6A8;</div>
       <div class="card-body">
-        <div class="card-src">팜뉴스</div>
-        <div class="card-title">제네릭 약가 45% 시대&hellip; 혁신형 기업 '완충' VS 중소사 '직격탄'</div>
-        <div class="card-foot"><span class="card-tag">#약가45%</span><span class="card-arr">&rsaquo;</span></div>
+        <div class="card-meta">
+          <span class="card-src">약사공론</span>
+          <span class="card-date">4월 4주차</span>
+        </div>
+        <div class="card-title">[위클리이슈] 흔들리는 공급망&hellip; 약국가 덮친 '품절·반품·지연' 삼중고</div>
+        <div class="card-foot"><span class="card-tag">#공급망위기</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </div>
-    <div class="news-link card red" data-url="https://www.hitnews.co.kr/news/articleView.html?idxno=75246" data-title="약가개편 후 CSO 향한 제약사 메시지 — 히트뉴스" role="button" tabindex="0">
-      <div class="card-icon">&#x1F3AF;</div>
+
+    <div class="news-link card purple"
+         data-url="https://www.kpanews.co.kr/news/articleView.html?idxno=533652"
+         data-title="1381억 급여재평가 반복 평가 확정 — 약사공론 (4월 4주차)"
+         role="button" tabindex="0">
+      <div class="card-icon">&#x1F504;</div>
       <div class="card-body">
-        <div class="card-src">히트뉴스</div>
-        <div class="card-title">약가개편 후 CSO 향한 제약사들 은근한 메시지&hellip; "우린 혁신형"</div>
-        <div class="card-foot"><span class="card-tag">#혁신형전략</span><span class="card-arr">&rsaquo;</span></div>
+        <div class="card-meta">
+          <span class="card-src">약사공론</span>
+          <span class="card-date">4월 4주차</span>
+        </div>
+        <div class="card-title">[위클리이슈] 1381억 규모 급여재평가&hellip; 필요 시 반복 평가 방침 확정</div>
+        <div class="card-foot"><span class="card-tag">#급여재평가</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </div>
-    <div class="news-link card green" data-url="https://www.hitnews.co.kr/news/articleView.html?idxno=75302" data-title="혁신형 제약 인증 기준 개편 — 히트뉴스" role="button" tabindex="0">
-      <div class="card-icon">&#x2705;</div>
+
+    <div class="news-link card blue"
+         data-url="https://www.hitnews.co.kr/news/articleView.html?idxno=75686"
+         data-title="AACR 2026 K-바이오 성과 — 히트뉴스 (4월 25일~)"
+         role="button" tabindex="0">
+      <div class="card-icon">&#x1F9EC;</div>
       <div class="card-body">
-        <div class="card-src">히트뉴스</div>
-        <div class="card-title">혁신형 제약, 평균 65점 이상이면 통과&hellip; 공급망 기여 항목 신설</div>
-        <div class="card-foot"><span class="card-tag">#혁신형인증</span><span class="card-arr">&rsaquo;</span></div>
+        <div class="card-meta">
+          <span class="card-src">히트뉴스</span>
+          <span class="card-date">4월 25일~</span>
+        </div>
+        <div class="card-title">글로벌 바이오판 달군 'AACR 위크'&hellip; K-바이오 무엇을 얻었나</div>
+        <div class="card-foot"><span class="card-tag">#K바이오</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </div>
-    <div class="news-link card orange" data-url="https://www.hitnews.co.kr/news/articleView.html?idxno=75260" data-title="약가인하 긴급점검 세미나 — 히트뉴스" role="button" tabindex="0">
-      <div class="card-icon">&#x26A0;&#xFE0F;</div>
+
+    <div class="news-link card teal"
+         data-url="https://www.hitnews.co.kr/news/articleView.html?idxno=75609"
+         data-title="한미약품 AACR 2026 STING mRNA 전임상 — 히트뉴스 (4월 21일)"
+         role="button" tabindex="0">
+      <div class="card-icon">&#x1F489;</div>
       <div class="card-body">
-        <div class="card-src">히트뉴스</div>
-        <div class="card-title">약가인하에 혁신형제약 부담까지? 긴급점검 세미나 개최</div>
-        <div class="card-foot"><span class="card-tag">#약가부담</span><span class="card-arr">&rsaquo;</span></div>
+        <div class="card-meta">
+          <span class="card-src">히트뉴스</span>
+          <span class="card-date">4월 21일</span>
+        </div>
+        <div class="card-title">[AACR] 한미약품, 'STING mRNA' 치료제 전임상 결과 주목</div>
+        <div class="card-foot"><span class="card-tag">#한미약품</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </div>
-    <div class="news-link card purple" data-url="https://www.hitnews.co.kr/news/articleView.html?idxno=75326" data-title="약가제도 개선·공급 불안 — 히트뉴스" role="button" tabindex="0">
-      <div class="card-icon">&#x1F4F0;</div>
-      <div class="card-body">
-        <div class="card-src">히트뉴스</div>
-        <div class="card-title">약가제도 개선&middot;의료용 소재 공급 불안&hellip; 계속되는 제약업계 혼란</div>
-        <div class="card-foot"><span class="card-tag">#업계동향</span><span class="card-arr">&rsaquo;</span></div>
-      </div>
-    </div>
-    <div class="news-link card teal" data-url="https://www.apsk.co.kr/news/articleView.html?idxno=539111" data-title="약가 인하보다 무서운 CSO 눈치 보기 — 메디팜스투데이" role="button" tabindex="0">
+
+    <div class="news-link card orange"
+         data-url="https://www.apsk.co.kr/news/articleView.html?idxno=539111"
+         data-title="약가 인하보다 무서운 CSO 눈치 보기 — 메디팜스투데이 (4월)"
+         role="button" tabindex="0">
       <div class="card-icon">&#x1F4A1;</div>
       <div class="card-body">
-        <div class="card-src">메디팜스투데이</div>
+        <div class="card-meta">
+          <span class="card-src">메디팜스투데이</span>
+          <span class="card-date amber">4월</span>
+        </div>
         <div class="card-title">약가 인하보다 무서운 'CSO 눈치 보기'&hellip; R&amp;D 동력 꺼질라</div>
         <div class="card-foot"><span class="card-tag">#CSO수수료</span><span class="card-arr">&rsaquo;</span></div>
       </div>
     </div>
+
+    <div class="news-link card green"
+         data-url="https://www.kpanews.co.kr/news/articleView.html?idxno=533362"
+         data-title="릭시아나 제네릭 11월 진입 시장 50% 감소 — 약사공론 (4월)"
+         role="button" tabindex="0">
+      <div class="card-icon">&#x1F4C9;</div>
+      <div class="card-body">
+        <div class="card-meta">
+          <span class="card-src">약사공론</span>
+          <span class="card-date amber">4월</span>
+        </div>
+        <div class="card-title">릭시아나 제네릭 11월 진입&hellip; 시장 규모 최대 50% 감소 전망</div>
+        <div class="card-foot"><span class="card-tag">#릭시아나</span><span class="card-arr">&rsaquo;</span></div>
+      </div>
+    </div>
+
   </div>
 
-  <!-- ══════════════════════════════════
-       2026 특허만료 의약품 — NEW 섹션
-  ══════════════════════════════════ -->
-  <div class="sec-head"><div class="sec-bar"></div><h2>&#x1F512; 2026년 특허 만료 의약품 완전 정리</h2></div>
+  <!-- ══ 2026 특허만료 (상시) ══ -->
+  <div class="sec-head"><div class="sec-bar"></div><h2>&#x1F512; 2026년 특허 만료 의약품 — 연중 상시 정보</h2></div>
+  <div class="patent-note">
+    &#x1F4CC; 특허만료 섹션은 2026년 연중 유효한 상시 정보입니다. 매주 최신 동향을 반영해 업데이트합니다.
+  </div>
 
   <div class="patent-grid">
 
-    <!-- 엑스탄디 (6월) -->
-    <div class="news-link pat-card" data-url="https://www.monews.co.kr/news/articleView.html?idxno=410791" data-title="릭시아나·엑스탄디 올해 특허 만료 — 메디칼업저버" role="button" tabindex="0">
+    <div class="news-link pat-card"
+         data-url="https://www.monews.co.kr/news/articleView.html?idxno=410791"
+         data-title="엑스탄디 6월 특허만료 제네릭 경쟁 — 메디칼업저버"
+         role="button" tabindex="0">
       <div class="pat-header">
         <div class="pat-brand">엑스탄디</div>
         <span class="pat-badge red">6월 만료</span>
       </div>
       <div class="pat-divider"></div>
       <div class="pat-body">
-        <div class="pat-ingredient">성분명 <strong>엔잘루타마이드</strong><br>(Enzalutamide)</div>
-        <div class="pat-exp"><span class="pat-exp-icon">&#x23F0;</span><span class="pat-exp-date">2026년 6월 27일</span></div>
+        <div class="pat-ingredient">성분명 <strong>엔잘루타마이드</strong> (Enzalutamide)</div>
+        <div class="pat-exp"><span>&#x23F0;</span><span class="pat-exp-date">2026년 6월 27일</span></div>
         <div class="pat-market">처방 시장 <strong>연 ~400억원대</strong></div>
         <span class="pat-category">전립선암 치료제</span>
       </div>
@@ -300,16 +365,18 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
       </div>
     </div>
 
-    <!-- 엘리퀴스 (9월) -->
-    <div class="news-link pat-card" data-url="https://www.monews.co.kr/news/articleView.html?idxno=333439" data-title="9월 특허만료 엘리퀴스, 제네릭 경쟁 재점화 — 메디칼업저버" role="button" tabindex="0">
+    <div class="news-link pat-card"
+         data-url="https://www.monews.co.kr/news/articleView.html?idxno=333439"
+         data-title="엘리퀴스 9월 특허만료 제네릭 재점화 — 메디칼업저버"
+         role="button" tabindex="0">
       <div class="pat-header">
         <div class="pat-brand">엘리퀴스</div>
         <span class="pat-badge orange">9월 만료</span>
       </div>
       <div class="pat-divider"></div>
       <div class="pat-body">
-        <div class="pat-ingredient">성분명 <strong>아픽사반</strong><br>(Apixaban)</div>
-        <div class="pat-exp"><span class="pat-exp-icon">&#x23F0;</span><span class="pat-exp-date">2026년 9월 9일</span></div>
+        <div class="pat-ingredient">성분명 <strong>아픽사반</strong> (Apixaban)</div>
+        <div class="pat-exp"><span>&#x23F0;</span><span class="pat-exp-date">2026년 9월 9일</span></div>
         <div class="pat-market">처방 시장 <strong>연 ~2,000억원대</strong></div>
         <span class="pat-category">항응고제 (NOAC)</span>
       </div>
@@ -318,16 +385,18 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
       </div>
     </div>
 
-    <!-- 자디앙 (10월) -->
-    <div class="news-link pat-card" data-url="https://www.monews.co.kr/news/articleView.html?idxno=405226" data-title="자디앙 특허 만료 임박, 1000억 시장 공략 — 메디칼업저버" role="button" tabindex="0">
+    <div class="news-link pat-card"
+         data-url="https://www.monews.co.kr/news/articleView.html?idxno=405226"
+         data-title="자디앙 10월 특허만료 1000억 시장 — 메디칼업저버"
+         role="button" tabindex="0">
       <div class="pat-header">
         <div class="pat-brand">자디앙</div>
         <span class="pat-badge amber">10월 만료</span>
       </div>
       <div class="pat-divider"></div>
       <div class="pat-body">
-        <div class="pat-ingredient">성분명 <strong>엠파글리플로진</strong><br>(Empagliflozin)</div>
-        <div class="pat-exp"><span class="pat-exp-icon">&#x23F0;</span><span class="pat-exp-date">2026년 10월 23일</span></div>
+        <div class="pat-ingredient">성분명 <strong>엠파글리플로진</strong> (Empagliflozin)</div>
+        <div class="pat-exp"><span>&#x23F0;</span><span class="pat-exp-date">2026년 10월 23일</span></div>
         <div class="pat-market">처방 시장 <strong>연 ~1,000억원+</strong></div>
         <span class="pat-category">SGLT-2억제제 (당뇨·심부전)</span>
       </div>
@@ -336,16 +405,18 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
       </div>
     </div>
 
-    <!-- 릭시아나 (11월) -->
-    <div class="news-link pat-card" data-url="https://www.kpanews.co.kr/news/articleView.html?idxno=533362" data-title="릭시아나 제네릭 11월 진입, 시장 50% 감소 전망 — 약사공론" role="button" tabindex="0">
+    <div class="news-link pat-card"
+         data-url="https://www.kpanews.co.kr/news/articleView.html?idxno=533362"
+         data-title="릭시아나 11월 특허만료 시장 50% 감소 — 약사공론"
+         role="button" tabindex="0">
       <div class="pat-header">
         <div class="pat-brand">릭시아나</div>
         <span class="pat-badge blue">11월 만료</span>
       </div>
       <div class="pat-divider"></div>
       <div class="pat-body">
-        <div class="pat-ingredient">성분명 <strong>에독사반</strong><br>(Edoxaban)</div>
-        <div class="pat-exp"><span class="pat-exp-icon">&#x23F0;</span><span class="pat-exp-date">2026년 11월 10일</span></div>
+        <div class="pat-ingredient">성분명 <strong>에독사반</strong> (Edoxaban)</div>
+        <div class="pat-exp"><span>&#x23F0;</span><span class="pat-exp-date">2026년 11월 10일</span></div>
         <div class="pat-market">처방 시장 <strong>연 ~1,200억원대</strong></div>
         <span class="pat-category">항응고제 (NOAC)</span>
       </div>
@@ -356,63 +427,27 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
 
   </div>
 
-  <!-- 타임라인 요약 -->
   <div class="timeline">
-    <h4>&#x1F5D3; 2026년 특허만료 타임라인 요약</h4>
+    <h4>&#x1F5D3; 2026년 특허만료 타임라인</h4>
     <div class="tl-row">
-      <span class="tl-month red">6월</span>
-      <span class="tl-drug">엑스탄디</span><span class="tl-ing">엔잘루타마이드 / 전립선암</span>
+      <span class="tl-month" style="background:#e8294a;">6월</span>
+      <div class="tl-info"><span class="tl-drug">엑스탄디</span><span class="tl-ing">엔잘루타마이드 / 전립선암</span></div>
       <span class="tl-mkt" style="color:#e8294a;">~400억</span>
     </div>
     <div class="tl-row">
-      <span class="tl-month orange">9월</span>
-      <span class="tl-drug">엘리퀴스</span><span class="tl-ing">아픽사반 / 항응고제</span>
+      <span class="tl-month" style="background:#f59e0b;">9월</span>
+      <div class="tl-info"><span class="tl-drug">엘리퀴스</span><span class="tl-ing">아픽사반 / 항응고제</span></div>
       <span class="tl-mkt" style="color:#059669;">~2,000억</span>
     </div>
     <div class="tl-row">
-      <span class="tl-month orange">10월</span>
-      <span class="tl-drug">자디앙</span><span class="tl-ing">엠파글리플로진 / 당뇨·심부전</span>
+      <span class="tl-month" style="background:#f59e0b;">10월</span>
+      <div class="tl-info"><span class="tl-drug">자디앙</span><span class="tl-ing">엠파글리플로진 / 당뇨·심부전</span></div>
       <span class="tl-mkt" style="color:#059669;">~1,000억+</span>
     </div>
     <div class="tl-row">
-      <span class="tl-month purple">11월</span>
-      <span class="tl-drug">릭시아나</span><span class="tl-ing">에독사반 / 항응고제</span>
+      <span class="tl-month" style="background:#7c3aed;">11월</span>
+      <div class="tl-info"><span class="tl-drug">릭시아나</span><span class="tl-ing">에독사반 / 항응고제</span></div>
       <span class="tl-mkt" style="color:#059669;">~1,200억</span>
-    </div>
-  </div>
-
-  <!-- 특허·제네릭 심화 -->
-  <div class="sec-head"><div class="sec-bar"></div><h2>&#x1F4F0; 관련 기사 심화 읽기</h2></div>
-  <div class="wlist">
-    <div class="news-link wcard" data-url="https://www.monews.co.kr/news/articleView.html?idxno=410791" data-title="릭시아나·엑스탄디 올해 특허 만료 — 메디칼업저버" role="button" tabindex="0">
-      <div class="wcard-accent" style="background:#e8294a;"></div>
-      <div class="wcard-icon-box">&#x1F489;</div>
-      <div class="wcard-body">
-        <div class="wcard-src">메디칼업저버</div>
-        <div class="wcard-title">릭시아나&middot;엑스탄디 올해 특허 만료, 국내 제네릭 경쟁 가열</div>
-        <div class="wcard-desc">국내 10개 이상 제약사가 특허 회피에 성공해 제네릭 출시 경쟁이 본격화됩니다. CSO 법인은 담당 품목 포트폴리오에 신규 제네릭 진입 여부를 사전 점검해야 합니다.</div>
-        <span class="wcard-tag">#릭시아나 #엑스탄디</span>
-      </div>
-    </div>
-    <div class="news-link wcard" data-url="https://www.monews.co.kr/news/articleView.html?idxno=405226" data-title="자디앙 1000억 시장 제네릭 공략 — 메디칼업저버" role="button" tabindex="0">
-      <div class="wcard-accent" style="background:#f59e0b;"></div>
-      <div class="wcard-icon-box">&#x1F4C8;</div>
-      <div class="wcard-body">
-        <div class="wcard-src">메디칼업저버</div>
-        <div class="wcard-title">'자디앙' 특허 만료 임박에 1000억원 시장 공략 나서는 제네릭</div>
-        <div class="wcard-desc">48개사 96개 품목이 허가를 마쳤습니다. 단, 미등재 특허 리스크가 존재해 출시 후 분쟁 가능성에 유의해야 합니다. 제네릭 위탁판매 계약 시점 결정이 중요합니다.</div>
-        <span class="wcard-tag">#자디앙 #SGLT2</span>
-      </div>
-    </div>
-    <div class="news-link wcard" data-url="https://www.kpanews.co.kr/news/articleView.html?idxno=533362" data-title="릭시아나 시장 50% 감소 전망 — 약사공론" role="button" tabindex="0">
-      <div class="wcard-accent" style="background:#7c3aed;"></div>
-      <div class="wcard-icon-box">&#x1F4CA;</div>
-      <div class="wcard-body">
-        <div class="wcard-src">약사공론</div>
-        <div class="wcard-title">릭시아나 제네릭 11월 진입&hellip; 시장 규모 최대 50% 감소 전망</div>
-        <div class="wcard-desc">오리지널 점유율 35~40%까지 하락 가능. 제네릭 품목을 보유한 CSO 법인에는 신규 영업 기회가 확대되나, 오리지널 단독 취급 법인은 수익 하락 리스크가 있습니다.</div>
-        <span class="wcard-tag">#시장기회 #리스크</span>
-      </div>
     </div>
   </div>
 
@@ -420,47 +455,10 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
   <div class="stat-box">
     <h3>&#x1F4CA; 이번 주 핵심 수치</h3>
     <div class="stats">
-      <div class="st"><div class="st-num">45%</div><div class="st-label">제네릭 약가 기본 산정률 (2026 하반기)</div><div class="st-val">기존 53.55%에서 인하 확정</div></div>
-      <div class="st"><div class="st-num">4,700억</div><div class="st-label">2026년 특허만료 4개 품목 합산 시장</div><div class="st-val">엘리퀴스·자디앙·릭시아나·엑스탄디</div></div>
-      <div class="st"><div class="st-num">50%</div><div class="st-label">릭시아나 시장 규모 감소 전망</div><div class="st-val">제네릭 11월 진입 시 최대치</div></div>
-      <div class="st"><div class="st-num">1381억</div><div class="st-label">2026년 급여재평가 대상 규모</div><div class="st-val">필요 시 반복 평가 가능</div></div>
-    </div>
-  </div>
-
-  <!-- CSO 실무 -->
-  <div class="sec-head"><div class="sec-bar"></div><h2>&#x2705; CSO 신고제 &middot; 준법 포인트</h2></div>
-  <div class="grid" style="margin-bottom:0;">
-    <div class="news-link card blue" data-url="https://dailypharm.com/user/news/336467" data-title="위탁 제네릭 약가 24% 하락 — 데일리팜" role="button" tabindex="0">
-      <div class="card-icon">&#x1F4B0;</div>
-      <div class="card-body">
-        <div class="card-src">데일리팜</div>
-        <div class="card-title">제네릭 기준 43% 설정되면 위탁 제네릭 약가 24% 하락</div>
-        <div class="card-foot"><span class="card-tag">#위탁약가</span><span class="card-arr">&rsaquo;</span></div>
-      </div>
-    </div>
-    <div class="news-link card red" data-url="https://www.kpanews.co.kr/article/show.asp?category=D&idx=253932" data-title="CSO 신고제 본격 시행 — 약사공론" role="button" tabindex="0">
-      <div class="card-icon">&#x1F4CB;</div>
-      <div class="card-body">
-        <div class="card-src">약사공론</div>
-        <div class="card-title">CSO 신고제 본격 시행&hellip; "신고 안 하면 영업 못 한다"</div>
-        <div class="card-foot"><span class="card-tag">#CSO신고제</span><span class="card-arr">&rsaquo;</span></div>
-      </div>
-    </div>
-    <div class="news-link card green" data-url="https://www.dailypharm.com/News/323930" data-title="CSO 신고제 시행 6개월…만족 41%·불만족 18% — 데일리팜 (2025)" role="button" tabindex="0">
-      <div class="card-icon">&#x1F4C4;</div>
-      <div class="card-body">
-        <div class="card-src">데일리팜 · 2025</div>
-        <div class="card-title">CSO 신고제 시행 6개월&hellip; 만족 41% &middot; 불만족 18% 현장 평가</div>
-        <div class="card-foot"><span class="card-tag">#신고제현황</span><span class="card-arr">&rsaquo;</span></div>
-      </div>
-    </div>
-    <div class="news-link card orange" data-url="https://www.dailypharm.com/News/323932" data-title="CSO 5곳 중 2곳, 영업관행 변화없다 — 데일리팜 (2025)" role="button" tabindex="0">
-      <div class="card-icon">&#x1F6A8;</div>
-      <div class="card-body">
-        <div class="card-src">데일리팜 · 2025</div>
-        <div class="card-title">CSO 5곳 중 2곳, 새 제도 도입에도 영업관행 변화없다</div>
-        <div class="card-foot"><span class="card-tag">#영업관행</span><span class="card-arr">&rsaquo;</span></div>
-      </div>
+      <div class="st"><div class="st-num">0원</div><div class="st-label">아티반 주사제 재고 여유 기간</div><div class="st-val">7월 소진 후 공급 공백 현실화</div></div>
+      <div class="st"><div class="st-num">1381억</div><div class="st-label">2026 급여재평가 대상 규모</div><div class="st-val">상시 반복 평가 체계 전환</div></div>
+      <div class="st"><div class="st-num">4,700억</div><div class="st-label">2026 특허만료 4개 품목 합산 시장</div><div class="st-val">엘리퀴스·자디앙·릭시아나·엑스탄디</div></div>
+      <div class="st"><div class="st-num">50%</div><div class="st-label">릭시아나 오리지널 시장 감소 전망</div><div class="st-val">11월 제네릭 진입 시 최대치</div></div>
     </div>
   </div>
 
@@ -479,7 +477,7 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
 
 <footer>
   CSO 위클리 매거진 &middot; powered by <a href="https://promr.co.kr">ProMR</a> &middot; 매주 금요일 발행<br>
-  <span>&#169; 2026 ProMR. 본 매거진은 공개된 뉴스 자료를 요약 제공합니다.</span>
+  <span>&#169; 2026 ProMR &middot; 수록 기사는 각 언론사의 저작권에 귀속됩니다.</span>
 </footer>
 
 <script>
@@ -521,8 +519,14 @@ footer a{color:rgba(255,255,255,.5);text-decoration:none;}
   modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
   document.querySelectorAll('.news-link').forEach(function(el){
-    el.addEventListener('click',function(e){e.preventDefault();var u=el.getAttribute('data-url'),t=el.getAttribute('data-title');if(u)openModal(u,t);});
-    el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click();}});
+    el.addEventListener('click',function(e){
+      e.preventDefault();
+      var u=el.getAttribute('data-url'),t=el.getAttribute('data-title');
+      if(u)openModal(u,t);
+    });
+    el.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click();}
+    });
   });
 })();
 </script>
