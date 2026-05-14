@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSO 위클리 매거진 | 2026년 5월 20주차</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0d1b3e;
+    --navy-light: #162450;
+    --red: #e02020;
+    --red-dark: #b01818;
+    --gold: #f0a500;
+    --gray-light: #f5f7fa;
+    --gray: #e2e8f0;
+    --gray-text: #64748b;
+    --white: #ffffff;
+    --text: #1e293b;
+    --green: #16a34a;
+    --blue: #2563eb;
+    --purple: #7c3aed;
+    --orange: #ea580c;
+  }
+  body { font-family: 'Noto Sans KR', sans-serif; color: var(--text); background: var(--gray-light); line-height: 1.7; }
+  a { text-decoration: none; color: inherit; }
+
+  .site-header {
+    background: linear-gradient(135deg, var(--navy) 0%, #1a3060 100%);
+    padding: 0;
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .header-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 20px;
+  }
+  .logo-area { display: flex; align-items: center; gap: 12px; }
+  .logo-icon {
+    width: 42px; height: 42px; background: var(--red);
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 900; color: white;
+  }
+  .logo-text { color: white; }
+  .logo-text .main { font-size: 18px; font-weight: 700; display: block; letter-spacing: -0.5px; }
+  .logo-text .sub { font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.6); display: block; }
+  .header-badge {
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2);
+    color: white; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 500;
+    text-align: right;
+  }
+  .header-badge .week { display: block; font-size: 15px; font-weight: 700; }
+
+  .promr-banner {
+    background: linear-gradient(135deg, #c0392b 0%, #e74c3c 40%, #c0392b 100%);
+    padding: 18px 20px;
+  }
+  .promr-banner-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  }
+  .promr-banner-text .title {
+    color: white; font-size: 16px; font-weight: 700; display: block; letter-spacing: -0.3px;
+  }
+  .promr-banner-text .subtitle {
+    color: rgba(255,255,255,0.85); font-size: 12px; display: block; margin-top: 2px;
+  }
+  .promr-banner-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  .btn-white {
+    background: white; color: var(--red-dark); font-size: 13px; font-weight: 700;
+    padding: 8px 18px; border-radius: 6px; display: inline-block;
+    transition: all 0.2s; white-space: nowrap;
+  }
+  .btn-outline {
+    background: transparent; color: white; font-size: 13px; font-weight: 600;
+    padding: 8px 18px; border-radius: 6px; border: 1.5px solid rgba(255,255,255,0.6);
+    display: inline-block; white-space: nowrap;
+  }
+
+  .hero {
+    background: linear-gradient(160deg, #0d1b3e 0%, #162450 60%, #1e3a6e 100%);
+    padding: 50px 20px 40px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: -50%; right: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(224,32,32,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-label {
+    display: inline-block; background: var(--red); color: white;
+    padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
+    margin-bottom: 16px; letter-spacing: 0.5px;
+  }
+  .hero-title { color: white; font-size: 28px; font-weight: 900; line-height: 1.3; margin-bottom: 8px; }
+  .hero-subtitle { color: rgba(255,255,255,0.65); font-size: 14px; margin-bottom: 36px; }
+  .hero-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
+  .stat-card {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px; padding: 20px; text-align: center;
+  }
+  .stat-card .num { color: var(--gold); font-size: 32px; font-weight: 900; display: block; }
+  .stat-card .unit { color: white; font-size: 14px; font-weight: 700; }
+  .stat-card .desc { color: rgba(255,255,255,0.5); font-size: 11px; margin-top: 4px; display: block; }
+
+  .main-content { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+  .section-title {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 20px; margin-top: 40px;
+  }
+  .section-title:first-child { margin-top: 0; }
+  .section-title .icon { font-size: 22px; }
+  .section-title h2 { font-size: 20px; font-weight: 800; color: var(--navy); }
+  .section-title .line { flex: 1; height: 2px; background: var(--gray); border-radius: 2px; }
+
+  .top3-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 20px; }
+  .top3-card {
+    background: white; border-radius: 16px; overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    transition: all 0.3s; display: flex; flex-direction: column;
+    border-top: 4px solid var(--red);
+  }
+  .top3-card:nth-child(2) { border-top-color: var(--gold); }
+  .top3-card:nth-child(3) { border-top-color: var(--navy); }
+  .top3-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12); }
+  .top3-header { padding: 20px 20px 12px; display: flex; align-items: flex-start; gap: 12px; }
+  .rank-badge {
+    width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center;
+    justify-content: center; font-size: 18px; font-weight: 900; color: white; flex-shrink: 0;
+  }
+  .rank-1 { background: var(--red); }
+  .rank-2 { background: var(--gold); }
+  .rank-3 { background: var(--navy); }
+  .top3-meta { flex: 1; }
+  .top3-body { padding: 0 20px 20px; flex: 1; display: flex; flex-direction: column; }
+  .top3-title a { font-size: 16px; font-weight: 700; color: var(--navy); line-height: 1.4; display: block; margin-bottom: 12px; }
+  .top3-title a:hover { color: var(--red); }
+  .top3-summary { font-size: 13px; color: var(--gray-text); line-height: 1.7; flex: 1; }
+  .insight-box {
+    background: linear-gradient(135deg, #fff5f5, #fff8f8); border-left: 3px solid var(--red);
+    padding: 12px 14px; border-radius: 0 8px 8px 0; margin-top: 14px;
+    font-size: 12px; color: #7f1d1d; line-height: 1.6;
+  }
+  .insight-box .insight-label { font-weight: 700; color: var(--red); margin-bottom: 4px; display: block; }
+
+  .news-grid { display: grid; gap: 16px; }
+  .news-card {
+    background: white; border-radius: 14px; padding: 22px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    transition: all 0.25s; display: grid; grid-template-columns: auto 1fr; gap: 16px;
+    align-items: start;
+  }
+  .news-card:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.1); }
+  .news-num {
+    width: 36px; height: 36px; border-radius: 10px; background: var(--gray-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px; font-weight: 800; color: var(--navy); flex-shrink: 0;
+  }
+  .news-content { display: flex; flex-direction: column; gap: 8px; }
+  .news-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag {
+    padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 600;
+    display: inline-block;
+  }
+  .tag-cso { background: #fee2e2; color: #b91c1c; }
+  .tag-reg { background: #dbeafe; color: #1d4ed8; }
+  .tag-market { background: #d1fae5; color: #065f46; }
+  .tag-drug { background: #ede9fe; color: #5b21b6; }
+  .tag-source { background: var(--gray-light); color: var(--gray-text); border: 1px solid var(--gray); }
+  .tag-date { color: var(--gray-text); font-size: 11px; }
+  .news-title a {
+    font-size: 15px; font-weight: 700; color: var(--navy); line-height: 1.4;
+    display: block;
+  }
+  .news-title a:hover { color: var(--red); }
+  .news-summary { font-size: 13px; color: var(--gray-text); line-height: 1.7; }
+  .news-insight {
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe); border-left: 3px solid var(--blue);
+    padding: 10px 12px; border-radius: 0 6px 6px 0; margin-top: 4px;
+    font-size: 12px; color: #1e3a5f; line-height: 1.6;
+  }
+  .news-insight .il { font-weight: 700; color: var(--blue); margin-right: 4px; }
+
+  .card-red .news-num { background: #fee2e2; color: var(--red); }
+  .card-blue .news-num { background: #dbeafe; color: var(--blue); }
+  .card-green .news-num { background: #d1fae5; color: var(--green); }
+  .card-purple .news-num { background: #ede9fe; color: var(--purple); }
+
+  .promr-feature {
+    background: linear-gradient(135deg, #0d1b3e 0%, #162450 100%);
+    border-radius: 20px; padding: 40px; margin-top: 50px;
+    box-shadow: 0 8px 40px rgba(13,27,62,0.3);
+  }
+  .promr-feature-header { text-align: center; margin-bottom: 36px; }
+  .promr-feature-header .badge {
+    display: inline-block; background: var(--red); color: white;
+    padding: 5px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; margin-bottom: 14px;
+  }
+  .promr-feature-header h2 { color: white; font-size: 24px; font-weight: 900; line-height: 1.3; }
+  .promr-feature-header p { color: rgba(255,255,255,0.6); font-size: 14px; margin-top: 8px; }
+  .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 32px; }
+  .feature-item {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; padding: 20px;
+  }
+  .feature-icon { font-size: 28px; margin-bottom: 10px; }
+  .feature-item h3 { color: var(--gold); font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .feature-item p { color: rgba(255,255,255,0.65); font-size: 12px; line-height: 1.6; }
+  .promr-cta { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .btn-red {
+    background: var(--red); color: white; padding: 13px 28px; border-radius: 8px;
+    font-size: 14px; font-weight: 700; display: inline-block;
+  }
+  .btn-ghost {
+    background: transparent; color: white; padding: 13px 28px; border-radius: 8px;
+    font-size: 14px; font-weight: 600; border: 1.5px solid rgba(255,255,255,0.4);
+    display: inline-block;
+  }
+
+  .site-footer { background: var(--navy); padding: 32px 20px; margin-top: 60px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; }
+  .footer-title { color: rgba(255,255,255,0.5); font-size: 11px; font-weight: 500; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .footer-sources { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+  .footer-source {
+    background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7);
+    padding: 4px 10px; border-radius: 4px; font-size: 12px; border: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-copy { color: rgba(255,255,255,0.35); font-size: 12px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 16px; }
+
+  @media (max-width: 640px) {
+    .header-inner { flex-direction: column; gap: 10px; text-align: center; }
+    .hero-title { font-size: 22px; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .top3-grid { grid-template-columns: 1fr; }
+    .promr-banner-inner { flex-direction: column; text-align: center; }
+    .promr-banner-actions { justify-content: center; }
+    .promr-feature { padding: 24px 16px; }
+    .news-card { grid-template-columns: 1fr; }
+    .news-num { display: none; }
+    .feature-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-area">
+      <div class="logo-icon">C</div>
+      <div class="logo-text">
+        <span class="main">CSO 위클리 매거진</span>
+        <span class="sub">의약품 판매대행 전문 뉴스레터</span>
+      </div>
+    </div>
+    <div class="header-badge">
+      <span>2026년 5월</span>
+      <span class="week">제 20 주차</span>
+    </div>
+  </div>
+</header>
+
+<div class="promr-banner">
+  <div class="promr-banner-inner">
+    <div class="promr-banner-text">
+      <span class="title">🚀 프로엠알(ProMR) — CSO·CMR 전용 제약영업 SaaS 플랫폼 No.1 · 특허 등록</span>
+      <span class="subtitle">EDI 자동정산 · CSO 신고제 완벽 대응 · 계약·지출 5년 보관 · 제약사-CSO 매칭 · 품목별 수익 분석</span>
+    </div>
+    <div class="promr-banner-actions">
+      <a href="https://promr.co.kr" target="_blank" class="btn-white">무료 시작하기</a>
+      <a href="https://play.google.com/store/apps/details?id=kr.co.promr" target="_blank" class="btn-outline">앱 다운로드</a>
+    </div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-label">📰 2026년 5월 3주차 · 5월 8일~14일</span>
+    <h1 class="hero-title">약가 인하 쓰나미, CSO 생존 전략 총점검</h1>
+    <p class="hero-subtitle">이번 주 핵심: 제네릭 약가인하 본격화로 CSO 수익구조 재편 · 백대백 프로모션 재등장 · 지출보고서 실태조사 임박</p>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <span class="num">15</span>
+        <span class="unit">건 선별 뉴스</span>
+        <span class="desc">수집 38건 중 상위</span>
+      </div>
+      <div class="stat-card">
+        <span class="num">80%</span>
+        <span class="unit">CSO 수수료 최고치</span>
+        <span class="desc">약가인하 여파</span>
+      </div>
+      <div class="stat-card">
+        <span class="num">6월</span>
+        <span class="unit">지출보고서 실태조사</span>
+        <span class="desc">6월 1일 ~ 7월 31일</span>
+      </div>
+      <div class="stat-card">
+        <span class="num">45%</span>
+        <span class="unit">제네릭 약가 목표</span>
+        <span class="desc">현행 53.55% → 장기 45%</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="main-content">
+
+  <div class="section-title">
+    <span class="icon">🏆</span>
+    <h2>이주의 TOP 3 핵심 뉴스</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="top3-grid">
+
+    <div class="top3-card">
+      <div class="top3-header">
+        <div class="rank-badge rank-1">1</div>
+        <div class="top3-meta">
+          <div class="news-tags">
+            <span class="tag tag-cso">CSO 직접 이슈</span>
+            <span class="tag tag-source">메디칼타임즈</span>
+          </div>
+          <div class="tag-date">2026.05.12</div>
+        </div>
+      </div>
+      <div class="top3-body">
+        <div class="top3-title">
+          <a href="https://www.medicaltimes.com/Main/News/NewsView.html?ID=1167835" target="_blank">
+            약가 인하 직격탄… 제약 CSO업계 수익 구조 붕괴 기로
+          </a>
+        </div>
+        <div class="top3-summary">
+          정부의 제네릭 약가인하 로드맵(현행 53.55% → 최종 45% 목표)이 확정되면서 CSO 업계 전반에 수익 구조 재편 압박이 거세지고 있다. 제약사 마진이 줄면 위탁 수수료율도 동반 하락할 수밖에 없어, 일부 대형 CSO 대표는 "제약사의 경영 위기가 곧 CSO 소멸로 이어지는 공멸 구조"라고 경고한다.
+        </div>
+        <div class="insight-box">
+          <span class="insight-label">💡 CSO 실무 인사이트</span>
+          약가인하 이전에 계약 중인 품목의 수수료율을 재검토하고, 고수익 오리지널·특허 품목 비중 확대 전략이 필요합니다. ProMR의 품목별 수익 분석 기능으로 포트폴리오를 즉시 점검하세요.
+        </div>
+      </div>
+    </div>
+
+    <div class="top3-card">
+      <div class="top3-header">
+        <div class="rank-badge rank-2">2</div>
+        <div class="top3-meta">
+          <div class="news-tags">
+            <span class="tag tag-cso">CSO 직접 이슈</span>
+            <span class="tag tag-source">메디칼타임즈</span>
+          </div>
+          <div class="tag-date">2026.05.09</div>
+        </div>
+      </div>
+      <div class="top3-body">
+        <div class="top3-title">
+          <a href="https://www.medicaltimes.com/Users/News/NewsView.html?ID=1167365" target="_blank">
+            약가인하 칼바람에 제약 영업 흔들… 대형사도 CSO 검토
+          </a>
+        </div>
+        <div class="top3-summary">
+          약가인하 여파로 직영 영업 유지 비용이 급등하면서 대형 제약사들까지 CSO 전환 가능성을 내부적으로 검토하고 있다. 한 대형 제약사 임원은 "판관비 절감이 불가피한 상황에서 CSO가 현실적 대안"이라고 밝혔으며, 업계는 CSO 시장 규모가 연간 5조원 이상으로 확대될 것으로 전망한다.
+        </div>
+        <div class="insight-box">
+          <span class="insight-label">💡 CSO 실무 인사이트</span>
+          대형 제약사의 CSO 전환 움직임은 개인 CSO 영업자에게 대형 파트너사 확보의 기회입니다. ProMR의 제약사-CSO 매칭 기능을 통해 신규 계약 기회를 선점하세요.
+        </div>
+      </div>
+    </div>
+
+    <div class="top3-card">
+      <div class="top3-header">
+        <div class="rank-badge rank-3">3</div>
+        <div class="top3-meta">
+          <div class="news-tags">
+            <span class="tag tag-market">시장 동향</span>
+            <span class="tag tag-source">시사저널e</span>
+          </div>
+          <div class="tag-date">2026.05.08</div>
+        </div>
+      </div>
+      <div class="top3-body">
+        <div class="top3-title">
+          <a href="https://www.sisajournal-e.com/news/articleView.html?idxno=421031" target="_blank">
+            CSO 전환 3년 유유·위더스제약, 엇갈린 수익성… 판관비가 핵심
+          </a>
+        </div>
+        <div class="top3-summary">
+          2023년 CSO 전환 동기에 나선 유유제약과 위더스제약의 3년 성적표가 갈렸다. 유유제약은 판관비를 485억원→400억원으로 낮춰 영업이익 110억원(2025년)을 달성한 반면, 위더스제약은 판관비가 407억원→632억원으로 급등하며 영업이익이 79억원→57억원으로 떨어졌다. CSO 전환 성공의 핵심은 '판관비 통제'임을 입증했다.
+        </div>
+        <div class="insight-box">
+          <span class="insight-label">💡 CSO 실무 인사이트</span>
+          제약사 파트너 선택 시 판관비 관리 능력을 반드시 점검하세요. 비용 구조가 불안한 제약사는 수수료 지급 능력이 약화될 수 있습니다. ProMR로 파트너사별 지급 이력과 계약 건전성을 관리하세요.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-title" style="margin-top:48px;">
+    <span class="icon">🔴</span>
+    <h2>CSO 직접 이슈</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="news-grid">
+
+    <div class="news-card card-red">
+      <div class="news-num">4</div>
+      <div class="news-content">
+        <div class="news-tags">
+          <span class="tag tag-cso">CSO 직접 이슈</span>
+          <span class="tag tag-source">데일리팜</span>
+          <span class="tag-date">2026.05.06</span>
+        </div>
+        <div class="news-title">
+          <a href="https://www.dailypharm.com/user/news/336865" target="_blank">
+            약가인하가 소환했나… 영업현장 '백대백' 프로모션 전쟁
+          </a>
+        </div>
+        <div class="news-summary">
+          약가인하를 앞두고 CSO에 처방액 전액(100%)을 수수료로 되돌려주는 '백대백(100:100)' 프로모션이 영업 현장에 다시 등장했다. 연매출 2000억원 규모의 중소제약사 A사가 치매치료제·고혈압복합제 등 20개 품목에 대해 4~6월 한시적으로 신규 처방액 전액을 CSO 수수료로 지급하고 있어 업계의 주목을 받고 있다.
+        </div>
+        <div class="news-insight">
+          <span class="il">💡 CSO 인사이트</span>백대백 프로모션은 단기 수입으로는 매력적이나, 지출보고서 실태조사 대상이 될 수 있습니다. 계약 전 ProMR에서 해당 품목의 합법 수수료 범위를 확인하고 서류를 철저히 보관하세요.
+        </div>
+      </div>
+    </div>
+
+    <div class="news-card card-red">
+      <div class="news-num">5</div>
+      <div class="news-content">
+        <div class="news-tags">
+          <span class="tag tag-cso">CSO 직접 이슈</span>
+          <span class="tag tag-source">이뉴스투데이</span>
+          <span class="tag-date">2026.05.07</span>
+        </div>
+        <div class="news-title">
+          <a href="http://www.enewstoday.co.kr/news/articleView.html?idxno=2427750" target="_blank">
+            "수수료 80%까지 치솟았다"… 약가 인하에 제약영업판 '혼전'
+          </a>
+        </div>
+        <div class="news-summary">
+          약가 인하 시점이 가까워질수록 중견·중소 제약사를 중심으로 CSO 수수료율이 최대 80%까지 상승하는 과열 경쟁이 벌어지고 있다. 정상적 영업이 불가능하다는 현장의 위기감이 반영된 결과로, 제약업계는 "규제 위주 정책이 현장에서 어떤 변칙적 부작용을 낳는지 정부가 직시해야 한다"고 비판한다.
+        </div>
+        <div class="news-insight">
+          <span class="il">💡 CSO 인사이트</span>수수료 80%는 리베이트 의심 대상이 될 수 있습니다. 고수수료 계약 시 반드시 합법적 구조인지 확인하고, ProMR의 계약·지출 5년 보관 기능으로 감사 대비 증빙을 준비하세요.
+        </div>
+      </div>
+    </div>
+
+    <div class="news-card card-red">
+      <div class="news-num">6</div>
+      <div class="news-content">
+        <div class="news-tags">
+          <span class="tag tag-cso">CSO 직접 이슈</span>
+          <span class="tag tag-source">데일리팜</span>
+          <span class="tag-date">2026.05.10</span>
+        </div>
+        <div class="news-title">
+          <a href="https://www.dailypharm.com/user/news/338249" target="_blank">
+            "팔수록 손해라도 일단 잡자"… 제약업계 변칙 영업 확산
+          </a>
+        </div>
+        <div class="news-summary">
+          약가인하 이전 처방 기반 확보에 사활을 건 중소 제약사들이 단기 손실을 감수하면서도 공격적 CSO 활용에 나서고 있다. '일단 잡고 보자'는 심리가 영업 현장에 팽배해지면서 과도한 수수료 지급, 무리한 계약 조건 등 변칙 영업이 확산되는 것으로 전해졌다.
+        </div>
+        <div class="news-insight">
+          <span class="il">💡 CSO 인사이트</span>단기 고수수료보다 장기 파트너십 계약이 더 안전합니다. 제약사의 재무 건전성을 사전에 확인하고, 변칙 조건은 향후 수수료 지급 불이행 리스크가 크므로 계약서 검토를 철저히 하세요.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-title">
+    <span class="icon">📋</span>
+    <h2>규제·정책</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="news-grid">
+
+    <div class="news-card card-blue">
+      <div class="news-num">7</div>
+      <div class="news-content">
+        <div class="news-tags">
+          <span class="tag tag-reg">규제·정책</span>
+          <span class="tag tag-source">약사공론</span>
+          <span class="tag-date">2026.05.08</span>
+        </div>
+        <div class="news-title">
+          <a href="https://www.kpanews.co.kr/news/articleView.html?idxno=534301" target="_blank">
+            정부, 제약 의약품 판촉 위탁계약 자료 수집… 오는 29일까지
+          </a>
+        </div>
+        <div class="news-summary">
+          보건복지부가 CSO 운영 제약사를 대상으로 의약품 판촉 위탁계약서, 재위탁 통보서 등 관련 서류를 이달 29일까지 제출하도록 요청했다. 이번 자료 수집은 CSO 신고제 도입 이후 실시되는 첫 공식 실태조사의 사전 작업으로, 정부가 CSO 시장 전반에 대한 본격적인 감시체계 구축에 나선 것으로 풀이된다.
+        </div>
+        <div class="news-insight">
+          <span class="il">💡 CSO 인사이트</span>위탁 계약을 맺은 제약사가 정부 요청 자료를 제출했는지 확인이 필요합니다. CSO 본인도 재위탁 구조가 있다면 관련 서류를 즉시 정비하고, ProMR의 계약 관리 기능으로 모든 계약서를 일목요연하게 보관하세요.
+        </div>
+      </div>
+    </div>
+
+    <div class="news-card card-blue">
+      <div class="news-num">8</div>
+      <div class="news-content">
+        <div class="news-tags">
+          <span class="tag tag-reg">규제·정책</span>
+          <span class="tag tag-source">약사공론</span>
+          <span class="tag-date">2026.05.07</span>
+        </div>
+        <div class="news-title">
+          <a href="https://www.kpanews.co.kr/news/articleView.html?idxno=534410" target="_blank">
+            6월부터 지출보고서 실태조사… 제약, 개정 서식 확인해야
+          </a>
+        </div>
+        <div class="news-summary">
+          건강보험심사평가원이 6월 1일부터 7월 31일까지 2025 회계연도 지출보고서 실태조사를 실시한다. 올해는 시판 후 조사와 대금결제 조건에 따른 비용할인 항목 서식이 개정되었으며, CSO(판촉영업자)도 조사 대상에 포함된다. 개정된 서식을 사전에 확인하고 준비하지 않으면 과태료 처분을 받을 수 있어 주의가 요구된다.
+        </div>
+        <div class="news-insight">
+          <span class="il">💡 CSO 인사이트</span>지출보고서 실태조사는 CSO에게도 직접 적용됩니다. 2025 회계연도 경제적 이익 제공 내역이 누락 없이 작성됐는지 즉시 점검하고, ProMR의 EDI 자동정산·지출 5년 보관 기능으로 서류를 완비하세요.
+        </div>
+      </div>
+    </div>
+
+    <div class="news-card card-blue">
+      <div class="news-num">9</div>
+      <div class="news-content">
+        <div class="news-tags">
+          <span class="tag tag-reg">규제·정책</span>
+          <span class="tag tag-source">약사공론</span>
+          <span class="tag-date">2026.04.28</span>
+        </div>
+        <div class="news-title">
+          <a href="https://www.kpanews.co.kr/news/articleView.html?idxno=530614" target="_blank">
+            CSO 등 판촉영업자 신고 시 영업소재지 서류제출 의무화 추진
+          </a>
+        </div>
+        <div class="news-summary">
+          현행 약사법은 영업소 소재지 신고만 규정해 실제 영업소 없이 활동하는 CSO가 많았으나, 정부는 의약품 판촉영업자가 신고 시 실제 영업소를 증명하는 서류를 반드시 제출하도록 의무화를 추진하고 있다. 이는 페이퍼컴퍼니 형태 CSO를 근절하고 의약품 유통 투명성을 높이기 위한 조치로, 입법 예고 후 이르면 하반기 시행될 예정이다.
+        </div>
+        <div class="news-insight">
+          <span class="il">💡 CSO 인사이트</span>개인 CSO 영업자도 실제 영업 소재지 증빙을 준비해야 합니다. 공유 사무실이나 가상 주소를 사용하는 경우 서류 구비를 지금부터 확인하고, 요건을 충족하지 못하면 신고 취소 리스크가 있습니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="news-card card-blue">
+      <div class="news-num">10</div>
+      <div class="news-content">
+        <div class="news-tags">
+          <span class="tag tag-reg">규제·정책</span>
+          <span class="tag tag-source">팜뉴스</span>
+          <span class="tag-date">2026.05.05</span>
+        </div>
+        <div class="news-title">
+          <a href="https://www.pharmnews.com/news/articleView.html?idxno=301968" target="_blank">
+            '법보다 촘촘한 규약' 2026 공정경쟁규약 개정안 핵심 포인트 분석
+          </a>
+        </div>
+        <div class="news-summary">
+          2026년 공정경쟁규약 개정으로 CSO 판촉 활동 전반에 새로운 기준이 적용된다. 계약서에 신고번호·수수료율·지출보고 확인·모니터링·해지 조항이 필수 포함되어야 하며, 7월부터는 공인 학술대회 후원만 허용되고 우회·중복 지원도 전면 금지된다. 부스 판촉물도 1만원 이하 펜·노트패드로만 한정된다.
+        </div>
+        <div class="news-insight">
+          <span class="il">💡 CSO 인사이트</span>기존 계약서에 신규 필수 조항이 빠져 있다면 즉시 추가 계약을 체결해야 합니다. 7월 이전에 예정된 학술대회 후원 활동도 공인 여부를 확인하고, ProMR 계약 관리로 모든 요건을 점검하세요.
+        </div>
+      </div>
+    </div>
+
+    <div class="news-card card-blue">
+      <div class="news-num">11</div>
+      <div class="news-content">
+        <div class="news-tags">
+          <span class="tag tag-reg">규제·정책</span>
+          <span class="tag tag-source">메디칼타임즈</span>
+          <span class="tag-date">2026.04.20</span>
+        </div>
+        <div class="news-title">
+          <a href="https://www.medicaltimes.com/Main/News/NewsView.html?ID=1155608" target="_blank">
+            제약사 영업대행 CSO, 지출보고서 레이더 본격 가동
+          </a>
+        </div>
+        <div class="news-summary">
+          심사평가원이 CSO를 포함한 판촉영업자의 지출보고서를 체계적으로 분석하는 모니터링 시스템을 본격 가동했다. 이상 데이터 패턴 감지 시 즉시 현장조사로 이어지는 구조로, 수수료율이 비정상적으로 높거나 지출 내역이 미비한 CSO가 우선 조사 대상이 된다.
+        </div>
+        <div class="news-insight">
+          <span class="il">💡 CSO 인사이트</span>단순 신고만으로는 부족합니다. 지출 내역의 적정성과 일관성이 중요하며, 수수료 수령과 지출 내역이 투명하게 연결되어야 합니다. ProMR의 EDI 자동정산 기능으로 이상 없는 지출 구조를 유지하세요.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-title">
+    <span class="icon">📈</span>
+    <h2>시장·처방 동향</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="news-grid">
+
+    <div class="news-card card-green">
+      <div class="news-num">12</div>
+      <div class="news-content">
+        <div class="news-tags">
+          <span class="tag tag-market">시장 동향</span>
+          <span class="tag tag-source">약사공론</span>
+          <span class="tag-date">2026.05.13</span>
+        </div>
+        <div class="news-title">
+          <a href="https://www.kpanews.co.kr/news/articleView.html?idxno=534748" target="_blank">
+            대웅제약, '거점도매' 전략에 실적 흔들… 약사회 "대체조제 확대 가능"
+          </a>
+        </div>
+        <div class="news-summary">
+          대웅제약이 3월부터 강행한 블록형 거점도매 전환으로 1분기 영업이익이 전년대비 34.7% 급감했다. 대한약사회는 일방적 정책 시행과 플랫폼 강제 가입을 비판하며 중단을 촉구하는 한편, 대체조제 확대로 대응하겠다고 경고해 CSO 영업 환경에도 직접적인 영향이 예상된다.
+        </div>
+        <div class="news-insight">
+          <span class="il">💡 CSO 인사이트</span>대웅제약 품목을 취급하는 CSO는 거점도매 전환으로 인한 주문·결제 경로 변화에 대응이 필요합니다. 처방 약국의 대체조제 동향도 모니터링하고, 영업 전략을 병원 채널 중심으로 재조정하는 것을 검토하세요.
+        </div>
+      </div>
+    </div>
+
+    <div class="news-card card-green">
+      <div class="news-num">13</div>
+      <div class="news-content">
+        <div class="news-tags">
+          <span class="tag tag-market">시장 동향</span>
+          <span class="tag tag-source">메디팜스투데이</span>
+          <span class="tag-date">2026.05.06</span>
+        </div>
+        <div class="news-title">
+          <a href="https://www.apsk.co.kr/news/articleView.html?idxno=539111" target="_blank">
+            [팜스 뷰] 약가 인하보다 무서운 'CSO 눈치 보기'… R&amp;D 동력 꺼질라
+          </a>
+        </div>
+        <div class="news-summary">
+          제약사들이 약가인하보다 CSO의 눈치를 더 보는 역설적 상황이 발생하고 있다. 주요 CSO 대리점을 잃을까 두려운 제약사들이 R&amp;D 투자보다 CSO 수수료 경쟁에 자원을 쏟아붓고 있어, 장기적으로 제약 산업의 혁신 동력이 약화될 수 있다는 우려가 제기된다.
+        </div>
+        <div class="news-insight">
+          <span class="il">💡 CSO 인사이트</span>협상력이 높은 CSO는 제약사와의 관계에서 우위를 점할 수 있습니다. 다만 지나친 수수료 요구는 파트너사 관계 훼손으로 이어질 수 있으니, 장기적 상생 관계를 바탕으로 한 협상 전략을 세우는 것이 중요합니다.
+        </div>
+      </div>
+    </div>
+
+    <div class="news-card card-green">
+      <div class="news-num">14</div>
+      <div class="news-content">
+        <div class="news-tags">
+          <span class="tag tag-market">시장 동향</span>
+          <span class="tag tag-source">약사공론</span>
+          <span class="tag-date">2026.05.13</span>
+        </div>
+        <div class="news-title">
+          <a href="https://www.kpanews.co.kr/news/articleView.html?idxno=534740" target="_blank">
+            약사회 "대웅 블록형 거점도매 중단해야"… 공급 차질·플랫폼 강제 비판
+          </a>
+        </div>
+        <div class="news-summary">
+          대한약사회가 대웅제약의 블록형 거점도매 강행으로 인해 전국 약국 현장에서 의약품 수급 차질과 주문 혼선이 발생하고 있다며 즉각 중단을 요구했다. 사전 협의 없는 플랫폼 가입 강제와 복잡한 결제 방식이 약국 선택권을 제한한다는 비판으로, 정부의 중재 여부가 주목된다.
+        </div>
+        <div class="news-insight">
+          <span class="il">💡 CSO 인사이트</span>거점도매 재편으로 CSO의 영업 기반인 약국 채널에 변화가 생기고 있습니다. 신규 거점 약국 리스트를 파악하고 영업 루트를 재정비하며, 대웅 품목 외 대안 품목 확보도 병행하세요.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-title">
+    <span class="icon">💊</span>
+    <h2>신제품·제네릭</h2>
+    <div class="line"></div>
+  </div>
+
+  <div class="news-grid">
+
+    <div class="news-card card-purple">
+      <div class="news-num">15</div>
+      <div class="news-content">
+        <div class="news-tags">
+          <span class="tag tag-drug">신제품·제네릭</span>
+          <span class="tag tag-source">데일리메디</span>
+          <span class="tag-date">2026.05.09</span>
+        </div>
+        <div class="news-title">
+          <a href="https://www.dailymedi.com/news/news_view.php?wr_id=935494" target="_blank">
+            제네릭 약가인하… '생산·유통·영업' 3중 후폭풍
+          </a>
+        </div>
+        <div class="news-summary">
+          제네릭 약가인하가 생산 원가 압박, 도매 마진 축소, 영업 수수료 하락이라는 3중 후폭풍을 낳고 있다. 특히 중소 제약사의 제네릭 품목을 다수 취급하는 CSO는 동시다발적 수수료율 인하 압박에 직면하며, 일부는 품목 정리와 고수익 품목 재편 작업에 착수한 것으로 전해진다.
+        </div>
+        <div class="news-insight">
+          <span class="il">💡 CSO 인사이트</span>제네릭 중심 포트폴리오라면 지금이 전략적 품목 재편의 적기입니다. ProMR의 품목별 수익 분석 기능으로 수익성이 낮은 품목을 신속히 파악하고, 오리지널·고마진 품목으로 빠르게 전환 계획을 수립하세요.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="promr-feature">
+    <div class="promr-feature-header">
+      <div class="badge">🏆 CSO·CMR 전용 SaaS · 특허 등록</div>
+      <h2>프로엠알(ProMR)로<br>CSO 영업의 모든 것을 해결하세요</h2>
+      <p>의약품 판매대행 전문 플랫폼 · 지출보고서 자동화 · CSO 신고제 완벽 대응</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-item">
+        <div class="feature-icon">⚡</div>
+        <h3>① EDI 자동정산</h3>
+        <p>병원·약국 처방 데이터를 자동으로 집계해 수수료를 즉시 정산. 수작업 오류 제로.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📋</div>
+        <h3>② CSO 신고제 완벽 대응</h3>
+        <p>신고 필수 서류 자동 생성, 갱신 알림, 소재지 증빙 관리까지 원스톱 지원.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🗂️</div>
+        <h3>③ 계약·지출 5년 보관</h3>
+        <p>지출보고서 법정 보관 의무(5년)를 자동으로 충족. 실태조사 즉시 대응 가능.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🤝</div>
+        <h3>④ 제약사-CSO 매칭</h3>
+        <p>신규 파트너 제약사와 CSO를 연결하는 매칭 플랫폼. 대형사 전환 기회를 선점.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📊</div>
+        <h3>⑤ 품목별 수익 분석</h3>
+        <p>약가인하 시뮬레이션, 품목별 마진 계산, 포트폴리오 최적화를 실시간으로 지원.</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📱</div>
+        <h3>⑥ 모바일 영업 지원</h3>
+        <p>병원·약국 방문 시 실시간 처방 현황, 목표 달성률, 일정 관리까지 스마트폰 하나로.</p>
+      </div>
+    </div>
+    <div class="promr-cta">
+      <a href="https://promr.co.kr" target="_blank" class="btn-red">🌐 웹에서 무료 시작</a>
+      <a href="https://play.google.com/store/apps/details?id=kr.co.promr" target="_blank" class="btn-ghost">📱 Google Play</a>
+      <a href="https://apps.apple.com/kr/app/pro-mr/id1602955117" target="_blank" class="btn-ghost">🍎 App Store</a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-title">📰 이번 호 참고 언론사</div>
+    <div class="footer-sources">
+      <span class="footer-source">히트뉴스</span>
+      <span class="footer-source">데일리팜</span>
+      <span class="footer-source">데일리메디</span>
+      <span class="footer-source">메디칼타임즈</span>
+      <span class="footer-source">메디칼업저버</span>
+      <span class="footer-source">팜뉴스</span>
+      <span class="footer-source">약사공론</span>
+      <span class="footer-source">약업신문</span>
+      <span class="footer-source">메디팜스투데이</span>
+      <span class="footer-source">시사저널e</span>
+      <span class="footer-source">이뉴스투데이</span>
+    </div>
+    <div class="footer-copy">
+      CSO 위클리 매거진 2026년 5월 20주차 · 발행일 2026.05.14<br>
+      본 매거진은 CSO·CMR 전용 제약영업 플랫폼 <strong style="color:rgba(255,255,255,0.7)">프로엠알(ProMR)</strong>이 제공하는 뉴스 서비스입니다.<br>
+      <a href="https://promr.co.kr" target="_blank" style="color:rgba(255,255,255,0.5); text-decoration:underline;">promr.co.kr</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
