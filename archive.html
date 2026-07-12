@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>지난 호 아카이브 | CSO 위클리 매거진</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0d1b2a; --navy-light: #1a2f47; --navy-mid: #152638;
+    --red: #e63946; --red-dark: #c1121f; --accent: #f4a261;
+    --text: #1a1a2e; --text-light: #555; --bg: #f0f4f8; --card-bg: #ffffff; --border: #e0e7ef;
+  }
+  body { font-family: 'Noto Sans KR', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; }
+  .site-header { background: var(--navy); color: #fff; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.4); }
+  .header-inner { max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; gap: 12px; }
+  .header-logo { display: flex; flex-direction: column; }
+  .header-logo .mag-title { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; }
+  .header-logo .mag-title a { color: inherit; text-decoration: none; }
+  .header-logo .mag-subtitle { font-size: 0.75rem; color: #a8c0d6; font-weight: 400; }
+  .promr-badge { background: linear-gradient(135deg, var(--red), var(--red-dark)); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; white-space: nowrap; text-decoration: none; letter-spacing: 0.3px; }
+  .hero { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 50%, #1e3a5f 100%); color: #fff; padding: 40px 20px; }
+  .hero-inner { max-width: 900px; margin: 0 auto; }
+  .hero-meta { font-size: 0.72rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  .hero h1 { font-size: 1.7rem; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .hero p { font-size: 0.9rem; color: #a8c0d6; }
+  .main-wrap { max-width: 900px; margin: 0 auto; padding: 36px 20px 60px; }
+  .month-title { display: flex; align-items: center; gap: 10px; margin: 32px 0 14px; }
+  .month-title:first-child { margin-top: 0; }
+  .month-title h2 { font-size: 1.1rem; font-weight: 800; color: var(--navy); letter-spacing: -0.3px; white-space: nowrap; }
+  .month-line { flex: 1; height: 2px; background: linear-gradient(to right, var(--border), transparent); border-radius: 2px; }
+  .issue-list { display: flex; flex-direction: column; gap: 10px; }
+  .issue-card { display: flex; align-items: center; gap: 14px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; text-decoration: none; color: inherit; box-shadow: 0 2px 10px rgba(13,27,42,0.06); transition: transform 0.12s, box-shadow 0.12s; }
+  .issue-card:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(13,27,42,0.12); }
+  .issue-week { flex-shrink: 0; width: 58px; height: 58px; border-radius: 12px; background: linear-gradient(135deg, var(--navy), var(--navy-light)); color: var(--accent); display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: 900; line-height: 1.1; }
+  .issue-week .w-num { font-size: 1.15rem; }
+  .issue-week .w-label { font-size: 0.58rem; color: #a8c0d6; font-weight: 600; letter-spacing: 1px; }
+  .issue-info { flex: 1; min-width: 0; }
+  .issue-info .issue-date { font-size: 0.72rem; color: var(--text-light); font-weight: 500; }
+  .issue-info .issue-title { font-size: 0.95rem; font-weight: 700; color: var(--navy); letter-spacing: -0.2px; }
+  .latest-chip { flex-shrink: 0; background: linear-gradient(135deg, var(--red), var(--red-dark)); color: #fff; font-size: 0.65rem; font-weight: 700; padding: 3px 10px; border-radius: 10px; letter-spacing: 0.5px; }
+  .arrow { flex-shrink: 0; color: var(--text-light); font-size: 1.1rem; }
+  footer { background: var(--navy); color: #a8c0d6; padding: 28px 20px; font-size: 0.78rem; }
+  footer .footer-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  footer a { color: #a8c0d6; text-decoration: none; }
+  @media (max-width: 600px) { .hero h1 { font-size: 1.35rem; } .issue-card { padding: 12px 14px; gap: 10px; } .issue-week { width: 50px; height: 50px; } }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-logo">
+      <span class="mag-title"><a href="./index.html">📰 CSO 위클리 매거진</a></span>
+      <span class="mag-subtitle">의약품 판매대행 전문 뉴스레터</span>
+    </div>
+    <a href="https://promr.co.kr" target="_blank" class="promr-badge">⚡ ProMR</a>
+  </div>
+</header>
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-meta">📚 Archive</div>
+    <h1>지난 호 아카이브</h1>
+    <p>매주 발행되는 CSO 위클리 매거진의 지난 호를 날짜별로 모아봤습니다.</p>
+  </div>
+</section>
+<main class="main-wrap">
+
+  <div class="month-title"><h2>2026년 7월</h2><div class="month-line"></div></div>
+  <div class="issue-list">
+    <a class="issue-card" href="./cso-news-2026-W28.html">
+      <div class="issue-week"><span class="w-num">W28</span><span class="w-label">WEEK</span></div>
+      <div class="issue-info">
+        <div class="issue-date">2026.07.06 ~ 07.12 · 7월 9일 발행</div>
+        <div class="issue-title">제네릭 약가 45% 충격 · CSO 수익 구조 재편</div>
+      </div>
+      <span class="latest-chip">최신호</span>
+      <span class="arrow">›</span>
+    </a>
+  </div>
+
+  <div class="month-title"><h2>2026년 6월</h2><div class="month-line"></div></div>
+  <div class="issue-list">
+    <a class="issue-card" href="./cso-news-2026-W27.html">
+      <div class="issue-week"><span class="w-num">W27</span><span class="w-label">WEEK</span></div>
+      <div class="issue-info">
+        <div class="issue-date">2026.06.29 ~ 07.05</div>
+        <div class="issue-title">2026년 27주차</div>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="issue-card" href="./cso-news-2026-W26.html">
+      <div class="issue-week"><span class="w-num">W26</span><span class="w-label">WEEK</span></div>
+      <div class="issue-info">
+        <div class="issue-date">2026.06.22 ~ 06.28</div>
+        <div class="issue-title">2026년 26주차</div>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="issue-card" href="./cso-news-2026-W25.html">
+      <div class="issue-week"><span class="w-num">W25</span><span class="w-label">WEEK</span></div>
+      <div class="issue-info">
+        <div class="issue-date">2026.06.15 ~ 06.21</div>
+        <div class="issue-title">2026년 25주차</div>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="issue-card" href="./cso-news-2026-W24.html">
+      <div class="issue-week"><span class="w-num">W24</span><span class="w-label">WEEK</span></div>
+      <div class="issue-info">
+        <div class="issue-date">2026.06.08 ~ 06.14</div>
+        <div class="issue-title">2026년 24주차</div>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="issue-card" href="./cso-news-2026-W23.html">
+      <div class="issue-week"><span class="w-num">W23</span><span class="w-label">WEEK</span></div>
+      <div class="issue-info">
+        <div class="issue-date">2026.06.01 ~ 06.07</div>
+        <div class="issue-title">2026년 23주차</div>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+  </div>
+
+  <div class="month-title"><h2>2026년 5월</h2><div class="month-line"></div></div>
+  <div class="issue-list">
+    <a class="issue-card" href="./cso-news-2026-W21.html">
+      <div class="issue-week"><span class="w-num">W21</span><span class="w-label">WEEK</span></div>
+      <div class="issue-info">
+        <div class="issue-date">2026.05.18 ~ 05.24</div>
+        <div class="issue-title">2026년 21주차</div>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="issue-card" href="./cso-news-2026-W20.html">
+      <div class="issue-week"><span class="w-num">W20</span><span class="w-label">WEEK</span></div>
+      <div class="issue-info">
+        <div class="issue-date">2026.05.11 ~ 05.17</div>
+        <div class="issue-title">2026년 20주차</div>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="issue-card" href="./cso-news-2026-W19.html">
+      <div class="issue-week"><span class="w-num">W19</span><span class="w-label">WEEK</span></div>
+      <div class="issue-info">
+        <div class="issue-date">2026.05.04 ~ 05.10</div>
+        <div class="issue-title">2026년 19주차</div>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+  </div>
+
+  <div class="month-title"><h2>2026년 4월</h2><div class="month-line"></div></div>
+  <div class="issue-list">
+    <a class="issue-card" href="./cso-news-2026-04-27.html">
+      <div class="issue-week"><span class="w-num">4/27</span><span class="w-label">DAILY</span></div>
+      <div class="issue-info">
+        <div class="issue-date">2026.04.27 발행</div>
+        <div class="issue-title">4월 27일자</div>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="issue-card" href="./cso_news_2026_04_25.html">
+      <div class="issue-week"><span class="w-num">4/25</span><span class="w-label">DAILY</span></div>
+      <div class="issue-info">
+        <div class="issue-date">2026.04.25 발행</div>
+        <div class="issue-title">4월 25일자</div>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="issue-card" href="./cso_news_2026_04_23.html">
+      <div class="issue-week"><span class="w-num">4/23</span><span class="w-label">DAILY</span></div>
+      <div class="issue-info">
+        <div class="issue-date">2026.04.23 발행</div>
+        <div class="issue-title">4월 23일자</div>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="issue-card" href="./cso_news_20260413.html">
+      <div class="issue-week"><span class="w-num">4/13</span><span class="w-label">DAILY</span></div>
+      <div class="issue-info">
+        <div class="issue-date">2026.04.13 발행</div>
+        <div class="issue-title">4월 13일자</div>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+    <a class="issue-card" href="./cso_news_20260408.html">
+      <div class="issue-week"><span class="w-num">4/8</span><span class="w-label">DAILY</span></div>
+      <div class="issue-info">
+        <div class="issue-date">2026.04.08 발행</div>
+        <div class="issue-title">4월 8일자</div>
+      </div>
+      <span class="arrow">›</span>
+    </a>
+  </div>
+
+</main>
+<footer>
+  <div class="footer-inner">
+    <span>📰 CSO 위클리 매거진 by ProMR</span>
+    <span><a href="./index.html">최신호 보기</a> · <a href="https://promr.co.kr" target="_blank">promr.co.kr</a></span>
+  </div>
+</footer>
+</body>
+</html>
