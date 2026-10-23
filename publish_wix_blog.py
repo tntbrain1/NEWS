@@ -17,7 +17,7 @@ def text_node(text, bold=False, link_url=None):
     if bold:
         decorations.append({"type": "BOLD"})
     if link_url:
-        decorations.append({"type": "LINK", "linkData": {"url": link_url, "target": "_BLANK"}})
+        decorations.append({"type": "LINK", "linkData": {"link": {"url": link_url, "target": "BLANK"}}})
     return {
         "type": "TEXT",
         "id": nid(),
@@ -104,7 +104,25 @@ def get_categories(api_key, site_id):
     return None
 
 
-def create_draft(api_key, site_id, title, rich_content, category_id, cover_image_url=None):
+def import_image(api_key, site_id, account_id, external_url, display_name="cover"):
+    """외부 URL에서 Wix 미디어로 이미지 임포트, wixMedia image 객체 반환"""
+    headers = {
+        "Authorization": api_key,
+        "wix-site-id": site_id,
+        "wix-account-id": account_id,
+        "Content-Type": "application/json"
+    }
+    payload = json.dumps({"url": external_url, "mimeType": "image/jpeg", "displayName": display_name}).encode()
+    req = urllib.request.Request(
+        "https://www.wixapis.com/site-media/v1/files/import",
+        data=payload, method="POST", headers=headers
+    )
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        f = json.loads(resp.read()).get("file", {})
+        return {"id": f["id"], "url": f["url"], "height": 900, "width": 1920}
+
+
+def create_draft(api_key, site_id, title, rich_content, category_id, cover_image=None):
     account_id = "85ad391d-2766-4759-b271-4b72a4d928cb"
     member_id = account_id
 
@@ -115,8 +133,8 @@ def create_draft(api_key, site_id, title, rich_content, category_id, cover_image
     }
     if category_id:
         draft["categoryIds"] = [category_id]
-    if cover_image_url:
-        draft["media"] = {"wixMedia": {"image": {"imageInfo": {"url": cover_image_url}}}}
+    if cover_image:
+        draft["media"] = {"wixMedia": {"image": cover_image}}
 
     headers = {
         "Authorization": api_key,
@@ -213,14 +231,26 @@ def main():
         print(f"     ⚠️  카테고리 조회 실패 (계속 진행): {e}")
         category_id = None
 
-    # 2. Rich Content 생성
-    print("  2. 본문 구성 중...")
+    # 2. 커버 이미지 처리
+    cover_image = None
+    cover_url = data.get("cover_image_url")
+    if cover_url:
+        print("  2. 커버 이미지 임포트 중...")
+        try:
+            account_id = "85ad391d-2766-4759-b271-4b72a4d928cb"
+            cover_image = import_image(api_key, site_id, account_id, cover_url, f"cso-cover-{year}-W{week}")
+            print(f"     이미지 ID: {cover_image['id']}")
+        except Exception as e:
+            print(f"     ⚠️  이미지 임포트 실패 (계속 진행): {e}")
+
+    # 3. Rich Content 생성
+    print("  3. 본문 구성 중...")
     rich_content = build_rich_content(data)
 
-    # 3. 드래프트 생성 (또는 직접 발행)
-    print("  3. 포스트 생성 중...")
+    # 4. 드래프트 생성 (또는 직접 발행)
+    print("  4. 포스트 생성 중...")
     try:
-        create_resp = create_draft(api_key, site_id, title, rich_content, category_id)
+        create_resp = create_draft(api_key, site_id, title, rich_content, category_id, cover_image)
         post_id, slug, is_draft = extract_post_from_response(create_resp)
         if not post_id:
             print(f"  ❌ 생성 실패: {json.dumps(create_resp, ensure_ascii=False)[:200]}")
@@ -231,9 +261,9 @@ def main():
         print(f"  ❌ 포스트 생성 실패 HTTP {e.code}: {body[:300]}")
         sys.exit(1)
 
-    # 4. 드래프트인 경우 발행
+    # 5. 드래프트인 경우 발행
     if is_draft:
-        print("  4. 발행 중...")
+        print("  5. 발행 중...")
         try:
             publish_draft(api_key, site_id, post_id)
         except urllib.error.HTTPError as e:
@@ -241,7 +271,7 @@ def main():
             print(f"  ❌ 발행 실패 HTTP {e.code}: {body[:300]}")
             sys.exit(1)
 
-    # 5. 발행된 포스트 슬러그 조회
+    # 6. 발행된 포스트 슬러그 조회
     try:
         req = urllib.request.Request(
             f"https://www.wixapis.com/blog/v3/posts/{post_id}",
