@@ -17,7 +17,7 @@ def text_node(text, bold=False, link_url=None):
     if bold:
         decorations.append({"type": "BOLD"})
     if link_url:
-        decorations.append({"type": "LINK", "linkData": {"link": {"url": link_url, "target": "_BLANK"}}})
+        decorations.append({"type": "LINK", "linkData": {"url": link_url, "target": "_BLANK"}})
     return {
         "type": "TEXT",
         "id": nid(),
@@ -105,64 +105,46 @@ def get_categories(api_key, site_id):
 
 
 def create_draft(api_key, site_id, title, rich_content, category_id, cover_image_url=None):
+    account_id = "85ad391d-2766-4759-b271-4b72a4d928cb"
+    member_id = account_id
+
     draft = {
         "title": title,
         "richContent": rich_content,
+        "memberId": member_id,
     }
     if category_id:
         draft["categoryIds"] = [category_id]
     if cover_image_url:
         draft["media"] = {"wixMedia": {"image": {"imageInfo": {"url": cover_image_url}}}}
 
-    body = json.dumps({"draft": draft}).encode("utf-8")
-
-    # v3 drafts 엔드포인트 먼저 시도, 실패 시 v3 posts 직접 발행 시도
-    # account-id는 JWT tenant.id에서 추출
-    account_id = "85ad391d-2766-4759-b271-4b72a4d928cb"
-
-    base_headers = {
+    headers = {
         "Authorization": api_key,
         "wix-site-id": site_id,
         "wix-account-id": account_id,
         "Content-Type": "application/json"
     }
 
-    endpoints = [
-        ("POST", "https://www.wixapis.com/blog/v3/posts/drafts", {"draft": draft}),
-        ("POST", "https://www.wixapis.com/blog/v3/posts", {"post": {**draft, "status": "PUBLISHED"}}),
-        ("POST", "https://manage.wix.com/blog/v3/posts/drafts", {"draft": draft}),
-    ]
-    last_err = None
-    for method, url, payload in endpoints:
-        try:
-            req = urllib.request.Request(
-                url,
-                data=json.dumps(payload).encode("utf-8"),
-                method=method,
-                headers=base_headers
-            )
-            with urllib.request.urlopen(req, timeout=15) as resp:
-                result = json.loads(resp.read())
-                print(f"     엔드포인트 성공: {url}")
-                return result
-        except urllib.error.HTTPError as e:
-            body_txt = e.read().decode("utf-8", errors="replace")
-            print(f"     {url} → HTTP {e.code}: {body_txt[:200]}")
-            last_err = e
-        except Exception as e:
-            print(f"     {url} → 오류: {e}")
-            last_err = e
-    raise last_err
+    req = urllib.request.Request(
+        "https://www.wixapis.com/blog/v3/draft-posts",
+        data=json.dumps({"draftPost": draft}).encode("utf-8"),
+        method="POST",
+        headers=headers
+    )
+    with urllib.request.urlopen(req, timeout=15) as resp:
+        return json.loads(resp.read())
 
 
 def publish_draft(api_key, site_id, draft_id):
+    account_id = "85ad391d-2766-4759-b271-4b72a4d928cb"
     req = urllib.request.Request(
-        f"https://www.wixapis.com/blog/v3/posts/drafts/{draft_id}/publish",
+        f"https://www.wixapis.com/blog/v3/draft-posts/{draft_id}/publish",
         data=b"{}",
         method="POST",
         headers={
             "Authorization": api_key,
             "wix-site-id": site_id,
+            "wix-account-id": account_id,
             "Content-Type": "application/json"
         }
     )
@@ -172,8 +154,10 @@ def publish_draft(api_key, site_id, draft_id):
 
 def extract_post_from_response(resp):
     """다양한 응답 구조에서 post ID와 slug 추출"""
+    if "draftPost" in resp:
+        return resp["draftPost"].get("id"), resp["draftPost"].get("slug", ""), True  # is_draft
     if "draft" in resp:
-        return resp["draft"].get("id"), resp["draft"].get("slug", ""), True  # is_draft
+        return resp["draft"].get("id"), resp["draft"].get("slug", ""), True
     if "post" in resp:
         return resp["post"].get("id"), resp["post"].get("slug", ""), False
     return None, "", False
@@ -251,13 +235,23 @@ def main():
     if is_draft:
         print("  4. 발행 중...")
         try:
-            pub_resp = publish_draft(api_key, site_id, post_id)
-            post_id = pub_resp.get("post", {}).get("id", post_id)
-            slug = pub_resp.get("post", {}).get("slug", slug)
+            publish_draft(api_key, site_id, post_id)
         except urllib.error.HTTPError as e:
             body = e.read().decode("utf-8", errors="replace")
             print(f"  ❌ 발행 실패 HTTP {e.code}: {body[:300]}")
             sys.exit(1)
+
+    # 5. 발행된 포스트 슬러그 조회
+    try:
+        req = urllib.request.Request(
+            f"https://www.wixapis.com/blog/v3/posts/{post_id}",
+            headers={"Authorization": api_key, "wix-site-id": site_id}
+        )
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            post_data = json.loads(resp.read()).get("post", {})
+            slug = post_data.get("slug", slug)
+    except Exception:
+        pass
 
     url_path = f"https://www.promr.blog/resources/{slug}" if slug else "https://www.promr.blog/resources"
     print(f"  ✅ 블로그 발행 완료!")
