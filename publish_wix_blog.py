@@ -115,18 +115,44 @@ def create_draft(api_key, site_id, title, rich_content, category_id, cover_image
         draft["media"] = {"wixMedia": {"image": {"imageInfo": {"url": cover_image_url}}}}
 
     body = json.dumps({"draft": draft}).encode("utf-8")
-    req = urllib.request.Request(
-        "https://www.wixapis.com/blog/v3/posts/drafts",
-        data=body,
-        method="POST",
-        headers={
-            "Authorization": api_key,
-            "wix-site-id": site_id,
-            "Content-Type": "application/json"
-        }
-    )
-    with urllib.request.urlopen(req, timeout=15) as resp:
-        return json.loads(resp.read())
+
+    # v3 drafts 엔드포인트 먼저 시도, 실패 시 v3 posts 직접 발행 시도
+    # account-id는 JWT tenant.id에서 추출
+    account_id = "85ad391d-2766-4759-b271-4b72a4d928cb"
+
+    base_headers = {
+        "Authorization": api_key,
+        "wix-site-id": site_id,
+        "wix-account-id": account_id,
+        "Content-Type": "application/json"
+    }
+
+    endpoints = [
+        ("POST", "https://www.wixapis.com/blog/v3/posts/drafts", {"draft": draft}),
+        ("POST", "https://www.wixapis.com/blog/v3/posts", {"post": {**draft, "status": "PUBLISHED"}}),
+        ("POST", "https://manage.wix.com/blog/v3/posts/drafts", {"draft": draft}),
+    ]
+    last_err = None
+    for method, url, payload in endpoints:
+        try:
+            req = urllib.request.Request(
+                url,
+                data=json.dumps(payload).encode("utf-8"),
+                method=method,
+                headers=base_headers
+            )
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                result = json.loads(resp.read())
+                print(f"     엔드포인트 성공: {url}")
+                return result
+        except urllib.error.HTTPError as e:
+            body_txt = e.read().decode("utf-8", errors="replace")
+            print(f"     {url} → HTTP {e.code}: {body_txt[:200]}")
+            last_err = e
+        except Exception as e:
+            print(f"     {url} → 오류: {e}")
+            last_err = e
+    raise last_err
 
 
 def publish_draft(api_key, site_id, draft_id):
@@ -144,14 +170,44 @@ def publish_draft(api_key, site_id, draft_id):
         return json.loads(resp.read())
 
 
+def extract_post_from_response(resp):
+    """다양한 응답 구조에서 post ID와 slug 추출"""
+    if "draft" in resp:
+        return resp["draft"].get("id"), resp["draft"].get("slug", ""), True  # is_draft
+    if "post" in resp:
+        return resp["post"].get("id"), resp["post"].get("slug", ""), False
+    return None, "", False
+
+
+def load_config(config_path=".wix_config"):
+    cfg = {}
+    try:
+        with open(config_path) as f:
+            for line in f:
+                line = line.strip()
+                if "=" in line and not line.startswith("#"):
+                    k, v = line.split("=", 1)
+                    cfg[k.strip()] = v.strip()
+    except FileNotFoundError:
+        pass
+    return cfg
+
+
 def main():
-    if len(sys.argv) < 4:
-        print("사용법: python3 publish_wix_blog.py <JSON_FILE> <API_KEY> <SITE_ID>")
+    if len(sys.argv) < 2:
+        print("사용법: python3 publish_wix_blog.py <JSON_FILE> [API_KEY] [SITE_ID]")
         sys.exit(1)
 
     json_file = sys.argv[1]
-    api_key = sys.argv[2]
-    site_id = sys.argv[3]
+
+    # CLI 인수 우선, 없으면 .wix_config 파일에서 읽기
+    cfg = load_config()
+    api_key = sys.argv[2] if len(sys.argv) > 2 else cfg.get("WIX_API_KEY", "")
+    site_id = sys.argv[3] if len(sys.argv) > 3 else cfg.get("WIX_SITE_ID", "")
+
+    if not api_key or not site_id:
+        print("❌ WIX_API_KEY 또는 WIX_SITE_ID가 없습니다. .wix_config 파일을 확인하세요.")
+        sys.exit(1)
 
     with open(json_file, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -177,33 +233,36 @@ def main():
     print("  2. 본문 구성 중...")
     rich_content = build_rich_content(data)
 
-    # 3. 드래프트 생성
-    print("  3. 드래프트 생성 중...")
+    # 3. 드래프트 생성 (또는 직접 발행)
+    print("  3. 포스트 생성 중...")
     try:
-        draft_resp = create_draft(api_key, site_id, title, rich_content, category_id)
-        draft_id = draft_resp.get("draft", {}).get("id")
-        if not draft_id:
-            print(f"  ❌ 드래프트 생성 실패: {json.dumps(draft_resp, ensure_ascii=False)[:200]}")
+        create_resp = create_draft(api_key, site_id, title, rich_content, category_id)
+        post_id, slug, is_draft = extract_post_from_response(create_resp)
+        if not post_id:
+            print(f"  ❌ 생성 실패: {json.dumps(create_resp, ensure_ascii=False)[:200]}")
             sys.exit(1)
-        print(f"     드래프트 ID: {draft_id}")
+        print(f"     {'드래프트' if is_draft else '포스트'} ID: {post_id}")
     except urllib.error.HTTPError as e:
         body = e.read().decode("utf-8", errors="replace")
-        print(f"  ❌ 드래프트 생성 실패 HTTP {e.code}: {body[:300]}")
+        print(f"  ❌ 포스트 생성 실패 HTTP {e.code}: {body[:300]}")
         sys.exit(1)
 
-    # 4. 발행
-    print("  4. 발행 중...")
-    try:
-        pub_resp = publish_draft(api_key, site_id, draft_id)
-        post_id = pub_resp.get("post", {}).get("id", "")
-        slug = pub_resp.get("post", {}).get("slug", "")
-        print(f"  ✅ 블로그 발행 완료!")
-        print(f"     포스트 ID: {post_id}")
-        print(f"     URL: https://www.promr.blog/resources/{slug}")
-    except urllib.error.HTTPError as e:
-        body = e.read().decode("utf-8", errors="replace")
-        print(f"  ❌ 발행 실패 HTTP {e.code}: {body[:300]}")
-        sys.exit(1)
+    # 4. 드래프트인 경우 발행
+    if is_draft:
+        print("  4. 발행 중...")
+        try:
+            pub_resp = publish_draft(api_key, site_id, post_id)
+            post_id = pub_resp.get("post", {}).get("id", post_id)
+            slug = pub_resp.get("post", {}).get("slug", slug)
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8", errors="replace")
+            print(f"  ❌ 발행 실패 HTTP {e.code}: {body[:300]}")
+            sys.exit(1)
+
+    url_path = f"https://www.promr.blog/resources/{slug}" if slug else "https://www.promr.blog/resources"
+    print(f"  ✅ 블로그 발행 완료!")
+    print(f"     포스트 ID: {post_id}")
+    print(f"     URL: {url_path}")
 
 
 if __name__ == "__main__":
