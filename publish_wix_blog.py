@@ -10,6 +10,18 @@ import urllib.request
 import urllib.error
 import uuid
 
+def _fix_key(s, name="key"):
+    """전각Unicode(FF01-FF5E)→ASCII 역변환. 브라우저 복사-붙여넣기 오염 자동 복구."""
+    fixed = "".join(chr(ord(c) - 0xFEE0) if 0xFF01 <= ord(c) <= 0xFF5E else c for c in s)
+    remaining = [(i, c) for i, c in enumerate(fixed) if ord(c) > 127]
+    if len(fixed) != len(s):
+        print(f"⚠️  {name}: 전각→ASCII 변환 실패 (길이 불일치)")
+    elif remaining:
+        print(f"❌ {name}에 변환 불가능한 비ASCII 문자 {len(remaining)}개가 남아 있습니다: {[i for i, _ in remaining[:5]]}")
+        sys.exit(1)
+    return fixed
+
+
 def nid():
     return str(uuid.uuid4()).replace("-", "")[:8]
 
@@ -212,17 +224,8 @@ def main():
                else os.environ.get("WIX_SITE_ID", "")
                or cfg.get("WIX_SITE_ID", ""))
 
-    api_key = api_key.strip()
-    site_id = site_id.strip()
-
-    # 비ASCII 문자 포함 여부 확인 (HTTP 헤더는 latin-1만 허용)
-    for name, val in [("WIX_API_KEY", api_key), ("WIX_SITE_ID", site_id)]:
-        non_ascii = [(i, c) for i, c in enumerate(val) if ord(c) > 127]
-        if non_ascii:
-            print(f"❌ {name}에 비ASCII 문자가 포함되어 있습니다 ({len(non_ascii)}개).")
-            print(f"   총 길이: {len(val)}, 비ASCII 위치 예시: {[i for i, _ in non_ascii[:5]]}")
-            print(f"   GitHub Secret을 삭제하고 API 키를 다시 정확히 입력해 주세요.")
-            sys.exit(1)
+    api_key = _fix_key(api_key.strip(), "WIX_API_KEY")
+    site_id = _fix_key(site_id.strip(), "WIX_SITE_ID")
 
     if not api_key or not site_id:
         print("❌ WIX_API_KEY 또는 WIX_SITE_ID가 없습니다. .wix_config 파일을 확인하세요.")
