@@ -15,19 +15,19 @@ def _fix_key(s, name="key"):
     non_ascii = [(i, c) for i, c in enumerate(s) if ord(c) > 127]
     if not non_ascii:
         return s
-    # 진단: 실제 ordinal 값 출력 (secret 마스킹 영향 없음)
-    sample_ords = [ord(c) for _, c in non_ascii[:8]]
-    print(f"  [진단] {name} 비ASCII 샘플 ordinal: {sample_ords}")
     # 전각(FF01-FF5E) → ASCII
     fixed = "".join(chr(ord(c) - 0xFEE0) if 0xFF01 <= ord(c) <= 0xFF5E else c for c in s)
     remaining = [(i, c) for i, c in enumerate(fixed) if ord(c) > 127]
     if not remaining:
-        print(f"  [정보] {name}: 전각Unicode → ASCII 변환 완료")
         return fixed
-    # 변환 불가 — 남은 비ASCII의 ordinal 출력
-    rem_ords = sorted(set(ord(c) for _, c in remaining[:8]))
-    print(f"❌ {name}: {len(remaining)}개 비ASCII 변환 불가. ordinal={rem_ords}")
-    print(f"   GitHub Secret을 터미널에서 직접 복사한 값으로 다시 저장해 주세요.")
+    # 불릿(•, U+2022) 감지: 비밀번호 마스킹된 화면에서 복사한 경우
+    bullet_count = sum(1 for _, c in remaining if ord(c) == 0x2022)
+    if bullet_count > 0:
+        print(f"❌ {name}에 불릿 문자(•)가 {bullet_count}개 포함되어 있습니다.")
+        print(f"   비밀번호가 마스킹된 화면(••••)에서 복사된 것으로 보입니다.")
+        print(f"   로컬 .wix_config 파일을 텍스트 에디터로 열어 값을 직접 복사하세요.")
+    else:
+        print(f"❌ {name}에 변환 불가능한 비ASCII 문자 {len(remaining)}개가 있습니다.")
     sys.exit(1)
 
 
