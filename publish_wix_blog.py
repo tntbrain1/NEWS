@@ -4,6 +4,7 @@ CSO 위클리 매거진 → Wix Blog 자동 발행 스크립트
 사용: python3 publish_wix_blog.py <JSON_FILE> <API_KEY> <SITE_ID>
 """
 import sys
+import os
 import json
 import urllib.request
 import urllib.error
@@ -202,10 +203,17 @@ def main():
 
     json_file = sys.argv[1]
 
-    # CLI 인수 우선, 없으면 .wix_config 파일에서 읽기
+    # CLI 인수 우선, 없으면 환경변수, 없으면 .wix_config 파일에서 읽기
     cfg = load_config()
-    api_key = sys.argv[2] if len(sys.argv) > 2 else cfg.get("WIX_API_KEY", "")
-    site_id = sys.argv[3] if len(sys.argv) > 3 else cfg.get("WIX_SITE_ID", "")
+    api_key = (sys.argv[2] if len(sys.argv) > 2
+               else os.environ.get("WIX_API_KEY", "")
+               or cfg.get("WIX_API_KEY", ""))
+    site_id = (sys.argv[3] if len(sys.argv) > 3
+               else os.environ.get("WIX_SITE_ID", "")
+               or cfg.get("WIX_SITE_ID", ""))
+    # HTTP 헤더는 latin-1만 허용하므로 ASCII로 정규화
+    api_key = api_key.strip().encode("ascii", errors="ignore").decode("ascii")
+    site_id = site_id.strip().encode("ascii", errors="ignore").decode("ascii")
 
     if not api_key or not site_id:
         print("❌ WIX_API_KEY 또는 WIX_SITE_ID가 없습니다. .wix_config 파일을 확인하세요.")

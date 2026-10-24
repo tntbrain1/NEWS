@@ -26,10 +26,6 @@ jobs:
           WIX_API_KEY: ${{ secrets.WIX_API_KEY }}
           WIX_SITE_ID: ${{ secrets.WIX_SITE_ID }}
         run: |
-          # 자격증명 파일 생성
-          echo "WIX_API_KEY=${WIX_API_KEY}" > .wix_config
-          echo "WIX_SITE_ID=${WIX_SITE_ID}" >> .wix_config
-
           # 수동 트리거 시 입력값 우선, 없으면 커밋에서 찾기
           LATEST="${{ github.event.inputs.json_file }}"
 
