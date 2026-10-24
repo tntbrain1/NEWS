@@ -1,0 +1,42 @@
+name: Wix 블로그 자동 발행
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cso_news_data_W*.json'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Wix 블로그 발행
+        env:
+          WIX_API_KEY: ${{ secrets.WIX_API_KEY }}
+          WIX_SITE_ID: ${{ secrets.WIX_SITE_ID }}
+        run: |
+          # 자격증명 파일 생성
+          echo "WIX_API_KEY=${WIX_API_KEY}" > .wix_config
+          echo "WIX_SITE_ID=${WIX_SITE_ID}" >> .wix_config
+
+          # 가장 최근에 추가된 주차 JSON 파일 찾기
+          LATEST=$(git diff-tree --no-commit-id -r --name-only ${{ github.sha }} \
+            | grep 'cso_news_data_W.*\.json' | head -1)
+
+          if [ -z "$LATEST" ]; then
+            LATEST=$(ls cso_news_data_W*.json 2>/dev/null | sort -V | tail -1)
+          fi
+
+          if [ -z "$LATEST" ]; then
+            echo "발행할 JSON 파일이 없습니다."
+            exit 0
+          fi
+
+          echo "발행 대상: $LATEST"
+          python3 publish_wix_blog.py "$LATEST"
