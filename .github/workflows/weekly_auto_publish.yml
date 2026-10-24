@@ -19,7 +19,12 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: 뉴스 수집 및 JSON 생성
+      - name: 의존성 설치 (Pillow + 한글 폰트)
+        run: |
+          pip install Pillow
+          sudo apt-get install -y fonts-noto-cjk
+
+      - name: 뉴스 수집, JSON 및 커버 이미지 생성
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
@@ -30,7 +35,20 @@ jobs:
             python3 generate_weekly_news.py
           fi
 
-      - name: Wix 블로그 발행
+      - name: JSON 및 커버 이미지 커밋·저장 (발행 전 먼저)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add cso_news_data_W*.json covers/ 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            WEEK_NUM=$(python3 -c "import sys, datetime; d=datetime.date.today(); print(int(sys.argv[1]) if len(sys.argv)>1 and sys.argv[1] else d.isocalendar()[1])" "${{ github.event.inputs.week }}")
+            git commit -m "auto: W${WEEK_NUM} CSO 주간 뉴스 자동 생성"
+            git push
+          else
+            echo "커밋할 변경사항 없음"
+          fi
+
+      - name: Wix 블로그 발행 (커밋 후)
         env:
           WIX_API_KEY: ${{ secrets.WIX_API_KEY }}
           WIX_SITE_ID: ${{ secrets.WIX_SITE_ID }}
@@ -42,17 +60,4 @@ jobs:
           else
             echo "발행할 파일이 없습니다."
             exit 1
-          fi
-
-      - name: JSON 파일 커밋 및 저장
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add cso_news_data_W*.json
-          if ! git diff --cached --quiet; then
-            WEEK_NUM=$(python3 -c "import datetime; print(datetime.date.today().isocalendar()[1])")
-            git commit -m "auto: W${WEEK_NUM} CSO 주간 뉴스 자동 생성"
-            git push
-          else
-            echo "커밋할 변경사항 없음"
           fi

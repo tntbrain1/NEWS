@@ -134,7 +134,8 @@ def import_image(api_key, site_id, account_id, external_url, display_name="cover
         "wix-account-id": account_id,
         "Content-Type": "application/json"
     }
-    payload = json.dumps({"url": external_url, "mimeType": "image/jpeg", "displayName": display_name}).encode()
+    mime = "image/png" if external_url.lower().endswith(".png") else "image/jpeg"
+    payload = json.dumps({"url": external_url, "mimeType": mime, "displayName": display_name}).encode()
     req = urllib.request.Request(
         "https://www.wixapis.com/site-media/v1/files/import",
         data=payload, method="POST", headers=headers
