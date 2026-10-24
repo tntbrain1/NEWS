@@ -55,7 +55,7 @@ def fetch_google_news_rss(query, max_items=20):
 def call_claude(prompt, api_key):
     payload = json.dumps({
         "model": "claude-sonnet-5-5",
-        "max_tokens": 4096,
+        "max_tokens": 8192,
         "messages": [{"role": "user", "content": prompt}]
     }).encode()
 
@@ -124,8 +124,8 @@ def main():
     print("  🤖 Claude AI 요약 및 인사이트 생성 중...")
 
     news_text = "\n".join([
-        f"{i+1}. {item['title']}\n   URL: {item['url']}\n   날짜: {item['date']}\n   출처: {item['source']}\n   내용: {item['description']}"
-        for i, item in enumerate(all_items[:60])
+        f"{i+1}. {item['title']}\n   URL: {item['url']}\n   출처: {item['source']} | {item['date']}\n   내용: {item['description'][:150]}"
+        for i, item in enumerate(all_items[:40])
     ])
 
     prompt = f"""다음은 이번 주 CSO(의약품 판촉영업 위탁, Contract Sales Organization) 관련 한국 뉴스 목록입니다.
@@ -165,6 +165,7 @@ def main():
         sys.exit(1)
     except json.JSONDecodeError as e:
         print(f"❌ JSON 파싱 오류: {e}")
+        print(f"   Claude 응답 (처음 500자): {response[:500]}")
         sys.exit(1)
 
     data["cover_image_url"] = "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=1920&h=900&fit=crop&q=90"
