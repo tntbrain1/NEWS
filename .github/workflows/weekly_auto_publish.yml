@@ -8,6 +8,10 @@ on:
       week:
         description: '주차 번호 (예: 44, 비워두면 현재 주차)'
         required: false
+      force_republish:
+        description: '기존 포스트 삭제 후 재발행 (true/false)'
+        required: false
+        default: 'false'
 
 jobs:
   generate-and-publish:
@@ -54,6 +58,7 @@ jobs:
         env:
           WIX_API_KEY: ${{ secrets.WIX_API_KEY }}
           WIX_SITE_ID: ${{ secrets.WIX_SITE_ID }}
+          FORCE_REPUBLISH: ${{ github.event.inputs.force_republish || 'false' }}
         run: |
           LATEST=$(ls cso_news_data_W*.json 2>/dev/null | sort -V | tail -1)
           if [ -n "$LATEST" ]; then

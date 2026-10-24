@@ -126,6 +126,22 @@ def get_categories(api_key, site_id):
     return None
 
 
+def delete_published_post(api_key, site_id, post_id):
+    """발행된 포스트 삭제 (FORCE_REPUBLISH 시 사용)."""
+    account_id = "85ad391d-2766-4759-b271-4b72a4d928cb"
+    req = urllib.request.Request(
+        f"https://www.wixapis.com/blog/v3/posts/{post_id}",
+        method="DELETE",
+        headers={
+            "Authorization": api_key,
+            "wix-site-id": site_id,
+            "wix-account-id": account_id,
+        }
+    )
+    with urllib.request.urlopen(req, timeout=15) as resp:
+        return resp.status < 400
+
+
 def import_image(api_key, site_id, account_id, external_url, display_name="cover"):
     """외부 URL에서 Wix 미디어로 이미지 임포트, wixMedia image 객체 반환"""
     headers = {
@@ -252,21 +268,32 @@ def main():
     print(f"📝 블로그 발행 시작: {title}")
     print(f"   뉴스 항목: {len(data.get('news', []))}건")
 
-    # 0. 중복 발행 방지: 같은 제목의 포스트가 이미 있으면 건너뜀
+    force_republish = os.environ.get("FORCE_REPUBLISH", "false").lower() == "true"
+
+    # 0. 중복 발행 확인: 같은 제목 포스트 처리
     try:
         req = urllib.request.Request(
-            "https://www.wixapis.com/blog/v3/posts?paging.limit=20",
+            "https://www.wixapis.com/blog/v3/posts?paging.limit=50",
             headers={"Authorization": api_key, "wix-site-id": site_id}
         )
         with urllib.request.urlopen(req, timeout=15) as resp:
             existing = json.loads(resp.read()).get("posts", [])
         for p in existing:
             if p.get("title") == title:
-                slug = p.get("slug", "")
-                url_path = f"https://www.promr.blog/resources/{slug}" if slug else "https://www.promr.blog/resources"
-                print(f"  ℹ️  이미 발행된 포스트입니다. 건너뜁니다.")
-                print(f"     URL: {url_path}")
-                sys.exit(0)
+                if force_republish:
+                    print(f"  ♻️  기존 포스트 삭제 후 재발행 (FORCE_REPUBLISH=true)")
+                    try:
+                        delete_published_post(api_key, site_id, p["id"])
+                        print(f"     기존 포스트 삭제 완료")
+                    except Exception as e:
+                        print(f"     ⚠️  삭제 실패 (계속 진행): {e}")
+                    break  # 삭제 후 재발행 진행
+                else:
+                    slug = p.get("slug", "")
+                    url_path = f"https://www.promr.blog/resources/{slug}" if slug else "https://www.promr.blog/resources"
+                    print(f"  ℹ️  이미 발행된 포스트입니다. 건너뜁니다.")
+                    print(f"     URL: {url_path}")
+                    sys.exit(0)
     except Exception:
         pass
 

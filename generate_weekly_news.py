@@ -49,7 +49,7 @@ def fetch_google_news_rss(query, max_items=20):
             description = re.sub(r'<[^>]+>', '', item.findtext("description", ""))
             source_el = item.find("source")
             source = source_el.text if source_el is not None else ""
-            if title and link and is_recent(pub_date, days=14):
+            if title and link and is_recent(pub_date, days=30):
                 items.append({
                     "title": title,
                     "url": link,
@@ -61,6 +61,81 @@ def fetch_google_news_rss(query, max_items=20):
     except Exception as e:
         print(f"  ⚠️ RSS 수집 오류 ({query}): {e}")
         return []
+
+
+def check_url_accessible(url, timeout=8):
+    """URL이 실제로 접근 가능한지 확인."""
+    try:
+        req = urllib.request.Request(
+            url,
+            headers={"User-Agent": "Mozilla/5.0 (compatible; NewsBot/1.0)"}
+        )
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            return resp.status < 400
+    except Exception:
+        return False
+
+
+def validate_and_clean_news(data, year, month):
+    """생성된 JSON 품질 검증 및 정제.
+
+    날짜 형식, 필수 필드, 중복, URL 접근성을 검사합니다.
+    """
+    news = data.get("news", [])
+    print(f"  🔍 품질 검증 중... ({len(news)}건)")
+
+    seen_titles = set()
+    valid_items = []
+
+    for i, item in enumerate(news):
+        title = item.get("title", "").strip()
+        url = item.get("url", "").strip()
+        source = item.get("source", "").strip()
+        summary = item.get("summary", "").strip()
+        date = item.get("date", "").strip()
+
+        issues = []
+
+        # 필수 필드 확인
+        if not title:
+            issues.append("제목 누락")
+        if not url:
+            issues.append("URL 누락")
+        if not source:
+            issues.append("출처 누락")
+        if not summary:
+            issues.append("요약 누락")
+        if issues:
+            print(f"    ⚠️  항목 {i+1} 필수 필드 오류: {', '.join(issues)} — 제외")
+            continue
+
+        # 중복 제목
+        if title in seen_titles:
+            print(f"    ⚠️  항목 {i+1} 중복 제목: {title[:40]}... — 제외")
+            continue
+        seen_titles.add(title)
+
+        # 날짜 형식 정규화 (YYYY.MM.DD 또는 YYYY.MM 허용)
+        if not re.match(r'\d{4}\.\d{1,2}', date):
+            corrected = f"{year}.{int(month):02d}"
+            print(f"    ℹ️  항목 {i+1} 날짜 교정: '{date}' → '{corrected}'")
+            item["date"] = corrected
+
+        # URL 접근성 확인
+        if not check_url_accessible(url):
+            print(f"    ⚠️  항목 {i+1} URL 접근 불가: {url[:60]} — 제외")
+            continue
+
+        valid_items.append(item)
+
+    removed = len(news) - len(valid_items)
+    if removed:
+        print(f"    → {removed}건 제외, {len(valid_items)}건 유효")
+    else:
+        print(f"    → 모두 유효 ({len(valid_items)}건)")
+
+    data["news"] = valid_items
+    return data
 
 
 def call_claude(prompt, api_key):
@@ -225,7 +300,15 @@ def main():
 
 {news_text}
 
-위에서 CSO·제약영업 종사자에게 중요한 뉴스 정확히 10건을 선별하고, 반드시 아래 JSON만 출력하세요 (설명·마크다운 없이):
+[선별 규칙]
+1. 반드시 pubDate 기준으로 가장 최신 기사 우선 선별하세요.
+2. CSO·제약영업 종사자에게 실질적으로 중요한 뉴스만 선별하세요.
+3. 중복 뉴스는 1건만 포함하세요.
+4. 가능한 한 10건을 선별하되, 품질이 낮은 기사를 넣느니 적더라도 좋은 기사를 선택하세요.
+5. date 필드는 반드시 pubDate를 YYYY.MM.DD 형식으로 변환하여 정확히 기입하세요.
+6. URL은 목록에 있는 그대로 복사하세요 (변형 금지).
+
+반드시 아래 JSON만 출력하세요 (설명·마크다운 없이):
 
 {{
   "year": "{year}",
@@ -235,7 +318,7 @@ def main():
     {{
       "title": "뉴스 원본 제목",
       "url": "원문 URL (목록에 있는 그대로)",
-      "date": "YYYY.MM.DD 형식 (목록의 pubDate 기반으로 변환)",
+      "date": "YYYY.MM.DD",
       "source": "언론사명",
       "summary": "2문장 이내. 핵심 사실만.",
       "insight": "1문장. ProMR(EDI 자동정산·CSO 신고제 대응·계약 5년 보관) 활용 팁 포함 가능."
@@ -243,7 +326,7 @@ def main():
   ]
 }}
 
-선별 기준: CSO 규제·제도변화 > 수수료·정산 > 제네릭 약가·품목 > 제약사 영업구조. 중복은 1건만. 반드시 10건 정확히."""
+선별 기준: CSO 규제·제도변화 > 수수료·정산 > 제네릭 약가·품목 > 제약사 영업구조."""
 
     try:
         response = call_claude(prompt, api_key)
@@ -261,7 +344,14 @@ def main():
         print(f"   Claude 응답 (처음 500자): {response[:500]}")
         sys.exit(1)
 
-    # 커버 이미지 생성 (JSON보다 먼저 — 커밋 순서 보장)
+    # 품질 검증
+    data = validate_and_clean_news(data, year, month)
+
+    if not data.get("news"):
+        print("❌ 품질 검증 후 유효한 뉴스가 없습니다.")
+        sys.exit(1)
+
+    # 커버 이미지 생성 (커밋 전에 생성해야 GitHub raw URL이 유효)
     cover_path = create_cover_image(week, month, year)
     if cover_path:
         data["cover_image_url"] = f"https://raw.githubusercontent.com/tntbrain1/NEWS/main/{cover_path}"
@@ -272,7 +362,8 @@ def main():
     with open(output_file, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
-    print(f"  ✅ {output_file} 생성 완료 ({len(data.get('news', []))}건)")
+    count = len(data.get("news", []))
+    print(f"  ✅ {output_file} 생성 완료 ({count}건)")
 
 
 if __name__ == "__main__":
