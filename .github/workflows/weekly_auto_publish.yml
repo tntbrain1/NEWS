@@ -1,0 +1,58 @@
+name: CSO 뉴스 주간 자동 생성·발행
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'  # 매주 월요일 00:00 UTC = 09:00 KST
+  workflow_dispatch:
+    inputs:
+      week:
+        description: '주차 번호 (예: 44, 비워두면 현재 주차)'
+        required: false
+
+jobs:
+  generate-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 뉴스 수집 및 JSON 생성
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          WEEK="${{ github.event.inputs.week }}"
+          if [ -n "$WEEK" ]; then
+            python3 generate_weekly_news.py "$WEEK"
+          else
+            python3 generate_weekly_news.py
+          fi
+
+      - name: Wix 블로그 발행
+        env:
+          WIX_API_KEY: ${{ secrets.WIX_API_KEY }}
+          WIX_SITE_ID: ${{ secrets.WIX_SITE_ID }}
+        run: |
+          LATEST=$(ls cso_news_data_W*.json 2>/dev/null | sort -V | tail -1)
+          if [ -n "$LATEST" ]; then
+            echo "발행 대상: $LATEST"
+            python3 publish_wix_blog.py "$LATEST"
+          else
+            echo "발행할 파일이 없습니다."
+            exit 1
+          fi
+
+      - name: JSON 파일 커밋 및 저장
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add cso_news_data_W*.json
+          if ! git diff --cached --quiet; then
+            WEEK_NUM=$(python3 -c "import datetime; print(datetime.date.today().isocalendar()[1])")
+            git commit -m "auto: W${WEEK_NUM} CSO 주간 뉴스 자동 생성"
+            git push
+          else
+            echo "커밋할 변경사항 없음"
+          fi
