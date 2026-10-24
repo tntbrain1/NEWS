@@ -55,7 +55,7 @@ def fetch_google_news_rss(query, max_items=20):
 def call_claude(prompt, api_key):
     payload = json.dumps({
         "model": "claude-sonnet-5-5",
-        "max_tokens": 8192,
+        "max_tokens": 16000,
         "messages": [{"role": "user", "content": prompt}]
     }).encode()
 
@@ -132,7 +132,7 @@ def main():
 
 {news_text}
 
-위에서 CSO·제약영업 종사자에게 중요한 뉴스 10~15건을 선별하고, 반드시 아래 JSON만 출력하세요 (설명·마크다운 없이):
+위에서 CSO·제약영업 종사자에게 중요한 뉴스 정확히 10건을 선별하고, 반드시 아래 JSON만 출력하세요 (설명·마크다운 없이):
 
 {{
   "year": "{year}",
@@ -144,13 +144,13 @@ def main():
       "url": "원문 URL (목록에 있는 그대로)",
       "date": "YYYY.MM.DD 형식",
       "source": "언론사명",
-      "summary": "3~4문장. 핵심 사실과 CSO 업계 영향 위주로.",
-      "insight": "CSO 실무자가 지금 취해야 할 행동. ProMR(EDI 자동정산·CSO 신고제 대응·계약 5년 보관) 활용 팁 포함 가능."
+      "summary": "2문장 이내. 핵심 사실만.",
+      "insight": "1문장. ProMR(EDI 자동정산·CSO 신고제 대응·계약 5년 보관) 활용 팁 포함 가능."
     }}
   ]
 }}
 
-선별 기준: CSO 규제·제도변화 > 수수료·정산 > 제네릭 약가·품목 > 제약사 영업구조. 중복 유사 뉴스는 1건만."""
+선별 기준: CSO 규제·제도변화 > 수수료·정산 > 제네릭 약가·품목 > 제약사 영업구조. 중복은 1건만. 반드시 10건 정확히."""
 
     try:
         response = call_claude(prompt, api_key)
