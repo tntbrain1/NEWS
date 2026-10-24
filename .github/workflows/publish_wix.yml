@@ -26,6 +26,9 @@ jobs:
           WIX_API_KEY: ${{ secrets.WIX_API_KEY }}
           WIX_SITE_ID: ${{ secrets.WIX_SITE_ID }}
         run: |
+          echo "WIX_API_KEY 길이: ${#WIX_API_KEY}"
+          echo "WIX_SITE_ID 길이: ${#WIX_SITE_ID}"
+
           # 수동 트리거 시 입력값 우선, 없으면 커밋에서 찾기
           LATEST="${{ github.event.inputs.json_file }}"
 

@@ -211,9 +211,18 @@ def main():
     site_id = (sys.argv[3] if len(sys.argv) > 3
                else os.environ.get("WIX_SITE_ID", "")
                or cfg.get("WIX_SITE_ID", ""))
-    # HTTP 헤더는 latin-1만 허용하므로 ASCII로 정규화
-    api_key = api_key.strip().encode("ascii", errors="ignore").decode("ascii")
-    site_id = site_id.strip().encode("ascii", errors="ignore").decode("ascii")
+
+    api_key = api_key.strip()
+    site_id = site_id.strip()
+
+    # 비ASCII 문자 포함 여부 확인 (HTTP 헤더는 latin-1만 허용)
+    for name, val in [("WIX_API_KEY", api_key), ("WIX_SITE_ID", site_id)]:
+        non_ascii = [(i, c) for i, c in enumerate(val) if ord(c) > 127]
+        if non_ascii:
+            print(f"❌ {name}에 비ASCII 문자가 포함되어 있습니다 ({len(non_ascii)}개).")
+            print(f"   총 길이: {len(val)}, 비ASCII 위치 예시: {[i for i, _ in non_ascii[:5]]}")
+            print(f"   GitHub Secret을 삭제하고 API 키를 다시 정확히 입력해 주세요.")
+            sys.exit(1)
 
     if not api_key or not site_id:
         print("❌ WIX_API_KEY 또는 WIX_SITE_ID가 없습니다. .wix_config 파일을 확인하세요.")
