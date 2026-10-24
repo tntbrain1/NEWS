@@ -24,7 +24,7 @@ def get_week_info(week_override=None):
     return str(year), str(week), str(month)
 
 
-def is_recent(pub_date_str, days=14):
+def is_recent(pub_date_str, days=30):
     """RSS pubDate가 최근 N일 이내인지 확인 (RFC 2822 형식)."""
     try:
         dt = email.utils.parsedate_to_datetime(pub_date_str)
@@ -189,7 +189,7 @@ def main():
         sys.exit(0)
 
     today = datetime.date.today()
-    print(f"📰 {year}년 {month}월 {week}주차 뉴스 수집 중... (기준일: {today}, 최근 14일 이내)")
+    print(f"📰 {year}년 {month}월 {week}주차 뉴스 수집 중... (기준일: {today}, 최근 30일 이내)")
 
     queries = [
         "CSO 제약 영업 규제",
@@ -211,7 +211,7 @@ def main():
     print(f"  수집 완료: {len(all_items)}건")
 
     if not all_items:
-        print("❌ 최근 14일 이내 뉴스를 수집하지 못했습니다.")
+        print("❌ 최근 30일 이내 뉴스를 수집하지 못했습니다.")
         sys.exit(1)
 
     print("  🤖 Claude AI 요약 및 인사이트 생성 중...")
