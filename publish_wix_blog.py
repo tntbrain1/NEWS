@@ -222,6 +222,24 @@ def main():
     print(f"📝 블로그 발행 시작: {title}")
     print(f"   뉴스 항목: {len(data.get('news', []))}건")
 
+    # 0. 중복 발행 방지: 같은 제목의 포스트가 이미 있으면 건너뜀
+    try:
+        req = urllib.request.Request(
+            "https://www.wixapis.com/blog/v3/posts?paging.limit=20",
+            headers={"Authorization": api_key, "wix-site-id": site_id}
+        )
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            existing = json.loads(resp.read()).get("posts", [])
+        for p in existing:
+            if p.get("title") == title:
+                slug = p.get("slug", "")
+                url_path = f"https://www.promr.blog/resources/{slug}" if slug else "https://www.promr.blog/resources"
+                print(f"  ℹ️  이미 발행된 포스트입니다. 건너뜁니다.")
+                print(f"     URL: {url_path}")
+                sys.exit(0)
+    except Exception:
+        pass
+
     # 1. 카테고리 조회
     print("  1. 카테고리 조회 중...")
     try:

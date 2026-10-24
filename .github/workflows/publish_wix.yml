@@ -5,6 +5,11 @@ on:
     branches: [main]
     paths:
       - 'cso_news_data_W*.json'
+  workflow_dispatch:
+    inputs:
+      json_file:
+        description: '발행할 JSON 파일명 (예: cso_news_data_W44.json)'
+        required: false
 
 jobs:
   publish:
@@ -25,9 +30,13 @@ jobs:
           echo "WIX_API_KEY=${WIX_API_KEY}" > .wix_config
           echo "WIX_SITE_ID=${WIX_SITE_ID}" >> .wix_config
 
-          # 가장 최근에 추가된 주차 JSON 파일 찾기
-          LATEST=$(git diff-tree --no-commit-id -r --name-only ${{ github.sha }} \
-            | grep 'cso_news_data_W.*\.json' | head -1)
+          # 수동 트리거 시 입력값 우선, 없으면 커밋에서 찾기
+          LATEST="${{ github.event.inputs.json_file }}"
+
+          if [ -z "$LATEST" ]; then
+            LATEST=$(git diff-tree --no-commit-id -r --name-only ${{ github.sha }} \
+              | grep 'cso_news_data_W.*\.json' | head -1)
+          fi
 
           if [ -z "$LATEST" ]; then
             LATEST=$(ls cso_news_data_W*.json 2>/dev/null | sort -V | tail -1)
