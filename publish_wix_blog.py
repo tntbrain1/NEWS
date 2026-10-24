@@ -11,15 +11,24 @@ import urllib.error
 import uuid
 
 def _fix_key(s, name="key"):
-    """전각Unicode(FF01-FF5E)→ASCII 역변환. 브라우저 복사-붙여넣기 오염 자동 복구."""
+    """비ASCII 문자 자동 정규화. 브라우저 붙여넣기 오염 자동 복구."""
+    non_ascii = [(i, c) for i, c in enumerate(s) if ord(c) > 127]
+    if not non_ascii:
+        return s
+    # 진단: 실제 ordinal 값 출력 (secret 마스킹 영향 없음)
+    sample_ords = [ord(c) for _, c in non_ascii[:8]]
+    print(f"  [진단] {name} 비ASCII 샘플 ordinal: {sample_ords}")
+    # 전각(FF01-FF5E) → ASCII
     fixed = "".join(chr(ord(c) - 0xFEE0) if 0xFF01 <= ord(c) <= 0xFF5E else c for c in s)
     remaining = [(i, c) for i, c in enumerate(fixed) if ord(c) > 127]
-    if len(fixed) != len(s):
-        print(f"⚠️  {name}: 전각→ASCII 변환 실패 (길이 불일치)")
-    elif remaining:
-        print(f"❌ {name}에 변환 불가능한 비ASCII 문자 {len(remaining)}개가 남아 있습니다: {[i for i, _ in remaining[:5]]}")
-        sys.exit(1)
-    return fixed
+    if not remaining:
+        print(f"  [정보] {name}: 전각Unicode → ASCII 변환 완료")
+        return fixed
+    # 변환 불가 — 남은 비ASCII의 ordinal 출력
+    rem_ords = sorted(set(ord(c) for _, c in remaining[:8]))
+    print(f"❌ {name}: {len(remaining)}개 비ASCII 변환 불가. ordinal={rem_ords}")
+    print(f"   GitHub Secret을 터미널에서 직접 복사한 값으로 다시 저장해 주세요.")
+    sys.exit(1)
 
 
 def nid():
