@@ -70,7 +70,16 @@ def call_claude(prompt, api_key):
         }
     )
     with urllib.request.urlopen(req, timeout=120) as resp:
-        return json.loads(resp.read())["content"][0]["text"]
+        result = json.loads(resp.read())
+
+    if "error" in result:
+        raise RuntimeError(f"Claude API 오류: {result['error']}")
+
+    for block in result.get("content", []):
+        if block.get("type") == "text":
+            return block["text"]
+
+    raise RuntimeError(f"Claude 응답에 텍스트 없음: {json.dumps(result)[:300]}")
 
 
 def main():
