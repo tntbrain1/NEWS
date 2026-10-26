@@ -1,0 +1,89 @@
+{
+  "year": "2026",
+  "week": "44",
+  "month": "10",
+  "news": [
+    {
+      "title": "CSO 수수료 직접 규제 '난색'…신고·관리 체계 강화로 가닥",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5UZ2xSRjh2OTZ6N0k5OVFScERtME5nZ1BjenptMEN1dFpNQ094ZjlBdDFoZkhIdnZIZ0RJQklwZkV3ckhFMkRUOWRkRklacHlkamJkbDRB?oc=5",
+      "date": "2026.10.26",
+      "source": "데일리팜",
+      "summary": "CSO 수수료를 직접 규제하는 방안에는 난색을 보이는 분위기입니다. 대신 신고·관리 체계를 강화하는 방향으로 가닥이 잡히고 있습니다.",
+      "insight": "수수료 상한 같은 직접 규제보다 신고·관리 강화가 먼저 올 가능성이 크므로, ProMR로 CSO 신고제 대응과 계약 5년 보관 체계를 미리 갖춰 두는 것이 안전합니다."
+    },
+    {
+      "title": "\"월 처방 20만원↓ 수수료 없다\"…일부 제약, CSO 정산 강화",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBvNXRCM2ZxVS1YNkJ3WjdocDJaRlk4cXE2TGVobXVrdXVzN2VnRVF3bFhTV2hYaE9rMWtTZGJ0Z3BrSVQ4UWJIVjBtVlZ0d0RPOGNCOXJn?oc=5",
+      "date": "2026.10.23",
+      "source": "데일리팜",
+      "summary": "일부 제약사가 월 처방액 20만원 미만이면 수수료를 지급하지 않는 식으로 CSO 정산 기준을 강화하고 있습니다.",
+      "insight": "정산 기준이 엄격해지는 만큼 처방 실적과 수수료 산정 내역을 ProMR EDI 자동정산으로 투명하게 관리하면 정산 분쟁을 줄일 수 있습니다."
+    },
+    {
+      "title": "제약업계, CSO 수수료 상한제·재위탁 제한 셀프 규제 추진",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9zQ196R1ZUeHlMeGcxTTFIcExRZnhEc2M5N2dwYUEwLTZhOUNqamJZUmxvSkhYbm1oWWNVMkRlTFNNN245SUN2RjdxWVRic3NIRTFaQjJB?oc=5",
+      "date": "2026.10.22",
+      "source": "데일리팜",
+      "summary": "제약업계가 CSO 수수료 상한제와 재위탁 제한을 자율적으로 추진하고 있습니다.",
+      "insight": "수수료 구조와 재위탁 관행이 바뀔 수 있으므로, 계약 조건과 재위탁 여부를 ProMR에 기록해 두고 변경에 대비해야 합니다."
+    },
+    {
+      "title": "의약품 판촉영업자 2만개 난립… 첫 실태조사 응답률은 2%",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE0zR241ZnFuQldXc2FwYi1YY2VqUlFBaXBTeUVWdlpDVVhVV0JsNWIyWjdCMzVTWDZ3T2ZfYTQ1RFBjYktHLUowNEdUcW1nazZ2MDdsMHlaTGlzVDJTZDNnaDdvQnJnUGU2LXc?oc=5",
+      "date": "2026.10.19",
+      "source": "medicalworldnews.co.kr",
+      "summary": "의약품 판촉영업자가 2만 개에 이르는 가운데, 첫 실태조사의 응답률은 2%에 그쳤습니다.",
+      "insight": "실태조사 응답률이 낮아 향후 자료 제출 요구가 강화될 수 있으니, ProMR로 신고 정보와 활동 자료를 상시 정리해 두면 대응이 쉽습니다."
+    },
+    {
+      "title": "[인터뷰] 이규현 협회장 “CSO 자율규제는 선택 아닌 생존조건”",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1pMS0wbU5GSU9Nc2lZWV9tay1BR3F2WW9IWnhGMzVfYzhCX3pHMlIzRHRicklKRkhSTDJLRUhWS01EaVdCWWNRbXQ1VG05aVhGWnZRSE1GZTRFYmk4THJzQ0EzVVFUTHlyUjRGc2JsTlBZUdIBdkFVX3lxTE9LNXgyelNrU1V2QlVoazBuSloyeWdNOUlSVG0zT2JlUWh6RVhScS1YTjdPZ3MxSk9IZ1V2N0ZuTEFJRFVOUDM0NXNNcHU4ZzV3LVN3Yy1YbVFKN1U3U1dyTjFyTmszcGM0ZWVhZENxQ3haWUZJbmc?oc=5",
+      "date": "2026.10.16",
+      "source": "시사저널e",
+      "summary": "이규현 협회장이 인터뷰에서 CSO 자율규제는 선택이 아니라 생존조건이라고 강조했습니다.",
+      "insight": "업계가 자율규제를 생존 요건으로 보는 만큼, 투명한 정산과 계약 기록을 ProMR로 갖추는 것이 경쟁력이 됩니다."
+    },
+    {
+      "title": "CSO 관리, 신고 넘어 내부통제로…제약사 책임도 강화",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9yUDBta0R0bmFrMXh6azJCUF9DT3hhUE1wQ18wUmJmSERRWUVlbHpPazM2cDdHODVPeDRQZmp2dVFvd2I0My1IaGl6a0JNMDdYQTFkcUtNNHUzV0hRTFp0Z3RxRG1ObkRrSTZ3?oc=5",
+      "date": "2026.10.16",
+      "source": "메디파나뉴스",
+      "summary": "CSO 관리의 초점이 신고를 넘어 내부통제로 옮겨가고 있으며, 제약사의 책임도 강화되는 흐름입니다.",
+      "insight": "제약사의 내부통제 요구가 CSO에도 이어질 수 있으니, ProMR의 EDI 자동정산과 계약서 5년 보관으로 증빙 체계를 갖춰 두세요."
+    },
+    {
+      "title": "제네릭 약가 인하 앞둔 제약사…품목 수보다 매출 의존도가 변수",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1DdlJGOUpDQVVQNXpsZnFrV1ZYWWJDZVcyeU5wMTJ6Y2xrckRlZDc3WThHT2o5ak80M1dabXNJa2p3RGpKRzJPZlNzYmFGcFJTY1RtSWpTdHBwNUpCZ0owTHNkdkRfOTl5V1lDeHBHRU9RMllQ?oc=5",
+      "date": "2026.10.13",
+      "source": "파이낸셜포스트",
+      "summary": "제네릭 약가 인하를 앞두고 제약사의 영향은 품목 수보다 제네릭 매출 의존도에 따라 달라질 것으로 분석됩니다.",
+      "insight": "제네릭 의존도가 높은 제약사는 영업·수수료 정책을 조정할 수 있으므로, 담당 품목의 매출 비중과 수수료 조건 변화를 ProMR로 점검해 두면 좋습니다."
+    },
+    {
+      "title": "CSO 계약서 98만건 쌓였는데…리베이트 감시망은 왜 작동 못하나",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1DMDdkZ0RmWDlFdXdfX0NkMVpfb09RSzFLQ1lIRHQ0d3hjMXI5d0tta2llZE83b0w5SWJ3eGxLWEk1RzdwYmo3c01lUlVuN0xOTWczMzFFdk93am1HLU90MUZQdE5BZVJq?oc=5",
+      "date": "2026.10.12",
+      "source": "메디팜스투데이",
+      "summary": "CSO 위탁 계약서가 98만 건 쌓였는데도 리베이트 감시망이 제대로 작동하지 않는 이유를 짚었습니다.",
+      "insight": "축적된 계약서가 감시 자료로 활용될 가능성이 커졌으므로, 계약 5년 보관과 정산 내역의 일치를 ProMR로 확인해 두는 것이 중요합니다."
+    },
+    {
+      "title": "기형적 'CSO 수수료' 정조준…국회·정부, 후속 규제 예고",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9VNWdfeUMxWVpPdEtCajFCbUNqOGZPclFBdWtmWURwR1dIMXJGcktIWUVYUzBKM2pPTk4wS3dWTmxpWEFSaERpZlFsS0x2WDRlWVhsWGhB?oc=5",
+      "date": "2026.10.08",
+      "source": "데일리팜",
+      "summary": "국회와 정부가 기형적으로 높은 CSO 수수료를 겨냥해 후속 규제를 예고했습니다.",
+      "insight": "수수료 구조가 규제 대상이 되고 있으니, 계약별 수수료율을 ProMR EDI 정산 데이터로 점검해 두면 후속 규제에 대응하기 쉽습니다."
+    },
+    {
+      "title": "정은경 장관 \"CSO 위탁계약서 98만건·수수료율 전수조사\"",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5GRGNRWHlTUnVZMHBzSlZTelBDZFZTZER4RUJNNERIVUpKSXo1Y0hBSTVPaGtoSVBCMEhic18xc3p3M2VsS0JPOHB3M0IxczJ1aUtYSXJB?oc=5",
+      "date": "2026.10.07",
+      "source": "데일리팜",
+      "summary": "정은경 장관이 국감에서 CSO 위탁계약서 98만 건과 수수료율을 전수조사하겠다는 뜻을 밝혔습니다.",
+      "insight": "전수조사가 현실화되면 계약서와 수수료율 자료 제출이 요구될 수 있으므로, ProMR로 계약서를 5년간 보관하고 정산 내역과 맞춰 두세요."
+    }
+  ],
+  "cover_image_url": "https://raw.githubusercontent.com/tntbrain1/NEWS/main/covers/W44.png",
+  "cover_local_path": "covers/W44.png"
+}
