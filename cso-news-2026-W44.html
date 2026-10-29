@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSO 위클리 매거진 | 2026년 10월 44주차</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0a1628;
+    --accent: #e63946;
+    --accent2: #c1121f;
+    --gold: #f4a261;
+    --sky: #457b9d;
+    --light: #f8f9fa;
+    --card-bg: #ffffff;
+    --text: #212529;
+    --muted: #6c757d;
+    --border: #dee2e6;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #f0f2f5;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    background: var(--primary);
+    color: white;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+  .site-header .logo-text {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+  .site-header .issue-badge {
+    background: var(--accent);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .site-header .promr-tag {
+    background: rgba(255,255,255,0.15);
+    color: #a8d8f0;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 500;
+  }
+
+  /* ===== PROMR BANNER ===== */
+  .promr-banner {
+    background: linear-gradient(135deg, #c1121f 0%, #e63946 50%, #ff6b6b 100%);
+    color: white;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .promr-banner .banner-text h2 {
+    font-size: 1.05rem;
+    font-weight: 900;
+    line-height: 1.3;
+  }
+  .promr-banner .banner-text p {
+    font-size: 0.78rem;
+    opacity: 0.9;
+    margin-top: 3px;
+  }
+  .promr-banner .banner-cta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .btn-white {
+    background: white;
+    color: var(--accent2);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+  }
+  .btn-outline {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255,255,255,0.6);
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: linear-gradient(160deg, #0a1628 0%, #1a2a4a 60%, #1d3557 100%);
+    color: white;
+    padding: 36px 20px 32px;
+  }
+  .hero .hero-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #a8d8f0;
+    margin-bottom: 10px;
+  }
+  .hero h1 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+  .hero .hero-sub {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 24px;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  @media (min-width: 600px) {
+    .stats-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .stat-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 14px 12px;
+    text-align: center;
+  }
+  .stat-card .stat-number {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #f4a261;
+    line-height: 1;
+  }
+  .stat-card .stat-unit {
+    font-size: 0.78rem;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .stat-card .stat-label {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+  }
+
+  /* ===== MAIN LAYOUT ===== */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  /* ===== SECTION HEADER ===== */
+  .section-header {
+    padding: 28px 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+  .section-header h2 {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: var(--primary);
+  }
+  .section-header .section-count {
+    background: var(--primary);
+    color: white;
+    border-radius: 20px;
+    padding: 2px 9px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    margin-left: auto;
+  }
+
+  /* ===== TOP 3 CARDS ===== */
+  .top3-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+  @media (min-width: 700px) {
+    .top3-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .top3-card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .top3-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+  }
+  .top3-rank {
+    background: var(--primary);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 900;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top3-rank .rank-num {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: var(--gold);
+  }
+  .top3-score {
+    background: rgba(244,162,97,0.15);
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .top3-body {
+    padding: 14px;
+  }
+  .top3-body .news-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.4;
+    margin-bottom: 8px;
+    text-decoration: none;
+    display: block;
+  }
+  .top3-body .news-title:hover { color: var(--accent); }
+  .top3-body .news-summary {
+    font-size: 0.78rem;
+    color: #555;
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+  .insight-box {
+    background: linear-gradient(135deg, #fff3e0, #fff8f0);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 9px 11px;
+    font-size: 0.75rem;
+    color: #5a3e1b;
+    line-height: 1.5;
+  }
+  .insight-box strong {
+    color: #b55a00;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 0.73rem;
+  }
+
+  /* ===== NEWS CARD ===== */
+  .news-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.07);
+    border: 1px solid var(--border);
+    margin-bottom: 12px;
+    transition: box-shadow 0.2s;
+  }
+  .news-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.11); }
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .num-badge {
+    background: var(--primary);
+    color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.68rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .cat-tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .cat-cso { background: #fff0f0; color: #c1121f; }
+  .cat-policy { background: #e8f4fd; color: #1565c0; }
+  .cat-market { background: #e8f8e8; color: #2e7d32; }
+  .cat-generic { background: #f3e5f5; color: #7b1fa2; }
+  .source-badge {
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 2px 7px;
+    border-radius: 6px;
+    background: #f0f2f5;
+    color: #495057;
+  }
+  .date-badge {
+    font-size: 0.68rem;
+    color: var(--muted);
+    margin-left: auto;
+  }
+  .news-card h3 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .news-card h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .news-card h3 a:hover { color: var(--accent); }
+  .news-card .summary {
+    font-size: 0.78rem;
+    color: #555;
+    line-height: 1.55;
+    margin-bottom: 10px;
+  }
+
+  /* ===== PROMR FEATURE BLOCK ===== */
+  .promr-features {
+    background: linear-gradient(160deg, #0a1628 0%, #1d3557 100%);
+    color: white;
+    padding: 36px 20px;
+    margin: 32px 0 0;
+  }
+  .promr-features .features-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .promr-features .features-header h2 {
+    font-size: 1.4rem;
+    font-weight: 900;
+    line-height: 1.3;
+    margin-bottom: 6px;
+  }
+  .promr-features .features-header p {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.65);
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    max-width: 700px;
+    margin: 0 auto 24px;
+  }
+  @media (min-width: 600px) {
+    .features-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .feature-item {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 16px 12px;
+    text-align: center;
+  }
+  .feature-item .feat-icon { font-size: 1.6rem; margin-bottom: 8px; }
+  .feature-item .feat-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .feature-item .feat-desc {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.45;
+  }
+  .promr-cta {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .btn-red {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 11px 22px;
+    border-radius: 24px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-gold {
+    background: var(--gold);
+    color: #5a3e1b;
+    border: none;
+    padding: 11px 22px;
+    border-radius: 24px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #1a1e2e;
+    color: rgba(255,255,255,0.55);
+    padding: 28px 20px;
+    font-size: 0.75rem;
+    text-align: center;
+  }
+  footer .footer-sources {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 12px;
+    margin: 10px 0;
+  }
+  footer .footer-sources span {
+    background: rgba(255,255,255,0.08);
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+  }
+  footer .footer-bottom {
+    margin-top: 14px;
+    color: rgba(255,255,255,0.3);
+    font-size: 0.7rem;
+  }
+  .divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--gold));
+    border-radius: 2px;
+    margin: 6px 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo-text">📰 CSO 위클리 매거진</div>
+  <div style="display:flex;gap:8px;align-items:center;">
+    <div class="issue-badge">2026년 44주차</div>
+    <div class="promr-tag">Powered by ProMR</div>
+  </div>
+</header>
+
+<!-- PROMR BANNER -->
+<div class="promr-banner">
+  <div class="banner-text">
+    <h2>🚀 프로엠알(ProMR) — CSO·CMR 전용 제약영업 SaaS 플랫폼 No.1</h2>
+    <p>EDI 자동정산 · CSO 신고제 완벽 대응 · 특허 등록 솔루션</p>
+  </div>
+  <div class="banner-cta">
+    <a href="https://promr.co.kr" target="_blank" class="btn-white">무료 시작하기</a>
+    <a href="https://play.google.com/store/apps/details?id=kr.co.promr" target="_blank" class="btn-outline">앱 다운로드</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-label">WEEKLY BRIEFING · 2026.10.29</div>
+    <h1>CSO 수수료 국감 직격탄<br>규제 전환점 맞은 제약영업</h1>
+    <p class="hero-sub">2026년 10월 마지막 주 · 제약영업 CSO 실무자 필독 15선</p>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">43<span class="stat-unit">%</span></div>
+        <div class="stat-label">CSO 평균 수수료율</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">98<span class="stat-unit">만건</span></div>
+        <div class="stat-label">정부 확보 위탁계약서</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2.1<span class="stat-unit">만</span></div>
+        <div class="stat-label">신고 CSO 업체 수</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">45<span class="stat-unit">%</span></div>
+        <div class="stat-label">새 제네릭 약가 산정률</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOP 3 -->
+<div class="container">
+  <div class="section-header">
+    <div class="section-icon" style="background:#fff0f0;">🏆</div>
+    <h2>이번 주 TOP 3 핵심 뉴스</h2>
+    <div class="section-count">점수 순</div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="top3-grid" style="margin-top:16px;">
+
+    <!-- TOP 1 -->
+    <div class="top3-card">
+      <div class="top3-rank">
+        <span><span class="rank-num">#1</span> 국감 직격탄</span>
+        <span class="top3-score">75점</span>
+      </div>
+      <div class="top3-body">
+        <a href="https://dailypharm.com/user/news/343186" target="_blank" class="news-title">
+          [국감] "약값 60%가 판촉비"…CSO 수수료율 평균 43%
+        </a>
+        <div class="news-summary">
+          남인순 의원실이 확인한 446개 품목의 CSO 수수료율 평균이 42.9%에 달하며, 50% 이상 품목이 140개, 최고 60%까지 기록된 사실이 국정감사에서 폭로됐다. 클로피도그렐 75mg의 경우 건보 상한금액 1,164원 중 700원이 수수료로 지급된 충격적 사례도 공개됐다.
+        </div>
+        <div class="insight-box">
+          <strong>💡 CSO 실무 인사이트</strong>
+          수수료율이 공개 데이터가 되는 시대가 왔다. 법정 규제 전 선제적으로 계약서 구조를 점검하고, 영업 성과 기반 정산 시스템(FFS) 전환을 검토할 적기다.
+        </div>
+      </div>
+    </div>
+
+    <!-- TOP 2 -->
+    <div class="top3-card">
+      <div class="top3-rank">
+        <span><span class="rank-num">#2</span> 전수조사 예고</span>
+        <span class="top3-score">72점</span>
+      </div>
+      <div class="top3-body">
+        <a href="https://m.dailypharm.com/user/news/343181" target="_blank" class="news-title">
+          정은경 장관 "CSO 위탁계약서 98만건·수수료율 전수조사"
+        </a>
+        <div class="news-summary">
+          복지부 정은경 장관이 국감에서 CSO 위탁계약서 98만 건에 대한 전수 분석 방안을 마련하겠다고 밝혔다. 건보 청구 데이터와 연계 분석 및 계약서 표준화 방안을 함께 추진할 계획으로, 사실상 CSO 영업 투명화를 위한 정부 주도 시스템이 가동된다.
+        </div>
+        <div class="insight-box">
+          <strong>💡 CSO 실무 인사이트</strong>
+          계약서 표준화가 추진되면 수수료율과 지급 구조가 그대로 노출된다. 지금부터 계약서 이력 관리와 5년 보관 체계를 갖추는 것이 필수다. ProMR의 계약·지출 5년 보관 기능이 직접 대응책이 된다.
+        </div>
+      </div>
+    </div>
+
+    <!-- TOP 3 -->
+    <div class="top3-card">
+      <div class="top3-rank">
+        <span><span class="rank-num">#3</span> 규제 방향 확정</span>
+        <span class="top3-score">68점</span>
+      </div>
+      <div class="top3-body">
+        <a href="https://dailypharm.com/user/news/343768" target="_blank" class="news-title">
+          CSO 수수료 직접 규제 '난색'…신고·관리 체계 강화로 가닥
+        </a>
+        <div class="news-summary">
+          정부는 CSO 수수료 상한제 직접 도입에는 신중한 입장을 유지하면서, 신고·관리 체계 강화와 재위탁 제한을 우선 추진하는 방향으로 가닥을 잡았다. 제약사에게 CSO 관리·감독 책임을 부여하는 '책임공유제'가 핵심 안으로 논의되고 있다.
+        </div>
+        <div class="insight-box">
+          <strong>💡 CSO 실무 인사이트</strong>
+          수수료 상한제가 아닌 신고·추적 강화가 먼저다. 재위탁 구조를 간소화하고, 판촉 활동 내역을 디지털로 기록하는 체계가 필요하다. 규제 강화 전 선제적 정비가 생존 전략이다.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /top3-grid -->
+
+  <!-- ===== CSO 직접 이슈 ===== -->
+  <div class="section-header">
+    <div class="section-icon" style="background:#fff0f0;">🔴</div>
+    <h2>CSO 직접 이슈</h2>
+    <div class="section-count">5건</div>
+  </div>
+  <div class="divider"></div>
+
+  <!-- 뉴스 4 -->
+  <div class="news-card" style="margin-top:14px;">
+    <div class="card-meta">
+      <div class="num-badge">4</div>
+      <span class="cat-tag cat-cso">CSO 수수료</span>
+      <span class="source-badge">데일리팜</span>
+      <span class="date-badge">2026.10.23</span>
+    </div>
+    <h3><a href="https://dailypharm.com/user/news/343699" target="_blank">"월 처방 20만원↓ 수수료 없다"…일부 제약, CSO 정산 강화</a></h3>
+    <div class="summary">
+      일부 제약사가 11월 처방분부터 월 처방액 20만원 미만 거래처의 CSO 수수료 정산을 중단하는 강화 정책을 적용한다. 저실적 거래처 코드 삭제, 복수 코드 관리 강화 등 비용 효율화 조치가 본격화되는 것으로, CSO들의 거래처 포트폴리오 관리 전략에 직접 영향을 준다.
+    </div>
+    <div class="insight-box">
+      <strong>💡 CSO 실무 인사이트</strong>
+      월 처방 실적 기준이 생기면 '박리다매' 방식 CSO 영업은 도태된다. 거래처별 처방 실적을 실시간으로 모니터링하고, 집중 관리 대상 거래처를 선별하는 데이터 기반 영업이 생존의 핵심이다.
+    </div>
+  </div>
+
+  <!-- 뉴스 5 -->
+  <div class="news-card">
+    <div class="card-meta">
+      <div class="num-badge">5</div>
+      <span class="cat-tag cat-cso">CSO 수수료</span>
+      <span class="source-badge">데일리팜</span>
+      <span class="date-badge">2026.10</span>
+    </div>
+    <h3><a href="https://dailypharm.com/user/news/343218" target="_blank">"비대면 처방은 정산 불가"…제약사들 CSO 수수료 빗장</a></h3>
+    <div class="summary">
+      복수의 제약사가 비대면 진료 처방을 CSO 수수료 정산 대상에서 전면 제외하기 시작했다. 처방전이 특정 지역에 집중되지 않아 실적 확인이 어렵다는 이유 외에, 비대면 처방 증가에 따른 수수료 무한 확장을 차단하기 위한 포석으로도 해석된다.
+    </div>
+    <div class="insight-box">
+      <strong>💡 CSO 실무 인사이트</strong>
+      비대면 처방 채널을 통해 실적을 올리던 CSO는 계약서를 즉시 재검토해야 한다. 어떤 처방 채널이 정산 가능한지 명문화하고, 약국 조제 실적까지 함께 관리하는 시스템을 갖춰야 한다.
+    </div>
+  </div>
+
+  <!-- 뉴스 6 -->
+  <div class="news-card">
+    <div class="card-meta">
+      <div class="num-badge">6</div>
+      <span class="cat-tag cat-cso">CSO 편법</span>
+      <span class="source-badge">데일리팜</span>
+      <span class="date-badge">2026.10</span>
+    </div>
+    <h3><a href="https://dailypharm.com/user/news/337987" target="_blank">CSO 수수료 선인하-사후보전…편법 R&amp;D 비율 맞추기 확산</a></h3>
+    <div class="summary">
+      약가인하를 피하기 위해 CSO 수수료를 일시적으로 낮춰 R&amp;D 비율 요건을 충족한 뒤, 약가 유지 효과를 나눠 갖는 '선인하-사후보전' 구조가 업계에 퍼지고 있다. 이 편법은 규제 당국의 새로운 타깃이 될 가능성이 높다.
+    </div>
+    <div class="insight-box">
+      <strong>💡 CSO 실무 인사이트</strong>
+      이 구조는 복지부가 98만건 계약 전수조사 시 먼저 들여다볼 가능성이 높은 패턴이다. 일시적 수수료 조작 이력이 남지 않도록 계약서 관리 체계를 점검하고, 법적 리스크를 사전에 검토해야 한다.
+    </div>
+  </div>
+
+  <!-- 뉴스 7 -->
+  <div class="news-card">
+    <div class="card-meta">
+      <div class="num-badge">7</div>
+      <span class="cat-tag cat-cso">변칙영업</span>
+      <span class="source-badge">데일리팜</span>
+      <span class="date-badge">2026.10</span>
+    </div>
+    <h3><a href="https://dailypharm.com/user/news/338450" target="_blank">전문약 할인에 거짓 약가정보 전달…도넘는 CSO 변칙영업</a></h3>
+    <div class="summary">
+      일부 CSO가 약국에 상한가보다 10% 싸게 공급하겠다고 제안하면서 실제 등재 가격과 다른 허위 약가 정보를 전달한 사실이 확인됐다. 잘못된 정보로 약국이 손해를 보는 사례가 늘면서 업계 신뢰를 훼손하는 주요 원인으로 지적되고 있다.
+    </div>
+    <div class="insight-box">
+      <strong>💡 CSO 실무 인사이트</strong>
+      약가 정보 제공 시 건강보험심사평가원 공식 데이터를 반드시 기준으로 삼아야 한다. 잘못된 약가 정보 제공은 민·형사상 책임을 질 수 있는 리스크다. ProMR 같은 플랫폼의 공식 EDI 연동 데이터 활용이 안전하다.
+    </div>
+  </div>
+
+  <!-- 뉴스 8 -->
+  <div class="news-card">
+    <div class="card-meta">
+      <div class="num-badge">8</div>
+      <span class="cat-tag cat-cso">수수료 경쟁</span>
+      <span class="source-badge">데일리팜</span>
+      <span class="date-badge">2026.10</span>
+    </div>
+    <h3><a href="https://dailypharm.com/user/news/338135" target="_blank">수수료 퍼주고 깎고…약가인하 공포에 CSO 영업 '격랑'</a></h3>
+    <div class="summary">
+      제네릭 약가인하를 앞두고 점유율을 사수하기 위한 수수료율 인상 사례가 늘고 있다. 한 중소 제약사는 신규 불면증 치료제 수수료를 60%에서 80%까지 올린 것으로 알려졌으며, 이 과열 경쟁이 국감에서 지적된 '기형적 수수료' 문제의 직접적 원인으로 분석된다.
+    </div>
+    <div class="insight-box">
+      <strong>💡 CSO 실무 인사이트</strong>
+      높은 수수료는 단기 이익이지만 규제 타깃이 된다. 수수료율 경쟁보다 처방 유지율과 실적 증빙 역량을 높이는 방향이 장기적으로 유리하다. 안정적인 정산 체계를 갖춘 제약사 파트너십을 선별하는 것이 중요하다.
+    </div>
+  </div>
+
+  <!-- ===== 규제·정책 ===== -->
+  <div class="section-header">
+    <div class="section-icon" style="background:#e8f4fd;">📋</div>
+    <h2>규제·정책</h2>
+    <div class="section-count">4건</div>
+  </div>
+  <div class="divider"></div>
+
+  <!-- 뉴스 9 -->
+  <div class="news-card" style="margin-top:14px;">
+    <div class="card-meta">
+      <div class="num-badge">9</div>
+      <span class="cat-tag cat-policy">자율규제</span>
+      <span class="source-badge">약사공론</span>
+      <span class="date-badge">2026.10.22</span>
+    </div>
+    <h3><a href="https://www.kpanews.co.kr/news/articleView.html?idxno=546959" target="_blank">CSO 관리감독 체계 전면 개편…제약업계 '선제적 자정' 나선다</a></h3>
+    <div class="summary">
+      김앤장 연구용역을 통한 8대 개선과제가 공개됐다. ▲CSO 진입요건 강화 ▲재위탁 제한 ▲자료제출 의무화 ▲제약사 관리·감독 책임 강화 ▲행정제재 강화 ▲수수료 체계 개선 ▲우수 CSO 인증제 등이 포함됐다. 장기적으로는 실제 영업활동 기반 수수료(FFS) 방식 전환도 논의된다.
+    </div>
+    <div class="insight-box">
+      <strong>💡 CSO 실무 인사이트</strong>
+      우수 CSO 인증제가 도입되면 인증 여부가 계약 수주의 핵심 조건이 된다. 지금부터 영업 활동 기록, 준법 내부통제, MR 자격증 관리 등 인증 요건 준비를 시작해야 한다.
+    </div>
+  </div>
+
+  <!-- 뉴스 10 -->
+  <div class="news-card">
+    <div class="card-meta">
+      <div class="num-badge">10</div>
+      <span class="cat-tag cat-policy">국감</span>
+      <span class="source-badge">팜뉴스</span>
+      <span class="date-badge">2026.10</span>
+    </div>
+    <h3><a href="https://www.pharmnews.com/news/articleView.html?idxno=307200" target="_blank">CSO 계약서 98만건 확보했지만…실제 수수료 추적은 과제</a></h3>
+    <div class="summary">
+      복지부가 위탁계약서 98만 건을 확보했지만 표준화된 양식이 없어 실질적 수수료 분석에는 한계가 있다고 국회에서 지적됐다. 신고된 CSO 2만14개 중 약 41%가 1인 개인사업자로 추정돼 관리 사각지대가 광범위하다는 문제도 함께 부각됐다.
+    </div>
+    <div class="insight-box">
+      <strong>💡 CSO 실무 인사이트</strong>
+      계약서 표준화가 추진될 경우 불투명한 수수료 구조는 더 이상 유지하기 어렵다. 개인사업자 형태 CSO는 법인화나 체계적 관리 구조 전환을 검토해야 향후 진입요건 강화에 대비할 수 있다.
+    </div>
+  </div>
+
+  <!-- 뉴스 11 -->
+  <div class="news-card">
+    <div class="card-meta">
+      <div class="num-badge">11</div>
+      <span class="cat-tag cat-policy">규제 강화</span>
+      <span class="source-badge">데일리팜</span>
+      <span class="date-badge">2026.10</span>
+    </div>
+    <h3><a href="https://dailypharm.com/user/news/343613" target="_blank">제약업계, CSO 수수료 상한제·재위탁 제한 셀프 규제 추진</a></h3>
+    <div class="summary">
+      제약산업 민·관협의체에서 업계 주도의 CSO 수수료 자율 규제 방안이 논의되고 있다. 수수료 상한 가이드라인, 재위탁 사전 동의 의무화, N차 하청 피라미드 구조 제한 등이 주요 내용으로, 정부 규제보다 먼저 자정 시스템을 구축하겠다는 의도다.
+    </div>
+    <div class="insight-box">
+      <strong>💡 CSO 실무 인사이트</strong>
+      재위탁 제한이 현실화되면 다단계 CSO 네트워크는 붕괴될 수 있다. 직계약 기반의 단순 구조로 영업 네트워크를 재편하고, 제약사와의 직접 계약 역량을 키우는 것이 중요하다.
+    </div>
+  </div>
+
+  <!-- 뉴스 12 -->
+  <div class="news-card">
+    <div class="card-meta">
+      <div class="num-badge">12</div>
+      <span class="cat-tag cat-policy">판례</span>
+      <span class="source-badge">약업신문</span>
+      <span class="date-badge">2026.10</span>
+    </div>
+    <h3><a href="http://m.yakup.com/news/index.html?mode=view&nid=332080" target="_blank">불법 CSO, 약가 우대 날린다…대법 실형 확정, 제약업계 초긴장</a></h3>
+    <div class="summary">
+      불법 CSO 활용으로 적발된 제약사에 대한 약가 우대 취소 처분이 대법원에서 확정됐다. 혁신형 제약기업 인증 요건의 리베이트 기준도 강화되면서, CSO 연루 리베이트 행위가 기업 존립에 직결되는 위험 요소로 격상됐다.
+    </div>
+    <div class="insight-box">
+      <strong>💡 CSO 실무 인사이트</strong>
+      CSO를 통한 간접 리베이트도 이제는 원청 제약사가 직접 처벌받는다. CSO 계약 제약사들은 파트너 CSO의 영업 활동을 실시간으로 모니터링하고 이상 행위를 차단하는 체계를 반드시 갖춰야 한다.
+    </div>
+  </div>
+
+  <!-- ===== 시장·처방 동향 ===== -->
+  <div class="section-header">
+    <div class="section-icon" style="background:#e8f8e8;">📈</div>
+    <h2>시장·처방 동향</h2>
+    <div class="section-count">3건</div>
+  </div>
+  <div class="divider"></div>
+
+  <!-- 뉴스 13 -->
+  <div class="news-card" style="margin-top:14px;">
+    <div class="card-meta">
+      <div class="num-badge">13</div>
+      <span class="cat-tag cat-market">대형사 동향</span>
+      <span class="source-badge">메디칼타임즈</span>
+      <span class="date-badge">2026.10</span>
+    </div>
+    <h3><a href="https://www.medicaltimes.com/Users/News/NewsView.html?ID=1167365" target="_blank">약가인하 칼바람에 제약 영업 흔들…대형사도 CSO 검토</a></h3>
+    <div class="summary">
+      제네릭 약가인하 여파로 종근당, 보령 등 대형 제약사까지 일부 품목에 대한 CSO 영업 외주화를 검토하고 있다. 기존에 자사 영업조직을 유지하던 대형사들이 비용 효율화를 위해 CSO 도입을 시작하면서 시장 규모는 더욱 확대될 전망이다.
+    </div>
+    <div class="insight-box">
+      <strong>💡 CSO 실무 인사이트</strong>
+      대형사의 CSO 시장 진입은 업계 파이 확대를 의미한다. 단, 대형사는 투명한 계약 구조와 체계적인 영업 보고를 요구할 가능성이 높다. 디지털 영업관리 역량을 갖춘 CSO에게 새로운 기회가 될 수 있다.
+    </div>
+  </div>
+
+  <!-- 뉴스 14 -->
+  <div class="news-card">
+    <div class="card-meta">
+      <div class="num-badge">14</div>
+      <span class="cat-tag cat-market">CSO 재편</span>
+      <span class="source-badge">더바이오</span>
+      <span class="date-badge">2026.10</span>
+    </div>
+    <h3><a href="https://www.thebionews.net/news/articleView.html?idxno=27844" target="_blank">재편되는 'CSO' 활용법…국내 제약사, '전환·병행·선별' 셈법 제각각</a></h3>
+    <div class="summary">
+      일동제약은 의원급 영업에 CSO를 전면 도입하고 자체 MR은 신약 집중 전략을 택했으며, 신풍제약은 의원급 조직을 아예 CSO로 대체했다. 각 제약사마다 전환, 병행, 선별적 활용 등 다른 CSO 전략을 취하면서 CSO 업체별 역할과 전문성 요구 수준도 달라지고 있다.
+    </div>
+    <div class="insight-box">
+      <strong>💡 CSO 실무 인사이트</strong>
+      제약사별로 CSO에 요구하는 전문성이 세분화되고 있다. 의원급 1차 진료 전문 CSO, 신약 출시 특화 CSO 등 특화 영역을 구축하면 경쟁력을 높일 수 있다. 제약사-CSO 매칭 플랫폼을 활용한 신규 계약 발굴도 전략이다.
+    </div>
+  </div>
+
+  <!-- 뉴스 15 -->
+  <div class="news-card">
+    <div class="card-meta">
+      <div class="num-badge">15</div>
+      <span class="cat-tag cat-market">P-CAB 시장</span>
+      <span class="source-badge">메디팜스투데이</span>
+      <span class="date-badge">2026.10</span>
+    </div>
+    <h3><a href="https://www.apsk.co.kr/news/articleView.html?idxno=540854" target="_blank">신약 3종·쌍둥이약 5종에 4번째 P-CAB 출격…더 뜨거워지는 5천억 시장</a></h3>
+    <div class="summary">
+      칼륨경쟁적위산분비억제제(P-CAB) 시장에 신약 3종과 쌍둥이약 5종이 새로 진입해 5,000억원 시장을 놓고 치열한 경쟁이 예고됐다. 대형 제약사들이 대거 영업 파트너로 참여하며 CSO를 활용한 시장 공략도 본격화될 전망이다.
+    </div>
+    <div class="insight-box">
+      <strong>💡 CSO 실무 인사이트</strong>
+      P-CAB 신약은 의원급 소화기내과, 내과 전문의 대상 처방 확대가 핵심이다. 해당 과별 처방 네트워크를 보유한 CSO에게 신규 계약 기회가 집중될 것으로 예상된다. 품목 다양화를 통한 포트폴리오 강화의 적기다.
+    </div>
+  </div>
+
+  <!-- ===== 신제품·제네릭 ===== -->
+  <div class="section-header">
+    <div class="section-icon" style="background:#f3e5f5;">💊</div>
+    <h2>신제품·제네릭</h2>
+    <div class="section-count">1건</div>
+  </div>
+  <div class="divider"></div>
+
+  <!-- 보너스 뉴스 -->
+  <div class="news-card" style="margin-top:14px;">
+    <div class="card-meta">
+      <div class="num-badge">+</div>
+      <span class="cat-tag cat-generic">약가 개편</span>
+      <span class="source-badge">메디칼타임즈</span>
+      <span class="date-badge">2026.10</span>
+    </div>
+    <h3><a href="https://www.medicaltimes.com/Users/News/NewsView.html?ID=1168002" target="_blank">제네릭 약가 45% 쇼크…중소제약사 사업 구조 전환 불가피</a></h3>
+    <div class="summary">
+      제네릭 약가 산정률이 오리지널 대비 53.55%에서 45%로 인하되면서 수익성이 25% 이상 악화될 것으로 전망된다. 기등재 품목은 10년에 걸쳐 단계적으로 내려가지만, 다품목 전략을 유지하던 중소 제약사의 사업 구조 전환이 시급한 과제로 떠올랐다.
+    </div>
+    <div class="insight-box">
+      <strong>💡 CSO 실무 인사이트</strong>
+      제네릭 약가인하로 제약사 수익성이 악화될수록 CSO 수수료 압박도 커진다. 수익성 높은 신약·혁신약 품목 중심으로 포트폴리오를 재편하고, 약가 변동을 실시간 추적하는 시스템을 갖추는 것이 필수다.
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- PROMR FEATURES -->
+<div class="promr-features">
+  <div class="container">
+    <div class="features-header">
+      <h2>프로엠알(ProMR)<br>CSO·CMR 전용 제약영업 플랫폼</h2>
+      <p>특허 등록 · 국내 No.1 CSO 전용 SaaS · 규제 대응 완벽 솔루션</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feat-icon">💰</div>
+        <div class="feat-title">EDI 자동정산</div>
+        <div class="feat-desc">EDI 데이터 자동 수집 및 처방 실적 기반 수수료 자동 계산</div>
+      </div>
+      <div class="feature-item">
+        <div class="feat-icon">📋</div>
+        <div class="feat-title">CSO 신고제 완벽 대응</div>
+        <div class="feat-desc">의약품 판촉영업자 신고제 요건 충족 및 자동 보고</div>
+      </div>
+      <div class="feature-item">
+        <div class="feat-icon">🗄️</div>
+        <div class="feat-title">계약·지출 5년 보관</div>
+        <div class="feat-desc">정부 전수조사 즉시 대응 가능한 안전한 이력 관리</div>
+      </div>
+      <div class="feature-item">
+        <div class="feat-icon">🤝</div>
+        <div class="feat-title">제약사-CSO 매칭</div>
+        <div class="feat-desc">신규 파트너 제약사 매칭 및 계약 체결 지원</div>
+      </div>
+      <div class="feature-item">
+        <div class="feat-icon">📊</div>
+        <div class="feat-title">품목별 수익 분석</div>
+        <div class="feat-desc">처방 품목별 실적·수익성 분석으로 전략적 의사결정 지원</div>
+      </div>
+      <div class="feature-item">
+        <div class="feat-icon">📱</div>
+        <div class="feat-title">모바일 영업 지원</div>
+        <div class="feat-desc">현장 영업 활동 기록, 거래처 관리, 실시간 알림</div>
+      </div>
+    </div>
+    <div class="promr-cta">
+      <a href="https://promr.co.kr" target="_blank" class="btn-red">🌐 웹사이트 바로가기</a>
+      <a href="https://play.google.com/store/apps/details?id=kr.co.promr" target="_blank" class="btn-gold">▶ Google Play</a>
+      <a href="https://apps.apple.com/kr/app/pro-mr/id1602955117" target="_blank" class="btn-outline" style="border-color:rgba(255,255,255,0.5);">🍎 App Store</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div style="font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.7);margin-bottom:8px;">
+      📰 참고 언론사
+    </div>
+    <div class="footer-sources">
+      <span>데일리팜</span>
+      <span>히트뉴스</span>
+      <span>메디칼타임즈</span>
+      <span>메디칼업저버</span>
+      <span>약사공론</span>
+      <span>약업신문</span>
+      <span>팜뉴스</span>
+      <span>메디팜스투데이</span>
+      <span>메디파나뉴스</span>
+      <span>더바이오</span>
+      <span>뉴스프라임</span>
+      <span>뉴데일리</span>
+    </div>
+    <div class="footer-bottom">
+      본 매거진은 공개된 뉴스 기사를 기반으로 자동 생성됩니다. 원문 확인은 각 언론사 링크를 이용하세요.<br>
+      © 2026 CSO 위클리 매거진 | Powered by <strong style="color:rgba(255,255,255,0.5);">ProMR</strong> — promr.co.kr
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
