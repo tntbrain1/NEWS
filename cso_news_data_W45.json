@@ -1,0 +1,81 @@
+{
+  "year": "2026",
+  "week": "45",
+  "month": "11",
+  "news": [
+    {
+      "title": "[기자의 눈] CSO계약서 98만건…규제강화 앞에 놓인 숙제",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBOQm1YWE1FUDJuazJCaUdzQU5UcUhHRXlOS3VGM1ZnWjI1RG1HNzV6Z3k4S09lRFA3ZE5ZYVEtTHZBR0ZOaEtWYmZiS1NwSVN6N3kxXzJ3?oc=5",
+      "date": "2026.10.28",
+      "source": "데일리팜",
+      "summary": "국정감사에서 거론된 CSO 위탁계약서 98만건 규모를 짚으며 규제 강화 앞에 놓인 과제를 다룬 기자 칼럼이다. 전수조사와 후속 규제가 현실화될 때 업계가 대응해야 할 숙제를 정리했다.",
+      "insight": "계약서가 98만건 규모로 조사 대상이 되는 만큼, ProMR로 계약서를 전자 관리하고 5년 보관 체계를 미리 갖춰 두는 것이 안전하다."
+    },
+    {
+      "title": "삼익제약, 매출 절반이 판매수수료…약가인하에 수익성 '이중고'",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5fdG5UMlE1NGMwTVdIZ2phTHpzc2JnWUtfU0JoQ3VYaTNVemQ0bDlMV1RDampiRDI0Ym5GTHFWRUNqd3NmaGcxeHYzcTJFLWxJa254d2N3akNiejIxcXllX2RFOUVCcVNYTWc?oc=5",
+      "date": "2026.10.27",
+      "source": "IB토마토",
+      "summary": "삼익제약은 매출의 절반가량을 판매수수료로 지출하고 있고, 약가인하까지 겹쳐 수익성에 부담을 받고 있다. 수수료 중심의 영업 구조가 제약사 실적에 미치는 영향을 보여주는 사례다.",
+      "insight": "수수료 비중이 높은 제약사는 수수료율 조정 압박을 받을 수 있으므로, ProMR EDI 자동정산으로 품목별 수수료 내역을 투명하게 정리해 두면 협상에 도움이 된다."
+    },
+    {
+      "title": "제네릭 약가↓·R&D 기업 약가↑..제약산업 육성 큰 틀 방향",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1lVzhoaEd2a2N1ZzlKZGZYenF6eWd4aUt2S25RSnd6bXhQV0RGS1VZbzlqLTJqbmdGZk1pbm1BblFIRFQzbEdLeC1EeVlQekMxQ2lpWHJRX1JCM3F2NFBObnFVMGVlYUFteDhoQk5YNjk?oc=5",
+      "date": "2026.10.26",
+      "source": "위키리크스한국",
+      "summary": "정부의 제약산업 육성 방향이 제네릭 약가는 낮추고 R&D 기업 약가는 높이는 쪽으로 잡히고 있다. 제네릭 중심 기업의 수익 구조가 바뀔 가능성이 크다.",
+      "insight": "제네릭 약가가 내려가면 제네릭 중심 CSO 품목의 수수료 여력도 줄 수 있으므로, 담당 품목의 약가 변동과 수수료 조건을 미리 점검해야 한다."
+    },
+    {
+      "title": "CSO 수수료 직접 규제 '난색'…신고·관리 체계 강화 가닥",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5UZ2xSRjh2OTZ6N0k5OVFScERtME5nZ1BjenptMEN1dFpNQ094ZjlBdDFoZkhIdnZIZ0RJQklwZkV3ckhFMkRUOWRkRklacHlkamJkbDRB?oc=5",
+      "date": "2026.10.25",
+      "source": "데일리팜",
+      "summary": "정부는 CSO 수수료를 직접 규제하는 데에는 난색을 보이고, 대신 신고와 관리 체계를 강화하는 방향으로 가닥을 잡았다. 수수료율 상한 같은 직접 규제보다 신고 중심의 관리 강화가 우선될 전망이다.",
+      "insight": "수수료 상한 대신 신고·관리 강화로 가닥이 잡힌 만큼, CSO 신고제 대응에 필요한 계약·정산 자료를 ProMR로 상시 정리해 두는 것이 핵심이다."
+    },
+    {
+      "title": "제약업계, CSO 수수료 상한제·재위탁 제한 셀프 규제 추진",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9zQ196R1ZUeHlMeGcxTTFIcExRZnhEc2M5N2dwYUEwLTZhOUNqamJZUmxvSkhYbm1oWWNVMkRlTFNNN245SUN2RjdxWVRic3NIRTFaQjJB?oc=5",
+      "date": "2026.10.21",
+      "source": "데일리팜",
+      "summary": "제약업계가 CSO 수수료 상한제와 재위탁 제한을 골자로 하는 자율규제안을 추진하고 있다. 업계 스스로 수수료와 재위탁 구조를 손보겠다는 움직임이다.",
+      "insight": "수수료 상한과 재위탁 제한이 현실화되면 CSO의 계약 구조와 수익 모델이 바뀔 수 있어, 재위탁 계약 현황부터 파악해 두어야 한다."
+    },
+    {
+      "title": "[인터뷰] 이규현 협회장 “CSO 자율규제는 선택 아닌 생존조건”",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1pMS0wbU5GSU9Nc2lZWV9tay1BR3F2WW9IWnhGMzVfYzhCX3pHMlIzRHRicklKRkhSTDJLRUhWS01EaVdCWWNRbXQ1VG05aVhGWnZRSE1GZTRFYmk4THJzQ0EzVVFUTHlyUjRGc2JsTlBZUdIBdkFVX3lxTE9LNXgyelNrU1V2QlVoazBuSloyeWdNOUlSVG0zT2JlUWh6RVhScS1YTjdPZ3MxSk9IZ1V2N0ZuTEFJRFVOUDM0NXNNcHU4ZzV3LVN3Yy1YbVFKN1U3U1dyTjFyTmszcGM0ZWVhZENxQ3haWUZJbmc?oc=5",
+      "date": "2026.10.16",
+      "source": "시사저널e",
+      "summary": "이규현 협회장은 CSO 자율규제를 선택이 아닌 업계의 생존 조건이라고 밝혔다. CSO 업계가 투명성과 신뢰 확보를 위해 스스로 규범을 갖춰야 한다는 입장이다.",
+      "insight": "자율규제 기준이 정해지면 CSO 개인과 법인 모두 준수 여부를 입증해야 할 수 있으므로, 영업 활동과 계약 이력을 ProMR에 체계적으로 기록해 두는 것이 좋다."
+    },
+    {
+      "title": "제약 영업위탁사 리베이트 관리 강화···제약사 책임성 높인다",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBtQktrSmNtVVRYSzBYQUxFVmRzMkpqRy03VnFfZ0VCV1VtRE4xbW5RWkh0ODlxb3BkeXZKQ0haOF9icWZncG12YzJ5Rm5vZG9UV21JRk44LWFpd9IBVEFVX3lxTE5Ib0JUekpGMmVEaG1XZDVyQVEwczRxenc1N09lTERKN2dRbk44NHBmNWxmSWFaSVJuUE5CUzF2Nk1LOXh1RWkybmFQZS1ibEZGZnJ4bA?oc=5",
+      "date": "2026.10.13",
+      "source": "더팩트",
+      "summary": "영업위탁사의 리베이트 관리가 강화되고, 위탁한 제약사의 책임도 높아진다. 위탁 영업 과정에서 발생한 리베이트에 대해 제약사의 관리 의무가 커진다.",
+      "insight": "제약사의 관리 책임이 커지면 위탁사에 대한 증빙 요구도 늘어날 가능성이 높으므로, 정산과 영업활동 증빙을 ProMR로 일원화해 두면 대응이 쉬워진다."
+    },
+    {
+      "title": "기형적 'CSO 수수료' 정조준…국회·정부, 후속 규제 예고",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9VNWdfeUMxWVpPdEtCajFCbUNqOGZPclFBdWtmWURwR1dIMXJGcktIWUVYUzBKM2pPTk4wS3dWTmxpWEFSaERpZlFsS0x2WDRlWVhsWGhB?oc=5",
+      "date": "2026.10.08",
+      "source": "데일리팜",
+      "summary": "국회와 정부가 기형적인 수준으로 지적된 CSO 수수료를 겨냥해 후속 규제를 예고했다. 국정감사 이후 수수료 구조 전반이 규제 논의의 중심에 올랐다.",
+      "insight": "후속 규제 논의가 수수료 구조에 집중되는 만큼, 현재 수수료율과 정산 구조를 ProMR로 점검해 두는 것이 좋다."
+    },
+    {
+      "title": "정은경 장관 \"CSO 위탁계약서 98만건·수수료율 전수조사\"",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5GRGNRWHlTUnVZMHBzSlZTelBDZFZTZER4RUJNNERIVUpKSXo1Y0hBSTVPaGtoSVBCMEhic18xc3p3M2VsS0JPOHB3M0IxczJ1aUtYSXJB?oc=5",
+      "date": "2026.10.07",
+      "source": "데일리팜",
+      "summary": "정은경 보건복지부 장관이 국정감사에서 CSO 위탁계약서 98만건과 수수료율에 대한 전수조사를 언급했다. 약값의 60%가 CSO 수수료로 쓰인다는 지적이 나오면서 실태 파악 필요성이 제기됐다.",
+      "insight": "전수조사에 대비해 계약서와 수수료율 자료를 ProMR로 정리하고 5년 보관 요건을 충족하는지 확인해야 한다."
+    }
+  ],
+  "cover_image_url": "https://raw.githubusercontent.com/tntbrain1/NEWS/main/covers/W45.png",
+  "cover_local_path": "covers/W45.png"
+}
