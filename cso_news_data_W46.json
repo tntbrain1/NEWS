@@ -1,0 +1,49 @@
+{
+  "year": "2026",
+  "week": "46",
+  "month": "11",
+  "news": [
+    {
+      "title": "해외 CSO 규제, 전문성 갖추고 수수료 누르고 제약사 책임 강조",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE4wVTV0WEhFZXJQcXZ3a3VaVlhwRExNLU5hUl9DMXY0anZlWVBHTFFuQUcydnZUNWw0UGJadHJGTHlfQTZyYlpya2ZvSzFWTGwzcmFhZC1MTk1RZU9NZTZ0RzR1Q095QVo1b0tTMEVHUm1zd9IBdkFVX3lxTE42anJRczRRblMyS3dIdks1VFBRTnpSb3Jyci1kZ2EzUGZ2ZG05Y0w1V2k4TUY3WnZUWkVIZS0zb1Q2UWItNUUtQktleWhuMVpGa00zM3VuVkxHbGliRHR1M0tXZE5pMkE5blhPTkpnM1BtNl9vLUE?oc=5",
+      "date": "2026.11.06",
+      "source": "메디소비자뉴스",
+      "summary": "해외 CSO 규제 사례를 소개한 기사로, 제목 기준으로 CSO의 전문성 확보, 수수료 억제, 제약사 책임 강조가 핵심 방향으로 제시됐다. 국내 CSO 규제 논의의 참고 사례로 읽힌다.",
+      "insight": "해외처럼 제약사 책임과 수수료 수준이 규제의 축이 될 수 있으므로, ProMR로 EDI 자동정산 내역과 계약 자료(5년 보관)를 미리 정리해 두면 대응이 쉽다."
+    },
+    {
+      "title": "“영업 맡겼다고 끝?”.… CSO 규제 강화에 제약업계 긴장",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE02d3Z0VGhVZEUwQ1dfLWt1bkpHcEdFMThyWXlPYmRxOE1PZlp0M2lLdE5lU1loMXhwZW5aQVJNOFE1VjdpNEFSS0dzYWRkVFNNNWJMc0hoTWdYeHFsN0lNOGp6a1B5TlVMcEVBYWVGR2jSAXRBVV95cUxOZXZNT0lHeEVyemt5U09VTDJpbnltTzZNczNMQUl1TnMxcGVtZE1UVWlfX1BqVGlqOHMxeklLVlU2UWVRdFFZTlVHQ3p6NVF0cTZFUzNUOHUzSVZUY0h3UW1QMm14c2IzTDdvZWI4OUN3ck1BUQ?oc=5",
+      "date": "2026.11.02",
+      "source": "IT조선",
+      "summary": "CSO 규제가 강화되면서 영업을 위탁한 제약사도 관리 책임에서 자유롭지 않다는 점에서 제약업계가 긴장하고 있다.",
+      "insight": "위탁 후에도 제약사의 관리 책임이 커지는 흐름이므로, ProMR로 CSO 신고제 대응 자료와 활동 기록을 상시 관리하는 체계가 필요하다."
+    },
+    {
+      "title": "CSO 규제 논의 '연내 마무리'···수수료·재위탁 손질",
+      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5WZ2VWQ0dUQWxfSTFGRVlsVUxFQXJaYzNab29OTExrWGZfeHhTQWZqMUhyQ2R4bzdGcnJ6THNxeTlxZTFvZU5vUnFoaDF3b2tuSE5ZRFhHU09mQXhWZEZ4b3Y1VGdEOEROOHE4?oc=5",
+      "date": "2026.11.01",
+      "source": "메디칼업저버",
+      "summary": "CSO 규제 논의를 연내 마무리할 계획이며, 수수료와 재위탁 관련 규정을 손질하는 방향이 거론된다.",
+      "insight": "수수료 구조와 재위탁 관계가 바뀔 수 있으니, ProMR의 EDI 자동정산으로 수수료 내역을 투명하게 남기고 계약서는 5년 보관 원칙으로 정비해 두자."
+    },
+    {
+      "title": "[인터뷰] 이규현 협회장 “CSO 자율규제는 선택 아닌 생존조건”",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1pMS0wbU5GSU9Nc2lZWV9tay1BR3F2WW9IWnhGMzVfYzhCX3pHMlIzRHRicklKRkhSTDJLRUhWS01EaVdCWWNRbXQ1VG05aVhGWnZRSE1GZTRFYmk4THJzQ0EzVVFUTHlyUjRGc2JsTlBZUdIBdkFVX3lxTE9LNXgyelNrU1V2QlVoazBuSloyeWdNOUlSVG0zT2JlUWh6RVhScS1YTjdPZ3MxSk9IZ1V2N0ZuTEFJRFVOUDM0NXNNcHU4ZzV3LVN3Yy1YbVFKN1U3U1dyTjFyTmszcGM0ZWVhZENxQ3haWUZJbmc?oc=5",
+      "date": "2026.10.16",
+      "source": "시사저널e",
+      "summary": "이규현 협회장은 인터뷰에서 CSO 자율규제를 선택이 아닌 생존조건이라고 강조했다.",
+      "insight": "업계가 자율규제를 생존조건으로 보는 만큼, 정산·계약 기록을 ProMR 등으로 체계화한 CSO가 신뢰도 면에서 유리하다."
+    },
+    {
+      "title": "제약 영업위탁사 리베이트 관리 강화···제약사 책임성 높인다",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFBtQktrSmNtVVRYSzBYQUxFVmRzMkpqRy03VnFfZ0VCV1VtRE4xbW5RWkh0ODlxb3BkeXZKQ0haOF9icWZncG12YzJ5Rm5vZG9UV21JRk44LWFpd9IBVEFVX3lxTE5Ib0JUekpGMmVEaG1XZDVyQVEwczRxenc1N09lTERKN2dRbk44NHBmNWxmSWFaSVJuUE5CUzF2Nk1LOXh1RWkybmFQZS1ibEZGZnJ4bA?oc=5",
+      "date": "2026.10.13",
+      "source": "더팩트",
+      "summary": "제약 영업위탁사의 리베이트 관리를 강화하고 제약사의 책임성을 높이는 방안이 추진된다.",
+      "insight": "리베이트 관리 책임이 제약사로 확대되는 추세이므로, 영업 활동과 정산 내역을 ProMR로 추적 가능하게 관리하는 것이 중요하다."
+    }
+  ],
+  "cover_image_url": "https://raw.githubusercontent.com/tntbrain1/NEWS/main/covers/W46.png",
+  "cover_local_path": "covers/W46.png"
+}
